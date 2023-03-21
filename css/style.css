@@ -1,12 +1,14 @@
 *{
     margin: 0;
 }
+.cabeza{
+    height: 10vh;
+}
 .menu{
     list-style: none;
     display: flex;
+    justify-content: center;
     justify-content: space-around;
-    align-items: end;
-    height: 100px;
 }
 #amarillo{
     background-color: yellow;
