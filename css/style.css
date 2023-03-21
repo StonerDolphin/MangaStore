@@ -1,19 +1,20 @@
 *{
     margin: 0;
 }
-header.cabeza{
-    height: 10vh;
+
+.logo img{
+    height: 80px;
 }
-ul.menu{
-    list-style: none;
-    padding: 0px;
+.logo{
     display: flex;
-    justify-content: space-around;
-    height: 10vh;
-    align-items: end;
-    margin-left: 250px;
-    margin-right: 250px;
-    margin-bottom: 15px;
+    align-items: center;
+}
+.navegador{
+    display: flex;
+    justify-content: center;
+}
+.item{
+    padding: 0px 15px 0px 15px;
 }
 #amarillo{
     background-color: yellow;
