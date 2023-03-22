@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    
 }
 .logo{
     display: flex;
@@ -31,7 +31,17 @@
     background-color: yellow;
 }
 
-#carrusel{
+.c-item{
+    height: 300px;
+}
+
+.c-img{
+    height: 100%;
+    
+    object-fit:contain;
+}
+
+/* #carrusel{
     width: 90%;
     margin: 5%;
 }
@@ -75,17 +85,8 @@
 
 i{
     color: black;
-}
+} */
 
-#primer-item{
-    background-color: bisque;
-}
-#segundo-item{
-    background-color: blueviolet;
-}
-#tercer-item{
-    background-color: cadetblue;
-}
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {}
 
