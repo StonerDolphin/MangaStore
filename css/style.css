@@ -32,18 +32,18 @@
 }
 
 #carrusel{
-    width: 80%;
+    width: 90%;
     margin: 5%;
 }
 #contenedor{
     width: 100%;
-    height: 200px;
+    height: 30vh;
     overflow: hidden;
 }
 .item-carrusel{
     position: relative;
     width: 100%;
-    height: 200px;
+    height: 30vh;
 }
 .rectangulo-carrusel{
     width: 100%;
@@ -63,8 +63,18 @@
     justify-content: space-between;
     padding: 20px;
 }
-a{
-    text-decoration: none;
+
+.arrows-carrusel > i:hover {
+    cursor: pointer;
+}
+
+.rectangulo-carrusel img{
+    width: 100%;
+    height: 100%;
+}
+
+i{
+    color: black;
 }
 
 #primer-item{
