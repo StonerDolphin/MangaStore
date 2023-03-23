@@ -38,17 +38,24 @@
 }
 
 .c-item{
-    height: 20em;
+    height: 480px;
 }
 
 .c-img{
     height: 100%;
+       
+}
+.login{
+    display: flex;
+    justify-content:end;
+}
+ .d-menu{
+    background-color: aqua;
+ }
+ .d-menu li a{
+    color: black;
     
-}
-.c-carousel{
-    width: ;
-}
-
+ }
 /* #carrusel{
     width: 90%;
     margin: 5%;
