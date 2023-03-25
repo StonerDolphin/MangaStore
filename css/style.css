@@ -3,8 +3,7 @@
     padding: 0; 
 }
 .logo{
-    display: flex;
-    align-items: end;
+    height: 80px;
 }
 .logo img{
     height: 70px;
@@ -43,64 +42,59 @@
 
 .c-img{
     height: 100%;
-       
+
 }
 .login{
     display: flex;
     justify-content:end;
 }
- .d-menu{
+.d-menu{
     background-color: aqua;
- }
- .d-menu li a{
+}
+.d-menu li a{
     color: black;
     
- }
-/* #carrusel{
-    width: 90%;
-    margin: 5%;
 }
-#contenedor{
+.contenedor{
+    background-color: antiquewhite;
+    border: 3px solid black;
     width: 100%;
-    height: 30vh;
-    overflow: hidden;
+    height: auto;
+    margin-top: 5px;
 }
-.item-carrusel{
-    position: relative;
-    width: 100%;
-    height: 30vh;
-}
-.rectangulo-carrusel{
-    width: 100%;
-    height: 100%; 
-}
-
-.arrows-carrusel{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    width: 100%; 
+.contenedor .titulo{
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
+    justify-content: center;
+    margin-top: 5px;
+    border: 3px solid black;
+    background-color: aqua;
 }
-
-.arrows-carrusel > i:hover {
-    cursor: pointer;
-}
-
-.rectangulo-carrusel img{
+.contenedor .fondo-productos{
+    border: 3px solid black;
+    background-color: yellow;
+    margin: 5px;
+    height: auto;
     width: 100%;
-    height: 100%;
+}
+.contenedor .fondo-productos .img-mangas{
+    height: 250px;
+    margin: 5px;
+}
+.contenedor .fondo-productos
+
+.contenedor .fondo-productos .info{
+    margin: 5px;
 }
 
-i{
-    color: black;
-} */
+.top-fila{
+    display: flex;
+    justify-content: space-between;
+}
+
+.top-fila .info{
+    display: flex;
+    justify-content: center;
+}
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {}
