@@ -16,44 +16,45 @@
 </head>
 
 <body>
-    <header id="amarillo" class="cabeza">
-        <div class="logo">
-            <img src="img/one-piece-logo.png" alt="">
-            <h2>Manga Store</h2>
-        </div>
-        <div class="buscador">
-            <input type="text" placeholder="Buscar">
-        </div>
-
-        <div class="bolsa">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag"
-                viewBox="0 0 16 16">
-                <path
-                    d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
-            </svg>
-        </div>
-        <div class="login">
-            <div class="btn-group dropstart">
-                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    <i class="fa-solid fa-user"></i>
+    <section class="encabezado">
+        <nav class="navbar navbar-expand-sm navbar-#f8fbc7 bg-#f8fbc7">
+            <div class="container-fluid">
+                <!--<a class="navbar-brand" href="javascript:void(0)"><img src="img/one-piece-logo.png" alt="" id="logo"></a>-->
+                <a class="navbar-brand" href="javascript:void(0)">Manga Store</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
-                <ul class="dropdown-menu">
-                    <li><a href="login.html" target="_blank">Login</a></li>
-                    <li><a href="registrarse.html" target="_blank">Registrarse</a></li>
-                </ul>
+                <div class="collapse navbar-collapse" id="mynavbar">
+                    <ul class="navbar-nav me-auto ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:void(0)">Tienda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:void(0)">Novedades</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:void(0)">Ofertas</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <input class="form-control" type="text" placeholder="Search">
+                        <button class="btn btn-primary p-1 me-2" type="button"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+                <button type="button" class="btn btn-primary"><i class='fas fa-shopping-cart'
+                        style='font-size:36px'></i></button>
+                <div class="dropdown">
+                    <button type="button" class="btn btn-primary dropdown-toggle me-2" data-bs-toggle="dropdown">
+                        <i class='fas fa-user-alt' style='font-size:36px'></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="login.html">Iniciar Sesion</a></li>
+                        <li><a class="dropdown-item" href="registrarse.html">Registrarse</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        <nav>
-            <ul class="menu">
-                <li><a href="" class="item">Tienda</a></li>
-                <li><a href="" class="item">Novedades</a></li>
-                <li><a href="" class="item">Reseñas</a></li>
-                <li><a href="" class="item">Ofertas</a></li>
-                <li><a href="" class="item">Promociones</a></li>
-            </ul>
         </nav>
-    </header>
+    </section>
 
 
 
