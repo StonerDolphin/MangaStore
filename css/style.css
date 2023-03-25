@@ -27,6 +27,9 @@
 .carrito{
     margin-right: 5px;
 }
+.sesion{
+
+}
 
 .menu li{
     padding: 0 15px 0 15px;
@@ -70,21 +73,21 @@
     display: flex;
     justify-content: center;
     margin-top: 5px;
+    margin-bottom: 5px;
     border: 3px solid black;
     background-color: aqua;
 }
 .contenedor .fondo-productos{
     border: 3px solid black;
     background-color: yellow;
-    margin: 5px;
     height: auto;
     width: 100%;
 }
 .contenedor .fondo-productos .img-mangas{
-    height: 250px;
+    height: 400px;
     margin: 5px;
 }
-.contenedor .fondo-productos
+
 
 .contenedor .fondo-productos .info{
     margin: 5px;
@@ -94,10 +97,14 @@
     display: flex;
     justify-content: space-between;
 }
-
-.top-fila .info{
+.info{
     display: flex;
     justify-content: center;
+}
+
+.low-fila{
+    display: flex;
+    justify-content: space-between;
 }
 
 /* Extra small devices (phones, 600px and down) */
