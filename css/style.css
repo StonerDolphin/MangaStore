@@ -2,6 +2,18 @@
     margin: 0;
     padding: 0; 
 }
+/**Pagina en Construccion**/
+.fuera-servicio{
+    background-image: url(/MangaStore/img/pagina-en-construccion.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 1000px;
+}
+.cuerpo{
+    background-color: #eeebd9;
+}
+/*Header*/
 .logo{
     height: 80px;
 }
@@ -14,10 +26,7 @@
     justify-content: center;
     align-content: center;
 }
-.bolsa{
-    display: flex;
-    justify-content: end;
-}
+
 .menu{
     display: flex;
     justify-content: center;
@@ -27,9 +36,7 @@
 .carrito{
     margin-right: 5px;
 }
-.sesion{
 
-}
 
 .menu li{
     padding: 0 15px 0 15px;
@@ -39,9 +46,7 @@
     color: white
 }
 
-#amarillo{
-    background-color: yellow;
-}
+/**Carrusel**/
 
 .c-item{
     height: 480px;
@@ -62,14 +67,16 @@
     color: black;
     
 }
+/**Productos**/
 .contenedor{
     background-color: antiquewhite;
     border: 3px solid black;
     width: 100%;
     height: auto;
     margin-top: 5px;
+    
 }
-.contenedor .titulo{
+.contenedor .titulo-nov{
     display: flex;
     justify-content: center;
     margin-top: 5px;
@@ -86,26 +93,73 @@
 .contenedor .fondo-productos .img-mangas{
     height: 400px;
     margin: 5px;
+    transition: 0.6s;
+    object-fit: cover;
 }
-
-
-.contenedor .fondo-productos .info{
-    margin: 5px;
+.img-mangas:hover{
+    transform:scale(1.1) ;
 }
 
 .top-fila{
     display: flex;
     justify-content: space-between;
 }
-.info{
-    display: flex;
-    justify-content: center;
-}
-
 .low-fila{
     display: flex;
     justify-content: space-between;
 }
+.info{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+/**footer**/
+.ct-footer{
+    padding: 0;
+}
+
+.bg-footer{
+    border: 3px solid black;
+    background-color: greenyellow;
+    height: auto;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px ;
+    display: flex;
+    justify-content: end;
+}
+.bg-footer .info-pag{
+    border: 3px solid black;
+    background-color: blue;
+    height: auto;
+    width: auto;
+    margin: 5px;
+}
+.bg-footer .contactos{
+    border: 3px solid black;
+    background-color: blueviolet;
+    margin: 5px;
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.contactos ul{
+    padding: 0;
+    list-style: none;
+}
+
+.contactos ul a{
+    text-decoration: none;
+    color: #000000;
+}
+
+
+
+
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {}
