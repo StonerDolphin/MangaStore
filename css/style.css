@@ -50,6 +50,10 @@
 .item:hover {
     color: white
 }
+.nav-item{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
 
 /**Carrusel**/
 
