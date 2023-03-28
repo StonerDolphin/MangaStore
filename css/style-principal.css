@@ -12,9 +12,7 @@
     height: 1000px;
 }
 
-.cuerpo {
-    background-color: #eeebd9;
-}
+
 
 /*Header*/
 .logo {
@@ -25,6 +23,10 @@
     height: 70px;
 }
 
+
+.espacio{
+    padding: 8px;
+}
 .buscador {
     display: flex;
     height: 25px;
@@ -32,19 +34,18 @@
     align-content: center;
 }
 
-.menu {
-    display: flex;
-    justify-content: center;
-    list-style: none;
+.sesion ul{
+    padding: 8px;
+    text-decoration: none;
 }
-
+.sesion .nav-item{
+    color: #000000;
+    padding: 8px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
 .carrito {
     margin-right: 5px;
-}
-
-
-.menu li {
-    padding: 0 15px 0 15px;
 }
 
 .item:hover {
@@ -82,8 +83,7 @@
 }
 
 .contenedor {
-    background-color: antiquewhite;
-    border: 3px solid black;
+
     width: 100%;
     height: auto;
     margin-top: 5px;
@@ -95,13 +95,10 @@
     justify-content: center;
     margin-top: 5px;
     margin-bottom: 5px;
-    border: 3px solid black;
-    background-color: aqua;
+
 }
 
 .contenedor .fondo-productos {
-    border: 3px solid black;
-    background-color: yellow;
     height: auto;
     width: 100%;
 }
@@ -156,8 +153,6 @@
 }
 
 .bg-footer {
-    border: 3px solid black;
-    background-color: greenyellow;
     height: auto;
     width: 100%;
     margin-top: 10px;
@@ -167,8 +162,6 @@
 }
 
 .bg-footer .info-pag {
-    border: 3px solid black;
-    background-color: blue;
     height: auto;
     width: auto;
     margin: 5px;
@@ -179,8 +172,7 @@
 }
 
 .bg-footer .contactos {
-    border: 3px solid black;
-    background-color: blueviolet;
+
     margin: 5px;
     height: auto;
     width: 30%;
