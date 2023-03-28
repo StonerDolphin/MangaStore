@@ -1,206 +1,206 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-/**Pagina en Construccion**/
-.fuera-servicio {
-    background-image: url(/MangaStore/img/pagina-en-construccion.png);
-    background-repeat: no-repeat;
-    background-position: center center;
+#login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 91.5vh;
+    width: 100%;
+    background: url(/MangaStore/img/fondo.png) no-repeat;
+    background-position: center;
     background-size: cover;
-    height: 1000px;
 }
 
-.cuerpo {
-    background-color: #eeebd9;
-}
-
-/*Header*/
-.logo {
-    height: 80px;
-}
-
-.logo img {
-    height: 70px;
-}
-
-.buscador {
-    display: flex;
-    height: 25px;
-    justify-content: center;
-    align-content: center;
-}
-
-.menu {
+.form-box {
+    position: relative;
+    width: 400px;
+    height: 450px;
+    background: transparent;
+    border: 2px solid rgb(255, 255, 255, 0.5);
     display: flex;
     justify-content: center;
-    list-style: none;
+    align-items: center;
 }
 
-.carrito {
-    margin-right: 5px;
+.title-login {
+    font-size: 2em;
+    color: rgb(234, 0, 255);
+    text-align: center;
 }
 
-
-.menu li {
-    padding: 0 15px 0 15px;
+.inputbox {
+    position: relative;
+    margin: 30px 0;
+    width: 310px;
+    border-bottom: 2px solid white;
 }
 
-.item:hover {
-    color: white
-}
-.nav-item{
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-}
-
-/**Carrusel**/
-
-.c-item {
-    height: 480px;
+.inputbox label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 1em;
+    pointer-events: none;
+    transition: .5s;
 }
 
-.c-img {
-    height: 100%;
-
+input:focus~label,
+input:valid~label {
+    top: -5px;
 }
 
-.login {
+.inputbox input {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding: 0 35px 0 5px;
+    color: #fff;
+}
+
+.inputbox i {
+    position: absolute;
+    right: 8px;
+    color: #fff;
+    font-size: 1.2em;
+    top: 20px;
+}
+
+.forget {
+    margin: -15px 0 15px;
+    font-size: .9em;
+    color: #fff;
     display: flex;
-    justify-content: end;
+    justify-content: center;
 }
 
-.d-menu {
-    background-color: aqua;
+.forget label input {
+    margin-right: 3px;
 }
 
-.d-menu li a {
-    color: black;
+.forget label a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
 
+.forget label a:hover {
+    text-decoration: underline;
+}
+
+.ini {
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    background: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.register {
+    font-size: .9em;
+    color: #fff;
+    text-align: center;
+    margin: 25px 0 10px;
+}
+
+.register p a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+}
+
+.register p a:hover {
+    text-decoration: underline;
+}
+
+/*login html*/
+/*login html*/
+/*login html*/
+
+/*registrarse html*/
+/*registrarse html*/
+/*registrarse html*/
+#register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 91.5vh;
+    width: 100%;
+    background: url(/MangaStore/img/fondo2.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.form-box-r {
+    position: relative;
+    width: 400px;
+    height: 450px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.885);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-regi {
+    font-size: 2em;
+    color: rgb(4, 255, 0);
+    text-align: center;
+}
+
+.inputbox-r {
+    position: relative;
+    margin: 30px 0;
+    width: 310px;
+    border-bottom: 2px solid rgb(64, 236, 121);
+}
+
+.inputbox-r label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: #f8f8f7;
+    font-size: 1em;
+    pointer-events: none;
+    transition: .5s;
+}
+
+input:focus~label,
+input:valid~label {
+    top: -5px;
+}
+
+.inputbox-r input {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding: 0 35px 0 5px;
+    color: #fff;
+}
+
+.reg {
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    background: #ec3636;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
 }
 
 /**Productos**/
-.contenedor {
-    background-color: antiquewhite;
-    border: 3px solid black;
-    width: 100%;
-    height: auto;
-    margin-top: 5px;
-
-}
-
-.contenedor .titulo-nov {
-    display: flex;
-    justify-content: center;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border: 3px solid black;
-    background-color: aqua;
-}
-
-.contenedor .fondo-productos {
-    border: 3px solid black;
-    background-color: yellow;
-    height: auto;
-    width: 100%;
-}
-
-.contenedor .fondo-productos .img-mangas {
-    height: 400px;
-    margin: 5px;
-    transition: 0.6s;
-    object-fit: cover;
-}
-
-.img-mangas:hover {
-    transform: scale(1.1);
-}
-
-.top-fila {
-    display: flex;
-    justify-content: space-between;
-}
-
-.low-fila {
-    display: flex;
-    justify-content: space-between;
-}
-
-.editorial,
-.nombre-mang,
-.precio {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-.editorial {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 100;
-}
-
-.nombre-mang {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-}
-
-.precio {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-}
-
-/**footer**/
-.ct-footer {
-    padding: 0;
-}
-
-.bg-footer {
-    border: 3px solid black;
-    background-color: greenyellow;
-    height: auto;
-    width: 100%;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: end;
-}
-
-.bg-footer .info-pag {
-    border: 3px solid black;
-    background-color: blue;
-    height: auto;
-    width: auto;
-    margin: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.bg-footer .contactos {
-    border: 3px solid black;
-    background-color: blueviolet;
-    margin: 5px;
-    height: auto;
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-
-.contactos ul {
-    padding: 0;
-    list-style: none;
-}
-
-.contactos ul a {
-    text-decoration: none;
-    color: #000000;
-}
-
-
 
 
 
