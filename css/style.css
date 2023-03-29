@@ -57,7 +57,7 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
 }
-
+/*Header*/
 /**Carrusel**/
 
 .c-item {
@@ -82,7 +82,10 @@
     color: black;
 
 }
+/**Carrusel**/
 
+
+/**Pag-principal**/
 .contenedor {
 
     width: 100%;
@@ -147,6 +150,9 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
 }
+/**Pag-principal**/
+
+
 
 /**footer**/
 .ct-footer {
@@ -192,8 +198,11 @@
     text-decoration: none;
     color: #000000;
 }
+/**footer**/
 
 
+
+/*login html*/
 #login {
     display: flex;
     justify-content: center;
@@ -315,12 +324,9 @@ input:valid~label {
     text-decoration: underline;
 }
 
-/*login html*/
-/*login html*/
-/*login html*/
 
-/*registrarse html*/
-/*registrarse html*/
+
+
 /*registrarse html*/
 #register {
     display: flex;
@@ -395,8 +401,7 @@ input:valid~label {
     font-size: 1em;
     font-weight: 600;
 }
-
-/**Productos**/
+/*registrarse html*/
 
 
 
