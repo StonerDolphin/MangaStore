@@ -193,14 +193,15 @@
     color: #000000;
 }
 
-
+/*login html*/
+/*login html*/
 #login {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 91.5vh;
     width: 100%;
-    background: url(/MangaStore/img/fondo.png) no-repeat;
+    background: url(/img/fondo.png) no-repeat;
     background-position: center;
     background-size: cover;
 }
@@ -315,8 +316,7 @@ input:valid~label {
     text-decoration: underline;
 }
 
-/*login html*/
-/*login html*/
+
 /*login html*/
 
 /*registrarse html*/
@@ -328,27 +328,12 @@ input:valid~label {
     align-items: center;
     min-height: 91.5vh;
     width: 100%;
-    background: url(/MangaStore/img/fondo2.png) no-repeat;
+    background: url(/img/fondo2.png) no-repeat;
     background-position: center;
     background-size: cover;
 }
 
-.form-box-r {
-    position: relative;
-    width: 400px;
-    height: 450px;
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, 0.885);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.title-regi {
-    font-size: 2em;
-    color: rgb(4, 255, 0);
-    text-align: center;
-}
 
 .inputbox-r {
     position: relative;

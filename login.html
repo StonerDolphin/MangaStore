@@ -19,39 +19,66 @@
     <section class="encabezado">
         <nav class="navbar navbar-expand-sm navbar-#f8fbc7 bg-#f8fbc7">
             <div class="container-fluid">
-                <!--<a class="navbar-brand" href="javascript:void(0)"><img src="img/one-piece-logo.png" alt="" id="logo"></a>-->
+                <a class="navbar-brand" href="index.html"><img src="img/one-piece-logo.png" alt=""
+                        class="img-fluid logo"></a>
                 <a class="navbar-brand" href="index.html">Manga Store</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="collapse navbar-collapse" id="mynavbar">
                     <ul class="navbar-nav me-auto ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0)">Tienda</a>
+                            <a class="nav-link" href="progreso.html">Tienda</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0)">Novedades</a>
+                            <a class="nav-link" href="progreso.html">Novedades</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="javascript:void(0)">Ofertas</a>
+                            <a class="nav-link" href="progreso.html">Ofertas</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav sesion">
+                        <li class="nav-item">
+                            <a href="login.html">Log In</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="registrarse.html">Sign In</a>
                         </li>
                     </ul>
                     <form class="d-flex">
-                        <input class="form-control" type="text" placeholder="Search">
+                        <input class="form-control" type="text" placeholder="Buscar">
                         <button class="btn btn-primary p-1 me-2" type="button"><i class="fa fa-search"></i></button>
                     </form>
+                    
                 </div>
-                <button type="button" class="btn btn-primary"><i class='fas fa-shopping-cart'
-                        style='font-size:36px'></i></button>
-                <div class="dropdown">
-                    <button type="button" class="btn btn-primary dropdown-toggle me-2" data-bs-toggle="dropdown">
-                        <i class='fas fa-user-alt' style='font-size:36px'></i>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="login.html">Iniciar Sesion</a></li>
-                        <li><a class="dropdown-item" href="registrarse.html">Registrarse</a></li>
-                    </ul>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <i class='fas fa-shopping-cart' style='font-size:36px'></i>
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ver Carrito</button>
+                                <button type="button" class="btn btn-primary"><a href="compra.html">Continuar con la compra</a></button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                
+
             </div>
         </nav>
     </section>
@@ -86,6 +113,30 @@
 
 
 
+    <section class="pie-pagina">
+        <footer class="pie-pagina">
+            <div class="container ct-footer">
+                <div class="bg-footer">
+                    <div class="info-pag">
+                        <h5>Acerca de Nosotros</h5>
+                        <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. <br>
+                            Error possimus nostrum nobis voluptatum neque nesciunt eaque tenetur animi adipisci
+                            molestias, <br>
+                            accusantium maiores quod atque dolores? Sit numquam aut vero placeat?</p>
+                    </div>
+                    <div class="contactos">
+                        <h5>Redes Sociales</h5>
+                        <ul>
+                            <li><a href="progreso.html">Instagram</a></li>
+                            <li><a href="progreso.html">FaceBook</a></li>
+                            <li><a href="progreso.html">TikTok</a></li>
+                            <li><a href="progreso.html">Twitter</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </section>
 
 
 
