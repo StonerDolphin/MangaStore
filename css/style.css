@@ -403,6 +403,14 @@ input:valid~label {
 }
 /*registrarse html*/
 
+/*Productos*/
+.limit{
+    border: 3px solid black;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 0;
+}
+/*Productos*/
 
 
 /* Extra small devices (phones, 600px and down) */
