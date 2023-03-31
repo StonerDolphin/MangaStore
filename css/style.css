@@ -408,7 +408,20 @@ input:valid~label {
     border: 3px solid black;
     margin-top: 5px;
     margin-bottom: 5px;
+    width: auto;
     padding: 0;
+}
+
+.img-mangas-p{
+    margin-left: auto;
+    margin-right: auto;
+    height: 34rem;
+    width: 22rem;
+}
+
+.producto{
+    display: flex;
+    justify-content: space-around;
 }
 /*Productos*/
 
