@@ -193,6 +193,12 @@
     color: #000000;
 }
 
+/*modal carrito*/
+.c-modal a{
+    text-decoration: none;
+    color: white;
+}
+
 /*login html*/
 /*login html*/
 #login {
