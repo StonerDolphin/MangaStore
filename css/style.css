@@ -421,7 +421,7 @@ input:valid~label {
 
 .producto{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 /*Productos*/
 
