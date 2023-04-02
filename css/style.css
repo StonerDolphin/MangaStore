@@ -59,7 +59,6 @@
 }
 
 /**Carrusel**/
-
 .c-item {
     height: 480px;
 }
@@ -80,73 +79,15 @@
 
 .d-menu li a {
     color: black;
-
 }
+/**Carrusel**/
 
-.contenedor {
-
-    width: 100%;
-    height: auto;
-    margin-top: 5px;
-
+/**Main**/
+.caja{
+border: 3px solid black;
+width: 100%;
 }
-
-.contenedor .titulo-nov {
-    display: flex;
-    justify-content: center;
-    margin-top: 5px;
-    margin-bottom: 5px;
-
-}
-
-.contenedor .fondo-productos {
-    height: auto;
-    width: 100%;
-}
-
-.contenedor .fondo-productos .img-mangas {
-    height: 400px;
-    margin: 5px;
-    transition: 0.6s;
-    object-fit: cover;
-}
-
-.img-mangas:hover {
-    transform: scale(1.1);
-}
-
-.top-fila {
-    display: flex;
-    justify-content: space-between;
-}
-
-.low-fila {
-    display: flex;
-    justify-content: space-between;
-}
-
-.editorial,
-.nombre-mang,
-.precio {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-.editorial {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 100;
-}
-
-.nombre-mang {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-}
-
-.precio {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-}
+/**Main**/
 
 /**footer**/
 .ct-footer {
