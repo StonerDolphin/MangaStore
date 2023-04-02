@@ -411,7 +411,15 @@ input:valid~label {
     width: auto;
     padding: 0;
 }
-
+.tamanno-t{
+font-size: 2.5em}
+.tamanno{
+font-size: 1.5em;
+}
+.tamanno:hover{
+font-size: 1.5em;
+color: red;
+}
 .img-mangas-p{
     margin-left: auto;
     margin-right: auto;
