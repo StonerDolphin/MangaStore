@@ -83,17 +83,30 @@
 /**Carrusel**/
 
 /**Main**/
+
 .caja{
 border: 3px solid black;
 width: auto;
 }
+
 .fila{
 display:flex;
 justify-content:space-evenly;
 }
+
 .img-main{
-height:26em;
-width:18em;
+ height:26em;
+ width:18em;
+ transition: 0.7s;
+ object-fit: cover;
+}
+
+.img-main:hover {
+ transform: scale(1.07);
+}
+
+.info-main{
+margin-bottom:5px;
 }
 /**Main**/
 
