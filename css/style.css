@@ -405,21 +405,22 @@ input:valid~label {
 
 /*Productos*/
 .limit{
-    border: 3px solid black;
+
     margin-top: 5px;
     margin-bottom: 5px;
     width: auto;
     padding: 0;
 }
+.tabla-info{
+padding:0;
+}
 .tamanno-t{
 font-size: 2.5em}
 .tamanno{
 font-size: 1.5em;
-}
-.tamanno:hover{
-font-size: 1.5em;
 color: red;
 }
+
 .img-mangas-p{
     margin-left: auto;
     margin-right: auto;
