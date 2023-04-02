@@ -414,14 +414,14 @@ input:valid~label {
 
 .img-mangas-p{
     margin-left: auto;
-    margin-right: auto;
+    margin-right: 50px;
     height: 38rem;
     width: 24rem;
 }
 
 .producto{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 /*Productos*/
 
