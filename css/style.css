@@ -87,7 +87,7 @@
 border: 3px solid black;
 width: auto;
 }
-.top-fila{
+.fila{
 display:flex;
 justify-content:space-evenly;
 }
