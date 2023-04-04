@@ -9,7 +9,7 @@
 
 /**Pagina en Construccion**/
 .fuera-servicio {
-    background-image: url(/img/pagina-en-construccion.png);
+    background-image: url(../img/pagina-en-construccion.png);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -90,7 +90,7 @@
 
 /**Main**/
 #bg{
-    background: url(/img/fondo-inicio.png) no-repeat;
+    background: url(../img/fondo-inicio.png) no-repeat;
     background-position: center;
     background-size: cover;
 
@@ -205,7 +205,7 @@ margin-bottom:5px;
     align-items: center;
     min-height: 91.5vh;
     width: 100%;
-    background: url(/img/fondo.png) no-repeat;
+    background: url(../img/fondo.png) no-repeat;
     background-position: center;
     background-size: cover;
 }
@@ -332,7 +332,7 @@ input:valid~label {
     align-items: center;
     min-height: 91.5vh;
     width: 100%;
-    background: url(/img/fondo2.png) no-repeat;
+    background: url(../img/fondo2.png) no-repeat;
     background-position: center;
     background-size: cover;
 }
@@ -423,7 +423,7 @@ color: red;
     align-items: center;
     padding: 25px;
     min-height: 100vh;
-    background: url(/img/fondo-compra.png)no-repeat;
+    background: url(../img/fondo-compra.png)no-repeat;
     background-position: center;
     background-size: cover;
     padding-bottom: 70px;
@@ -431,7 +431,7 @@ color: red;
 .cont-form form{
     padding: 20px;
     width: 700px;
-    background: url(/img/fondo-rec.png)no-repeat;
+    background: url(../img/fondo-rec.png)no-repeat;
     background-position: center;
     background-size: cover;
     box-shadow: 0 5px 10px rgb(0, 0, 0,.1);
