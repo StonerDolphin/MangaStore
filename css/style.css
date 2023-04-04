@@ -87,6 +87,11 @@
 /**Carrusel**/
 
 /**Main**/
+#bg{
+    background: url(/MangaStore/img/fondo-inicio.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+}
 .main{
     font-family: 'Roboto';
 }
