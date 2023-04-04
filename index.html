@@ -55,16 +55,37 @@
                     </form>
                     
                 </div>
-                <a href="progreso.html">
-                    <button type="button" class="btn btn-primary carrito">
-                        <i class='fas fa-shopping-cart' style='font-size:36px'></i>
-                    </button>
-                </a>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <i class='fas fa-shopping-cart' style='font-size:36px'></i>
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Carrito de compra</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-primary c-modal"><a href="compra.html">Continuar con la compra</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 
 
             </div>
         </nav>
     </section>
+    <section id="bg">
     <div class="container">
         <div class="row">
             <section class="carrusel">
@@ -108,66 +129,95 @@
             </section>
         </div>
     </div>
-    <section class="novedades">
-        <div class="container contenedor">
-            <div class="row">
-                <div class="titulo-nov">
-                    <h1>Novedades</h1>
+    <section class="main">
+        <div class="container caja">
+            <h1 class="d-flex justify-content-center">Novedades</h1>
+            <div class="row p-1 fila">
+                <div class="col-sm-12 col-lg-3 col-xl-3 caja ">
+                    <a href="">
+                        <img class="img-main" src="img/one-piece-volume105.png" alt="">
+                    </a>
+                    <div class="caja ps-3">
+                        <p class="info-main-edit mt-3">IVREA Argentina</p>
+                        <a href=""><p class="info-main-nom">One Piece #105</p></a>
+                        <p class="info-main-pre">$7.890 CLP</p>
+                    </div>
                 </div>
-                <div class="fondo-productos">
-                    <div class="productos">
-                        
-                            <div class="top-fila">
-                                <div class="top-fila-1">
-                                    <a href="progreso.html"><img class="img-fluid img-mangas"
-                                            src="img/one-piece-volume105.png" alt="One-Piece #105"></a>
-                                    <p class="editorial">Iverea Argentina</p>
-                                    <p class="nombre-mang">One Piece #105</p>
-                                    <p class="precio">$7.990</p>
-                                </div>
-                                <div class="top-fila-2">
-                                    <a href="progreso.html"><img class="img-fluid img-mangas" src="img/JJK-14.png"
-                                            alt="Jujutsu-Kaisen #14"></a>
-                                    <p class="editorial">Panini Manga</p>
-                                    <p class="nombre-mang">Jujutsu Kaisen #14</p>
-                                    <p class="precio">$6.990</p>
-                                </div>
-                                <div class="top-fila-3">
-                                    <a href="progreso.html"><img class="img-fluid img-mangas" src="img/CSM-14.png"
-                                            alt="Chainsaw-Man #14"></a>
-                                    <p class="editorial">Iverea Argentina</p>
-                                    <p class="nombre-mang">Chainsaw Man #14</p>
-                                    <p class="precio">$9.990</p>
-                                </div>
-                            </div>
-                            <div class="low-fila">
-                                <div class="low-fila-1">
-                                    <a href="progreso.html"><img class="img-fluid img-mangas" src="img/BL-7.png"
-                                            alt="Blue-Lock #7"></a>
-                                    <p class="editorial">Iverea España</p>
-                                    <p class="nombre-mang">Blue Lock #7</p>
-                                    <p class="precio">$8.990</p>
-                                </div>
-                                <div class="low-fila-2">
-                                    <a href="progreso.html"><img class="img-fluid img-mangas" src="img/BC-24.png"
-                                            alt="Black-Clover #24"></a>
-                                    <p class="editorial">Iverea Argentina</p>
-                                    <p class="nombre-mang">Black Clover #24</p>
-                                    <p class="precio">$7.990</p>
-                                </div>
-                                <div class="low-fila-3">
-                                    <a href="progreso.html"><img class="img-fluid img-mangas" src="img/OP-8.webp"
-                                            alt="One-Punch-man #08"></a>
-                                    <p class="editorial">Panini Manga</p>
-                                    <p class="nombre-mang">One Punch-Man #8</p>
-                                    <p class="precio">$10.990</p>
-                                </div>
-                            </div>
-                        
+                <div class="col-sm-12 col-lg-3 col-xl-3 caja  ">
+                    <a href="">
+                        <img class="img-main" src="img/JJK-14.png" alt="">
+                    </a>
+                    <div class="caja ps-3">
+                        <p class="info-main-edit mt-3">IVREA Argentia</p>
+                        <a href=""><p class="info-main-nom">Jujutsu Kaisen #14</p></a>
+                        <p class="info-main-pre">$6.990 CLP</p>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-lg-3 col-xl-3 caja ">
+                    <a href="">
+                        <img class="img-main" src="img/CSM-14.png" alt="">
+                    </a>
+                    <div class="caja ps-3">
+                        <p class="info-main-edit mt-3">NORMA Editorial</p>
+                        <a href=""><p class="info-main-nom">Chainsaw Man #14</p></a>
+                        <p class="info-main-pre">$7.990 CLP</p>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-lg-3 col-xl-3 caja">
+                    <a href="">
+                        <img class="img-main" src="img/BL-7.png" alt="">
+                    </a>
+                    <div class="caja ps-3">
+                        <p class="info-main-edit mt-3">IVREA España</p>
+                        <a href=""><p class="info-main-nom">Blue Lock #7</p></a>
+                        <p class="info-main-pre">$5.990 CLP</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row p-1 fila mt-2">
+                <div class="col-sm-12 col-lg-3 col-xl-3 caja ">
+                    <a href="">
+                        <img class="img-main" src="img/BC-24.png" alt="">
+                    </a>
+                    <div class="caja ps-3">
+                        <p class="info-main-edit mt-3">PANINI Manga</p>
+                        <a href=""><p class="info-main-nom">Black Clover #24</p></a>
+                        <p class="info-main-pre">$6.750 CLP</p>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-lg-3 col-xl-3 caja  ">
+                    <a href="">
+                        <img class="img-main" src="img/OP-8.webp" alt="">
+                    </a>
+                    <div class="caja ps-3">
+                        <p class="info-main-edit mt-3">IVREA España</p>
+                        <a href=""><p class="info-main-nom">One Punch Man #8</p></a>
+                        <p class="info-main-pre">$9.990 CLP</p>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-lg-3 col-xl-3 caja ">
+                    <a href="">
+                        <img class="img-main" src="img/DDD-2.png" alt="">
+                    </a>
+                    <div class="caja ps-3">
+                        <p class="info-main-edit mt-3">NORMA Editorial</p>
+                        <a href=""><p class="info-main-nom">DanDaDan #2</p></a>
+                        <p class="info-main-pre">$8.450 CLP</p>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-lg-3 col-xl-3 caja">
+                    <a href="">
+                        <img class="img-main" src="img/VL-20.png" alt="">
+                    </a>
+                    <div class="caja ps-3">
+                        <p class="info-main-edit mt-3">PANINI Manga</p>
+                        <a href=""><p class="info-main-nom">Vinland Saga</p></a>
+                        <p class="info-main-pre">$9.990 CLP</p>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
     </section>
     <hr>
     <section class="pie-pagina">

@@ -1,6 +1,10 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    outline: none; border: none;
+    text-transform: capitalize;
+    transition: all .2s linear;
 }
 
 /**Pagina en Construccion**/
@@ -59,7 +63,6 @@
 }
 /*Header*/
 /**Carrusel**/
-
 .c-item {
     height: 480px;
 }
@@ -80,78 +83,60 @@
 
 .d-menu li a {
     color: black;
+}
+/**Ca
+
+/**Main**/
+#bg{
+    background: url(/MangaStore/img/fondo-inicio.png) no-repeat;
+    background-position: center;
+    background-size: cover;
 
 }
-/**Carrusel**/
-
-
-/**Pag-principal**/
-.contenedor {
-
-    width: 100%;
-    height: auto;
-    margin-top: 5px;
-
+.main{
+    font-family: 'Roboto';
+}
+.main p{
+    width: 150px;
+}
+.main a:hover{
+ color: #ec3636;
+}
+.caja{
+width: auto;
+}
+a{
+    text-decoration: none;
+    color: #000000;
+}
+.fila{
+display:flex;
+justify-content:space-evenly;
 }
 
-.contenedor .titulo-nov {
-    display: flex;
-    justify-content: center;
-    margin-top: 5px;
-    margin-bottom: 5px;
-
+.img-main{
+ height:26em;
+ width:18em;
+ transition: 0.7s;
+ object-fit: cover;
 }
 
-.contenedor .fondo-productos {
-    height: auto;
-    width: 100%;
+.img-main:hover {
+ transform: scale(1.07);
 }
 
-.contenedor .fondo-productos .img-mangas {
-    height: 400px;
-    margin: 5px;
-    transition: 0.6s;
-    object-fit: cover;
+.info-main-edit,
+.info-main-nom,
+.info-main-pre{
+margin-bottom:5px;
 }
 
-.img-mangas:hover {
-    transform: scale(1.1);
+.info-main-pre,
+.info-main-nom:hover{
+    color: #ec3636;
 }
 
-.top-fila {
-    display: flex;
-    justify-content: space-between;
-}
-
-.low-fila {
-    display: flex;
-    justify-content: space-between;
-}
-
-.editorial,
-.nombre-mang,
-.precio {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-.editorial {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 100;
-}
-
-.nombre-mang {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-}
-
-.precio {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-}
-/**Pag-principal**/
-
+/**Main**/
 
 
 /**footer**/
@@ -201,8 +186,16 @@
 /**footer**/
 
 
+/*modal carrito*/
+.c-modal a{
+    text-decoration: none;
+    color: white;
+}
 
 /*login html*/
+
+/*login html*/
+
 #login {
     display: flex;
     justify-content: center;
@@ -326,6 +319,8 @@ input:valid~label {
 
 
 
+/*login html*/
+
 
 /*registrarse html*/
 #register {
@@ -334,27 +329,12 @@ input:valid~label {
     align-items: center;
     min-height: 91.5vh;
     width: 100%;
-    background: url(/MangaStore/img/fondo2.png) no-repeat;
+    background: url(/img/fondo2.png) no-repeat;
     background-position: center;
     background-size: cover;
 }
 
-.form-box-r {
-    position: relative;
-    width: 400px;
-    height: 450px;
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, 0.885);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.title-regi {
-    font-size: 2em;
-    color: rgb(4, 255, 0);
-    text-align: center;
-}
 
 .inputbox-r {
     position: relative;
@@ -406,6 +386,7 @@ input:valid~label {
 /*Productos*/
 .limit{
 
+
     margin-top: 5px;
     margin-bottom: 5px;
     width: auto;
@@ -434,6 +415,87 @@ color: red;
 }
 /*Productos*/
 
+/*carrito*/
+.cont-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    min-height: 100vh;
+    background: url(/img/fondo-compra.png)no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 70px;
+}
+.cont-form form{
+    padding: 20px;
+    width: 700px;
+    background: url(/img/fondo-rec.png)no-repeat;
+    background-position: center;
+    background-size: cover;
+    box-shadow: 0 5px 10px rgb(0, 0, 0,.1);
+}
+.cont-form form .row-form{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.cont-form form .row-form .col{
+    flex: 1 1 250px;
+}
+.cont-form form .row-form .col .title-form{
+    font-size: 20px;
+    color: #333;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+}
+.cont-form form .row-form .col .input-Box{
+    margin: 15px 0;
+}
+.cont-form form .row-form .col .input-Box span{
+    margin-bottom: 10px;
+    display: block;
+}
+.cont-form form .row-form .col .input-Box input{
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    font-size: 15px;
+    text-transform: none;
+}
+.cont-form form .row-form .col .input-Box input:focus{
+    border: 1px solid #000;
+}
+.cont-form form .row-form .col .flex{
+    display: flex;
+    gap: 15px;
+}
+.cont-form form .row-form .col .flex .input-Box{
+    margin-top: 5px;
+}
+.cont-form form .row-form .col .input-Box img{
+    height: 34px;
+    margin-top: 5px;
+    filter: drop-shadow(0 0 1px #000);
+}
+.cont-form form .submit-btn{
+    width: 100%;
+    padding: 12px;
+    font-size: 17px;
+    background: #27ae60;
+    color: #fff;
+    margin-top: 5px;
+    cursor: pointer;
+}
+.cont-form form .submit-btn:hover{
+    background: #2ecc71;
+}
+.record-me {
+    margin: 5px 0 10px;
+    font-size: .9em;
+    display: flex;
+    justify-content: center;
+}
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {}
