@@ -61,7 +61,7 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
 }
-
+/*Header*/
 /**Carrusel**/
 .c-item {
     height: 480px;
@@ -84,13 +84,14 @@
 .d-menu li a {
     color: black;
 }
-/**Carrusel**/
+/**Ca
 
 /**Main**/
 #bg{
     background: url(/MangaStore/img/fondo-inicio.png) no-repeat;
     background-position: center;
     background-size: cover;
+
 }
 .main{
     font-family: 'Roboto';
@@ -134,7 +135,9 @@ margin-bottom:5px;
 .info-main-nom:hover{
     color: #ec3636;
 }
+
 /**Main**/
+
 
 /**footer**/
 .ct-footer {
@@ -180,6 +183,8 @@ margin-bottom:5px;
     text-decoration: none;
     color: #000000;
 }
+/**footer**/
+
 
 /*modal carrito*/
 .c-modal a{
@@ -188,7 +193,9 @@ margin-bottom:5px;
 }
 
 /*login html*/
+
 /*login html*/
+
 #login {
     display: flex;
     justify-content: center;
@@ -311,10 +318,10 @@ input:valid~label {
 }
 
 
+
 /*login html*/
 
-/*registrarse html*/
-/*registrarse html*/
+
 /*registrarse html*/
 #register {
     display: flex;
@@ -374,8 +381,39 @@ input:valid~label {
     font-size: 1em;
     font-weight: 600;
 }
+/*registrarse html*/
 
-/**Productos**/
+/*Productos*/
+.limit{
+
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: auto;
+    padding: 0;
+}
+.tabla-info{
+padding:0;
+}
+.tamanno-t{
+font-size: 2.5em}
+.tamanno{
+font-size: 1.5em;
+color: red;
+}
+
+.img-mangas-p{
+    margin-left: auto;
+    margin-right: auto;
+    height: 38rem;
+    width: 24rem;
+}
+
+.producto{
+    display: flex;
+    justify-content: center;
+}
+/*Productos*/
 
 /*carrito*/
 .cont-form{
@@ -458,7 +496,6 @@ input:valid~label {
     display: flex;
     justify-content: center;
 }
-
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {}
