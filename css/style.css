@@ -68,8 +68,10 @@
 }
 
 .c-img {
-    height: 100%;
-
+    height: 24rem;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: contain;
 }
 
 .login {
