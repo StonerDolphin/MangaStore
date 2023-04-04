@@ -59,7 +59,6 @@
 }
 
 /**Carrusel**/
-
 .c-item {
     height: 480px;
 }
@@ -80,73 +79,53 @@
 
 .d-menu li a {
     color: black;
+}
+/**Carrusel**/
 
+/**Main**/
+.main{
+    font-family: 'Roboto';
+}
+.main p{
+    width: 150px;
+}
+.main a:hover{
+ color: #ec3636;
+}
+.caja{
+width: auto;
+}
+a{
+    text-decoration: none;
+    color: #000000;
+}
+.fila{
+display:flex;
+justify-content:space-evenly;
 }
 
-.contenedor {
-
-    width: 100%;
-    height: auto;
-    margin-top: 5px;
-
+.img-main{
+ height:26em;
+ width:18em;
+ transition: 0.7s;
+ object-fit: cover;
 }
 
-.contenedor .titulo-nov {
-    display: flex;
-    justify-content: center;
-    margin-top: 5px;
-    margin-bottom: 5px;
-
+.img-main:hover {
+ transform: scale(1.07);
 }
 
-.contenedor .fondo-productos {
-    height: auto;
-    width: 100%;
+.info-main-edit,
+.info-main-nom,
+.info-main-pre{
+margin-bottom:5px;
 }
 
-.contenedor .fondo-productos .img-mangas {
-    height: 400px;
-    margin: 5px;
-    transition: 0.6s;
-    object-fit: cover;
+.info-main-pre,
+.info-main-nom:hover{
+    color: #ec3636;
 }
-
-.img-mangas:hover {
-    transform: scale(1.1);
-}
-
-.top-fila {
-    display: flex;
-    justify-content: space-between;
-}
-
-.low-fila {
-    display: flex;
-    justify-content: space-between;
-}
-
-.editorial,
-.nombre-mang,
-.precio {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-.editorial {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 100;
-}
-
-.nombre-mang {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-}
-
-.precio {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-}
+/**Main**/
 
 /**footer**/
 .ct-footer {
