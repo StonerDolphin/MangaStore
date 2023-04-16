@@ -14,9 +14,75 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="CSS/tiendaStyle.css">
+    <link rel="stylesheet" href="CSS/style.css">
     <script src="https://kit.fontawesome.com/4166c17111.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    
+    <section class="encabezado">
+        <nav class="navbar navbar-expand-sm navbar-#f8fbc7 bg-#f8fbc7">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html"><img src="img/one-piece-logo.png" alt=""
+                        class="img-fluid logo"></a>
+                <a class="navbar-brand" href="index.html">Manga Store</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="mynavbar">
+                    <ul class="navbar-nav me-auto ">
+                        <li class="nav-item">
+                            <a class="nav-link" href="progreso.html">Tienda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="progreso.html">Novedades</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="progreso.html">Ofertas</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav sesion">
+                        <li class="nav-item">
+                            <a href="login.html">Log In</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="registrarse.html">Sign In</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <input class="form-control" type="text" placeholder="Buscar">
+                        <button class="btn btn-primary p-1 me-2" type="button"><i class="fa fa-search"></i></button>
+                    </form>
+                    
+                </div>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <i class='fas fa-shopping-cart' style='font-size:36px'></i>
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Carrito de compra</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-primary c-modal"><a href="compra.html">Continuar con la compra</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+            </div>
+        </nav>
+    </section>
 </body>
 </html>
