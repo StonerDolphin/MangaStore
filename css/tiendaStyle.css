@@ -1,3 +1,6 @@
 .box{
     border: black solid 2px
 }
+.formulario-box, .formulario-busqueda{
+    padding-left: 1.5rem;
+}
