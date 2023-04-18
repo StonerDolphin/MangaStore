@@ -4,3 +4,7 @@
 .formulario-box, .formulario-busqueda{
     padding-left: 1.5rem;
 }
+
+.categ-form, .edit-form{
+    padding-top: 0.5rem;
+}
