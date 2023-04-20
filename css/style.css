@@ -213,7 +213,7 @@ margin-bottom:5px;
     width: 400px;
     height: 450px;
     background: transparent;
-    border: 2px solid rgb(255, 255, 255, 0.5);
+    border: 2px solid rgba(248, 244, 244, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -221,7 +221,7 @@ margin-bottom:5px;
 
 .title-login {
     font-size: 2em;
-    color: rgb(234, 0, 255);
+    color: rgb(245, 242, 246);
     text-align: center;
 }
 
@@ -330,18 +330,33 @@ input:valid~label {
     align-items: center;
     min-height: 91.5vh;
     width: 100%;
-    background: url(/img/fondo2.png) no-repeat;
+    background: url(/img/fondoprueba.jpg) no-repeat;
     background-position: center;
     background-size: cover;
 }
 
+.form-box-r {
+    position: relative;
+    width: 500px;
+    height: 550px;
+    background: transparent;
+    border: 2px solid rgba(20, 7, 7, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.title-login-r {
+    font-size: 2em;
+    color: rgb(61, 5, 66);
+    text-align: center;
+}
 
 .inputbox-r {
     position: relative;
     margin: 30px 0;
     width: 310px;
-    border-bottom: 2px solid rgb(64, 236, 121);
+    border-bottom: 2px solid rgb(1, 24, 9);
 }
 
 .inputbox-r label {
@@ -349,7 +364,7 @@ input:valid~label {
     top: 50%;
     left: 5px;
     transform: translateY(-50%);
-    color: #f8f8f7;
+    color: #0c0c0b;
     font-size: 1em;
     pointer-events: none;
     transition: .5s;
@@ -368,7 +383,7 @@ input:valid~label {
     outline: none;
     font-size: 1em;
     padding: 0 35px 0 5px;
-    color: #fff;
+    color: #851717;
 }
 
 .reg {
