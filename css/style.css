@@ -93,6 +93,7 @@
     background: url(../img/fondo-inicio.png) no-repeat;
     background-position: center;
     background-size: cover;
+    backdrop-filter: blur(5px);
 
 }
 .producto,
@@ -185,6 +186,11 @@ margin-bottom:5px;
 .contactos ul a {
     text-decoration: none;
     color: #000000;
+}
+
+
+.error{
+    color: red;
 }
 /**footer**/
 
