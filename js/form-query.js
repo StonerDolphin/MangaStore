@@ -3,7 +3,7 @@ $(document).ready(function(){
     let mensaje=$("#commentInput")
     $("#contactForm").validate({
         rules:{
-            email:{
+            correo:{
                 required: true,
                 email: true
             },
@@ -14,7 +14,10 @@ $(document).ready(function(){
             }
         },
         messages:{
-            correo:"Ingrese una direccion de correo valido.",
+            correo:{
+                required:"Ingrese una direccion de correo valido.",
+                email:"Debe Ingresar un correo Electronico"
+            },
             mensaje:{
                 required:"Se debe escribir un comentario",
                 minlength:"El comentario debe contener un minimo de 4 letras",
@@ -27,7 +30,6 @@ $(document).ready(function(){
         if($("#contactForm").valid()==false){
             return;
         }
-        
     })
 
     $()
