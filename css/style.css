@@ -4,6 +4,7 @@
     box-sizing: border-box;
     outline: none; border: none;
     transition: all .2s linear;
+    font-family: 'Roboto';
 }
 
 /**Pagina en Construccion**/
