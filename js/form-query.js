@@ -9,7 +9,7 @@ $(document).ready(function(){
             },
             mensaje:{
                 required: true,
-                minlength:4,
+                minlength:5,
                 maxlength:1000
             }
         },
