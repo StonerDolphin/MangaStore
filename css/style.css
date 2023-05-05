@@ -6,6 +6,9 @@
     text-transform: capitalize;
     transition: all .2s linear;
 }
+body{
+    font-family: 'Roboto';
+}
 
 /**Pagina en Construccion**/
 .fuera-servicio {
