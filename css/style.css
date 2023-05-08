@@ -219,6 +219,7 @@ margin-bottom:5px;
     margin: 30px 0;
     width: 310px;
     border-bottom: 2px solid white;
+    color: white;
 }
 
 .inputbox label {
@@ -226,7 +227,6 @@ margin-bottom:5px;
     top: 50%;
     left: 5px;
     transform: translateY(-50%);
-    color: #fff;
     font-size: 1em;
     pointer-events: none;
     transition: .5s;
@@ -307,7 +307,16 @@ input:valid~label {
     text-decoration: underline;
 }
 
+.active {
+    top: -14px;
+    font-size: 12px;
+    color: #615c5c;
 
+}
+
+.error {
+    color: #FF0000;
+}
 
 /*login html*/
 
