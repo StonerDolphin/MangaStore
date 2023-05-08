@@ -54,7 +54,7 @@ $(document).ready(function(){
             },
             mvencimiento:{
                 required: true,
-                minlength: 1,
+                minlength: 2,
                 maxlength: 2
             },
             avencimiento:{
@@ -73,15 +73,53 @@ $(document).ready(function(){
                 required:"Ingrese una direccion de correo",
                 email:"Debe Ingresar un correo Electronico valido"
             },
+            nombre:{
+                required:"Debe ingresar su nombre completo",
+                maxlength:"Ingrese un nombre valido"
+            },
             run:{
                 required:"Debe ingresar su run",
                 minlength:"Ingrese un run valido",
                 maxlength:"Ingrese un run valido"
             },
             direccion:{
-                required:"Debe ingresar una direccion",
-                minlength:"Ingrese una direccion valida ",
-                maxlength:"Ingrese una direccion valida"
+                required:"Debe ingresar una dirección",
+                minlength:"Ingrese una dirección valida ",
+                maxlength:"Ingrese una dirección valida"
+            },
+            comuna:{
+                required:"Debe ingresar una comuna",
+                minlength:"Ingrese una comuna valida ",
+                maxlength:"Ingrese una comuna valida"
+            },
+            region:{
+                required:"Debe ingresar una región",
+                minlength:"Ingrese una región valida ",
+                maxlength:"Ingrese una región valida"
+            },
+            cpostal:{
+                required:"Debe ingresar un código postal",
+                maxlength:"Ingrese un código postal valido"
+            },
+            ntarjeta:{
+                required:"Debe ingresar su numero de tarjeta",
+                minlength:"Ingrese un numero de tarjeta valido ",
+                maxlength:"Ingrese un numero de tarjeta valido"
+            },
+            mvencimiento:{
+                required:"Ingrese el mes de vencimiento de su tarjeta",
+                minlength:"Ingrese un mes valido en formato numérico ",
+                maxlength:"Ingrese un mes valido en formato numérico "
+            },
+            avencimiento:{
+                required:"Ingrese el año de vencimiento de su tarjeta",
+                minlength:"Ingrese un año valido en formato ",
+                maxlength:"Ingrese un año valido en formato "
+            },
+            cvv:{
+                required:"Ingrese el código de seguridad de su tarjeta",
+                minlength:"Ingrese un código de seguridad valido",
+                maxlength:"Ingrese un código de seguridad valido"
             }
         }
     })
