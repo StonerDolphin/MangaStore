@@ -1,7 +1,5 @@
-
 const mangas = document.getElementById('manga')
 document.addEventListener("DOMContentLoaded", e => {
-
     fetchData()
 })
 const fetchData = async () => {
