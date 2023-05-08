@@ -31,7 +31,7 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="mynavbar">
-                    <ul class="navbar-nav me-auto ms-auto">
+                    <ul class="navbar-nav me-auto ">
                         <li class="nav-item">
                             <a class="nav-link" href="tienda.html">Tienda</a>
                         </li>
@@ -67,7 +67,7 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Carrito de compra</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
@@ -75,55 +75,50 @@
                                 ...
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ver Carrito</button>
-                                <button type="button" class="btn btn-primary c-modal"><a href="compra.html">Continuar con la compra</a></button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-primary c-modal"><a href="compra.html">Continuar
+                                        con la compra</a></button>
                             </div>
                         </div>
                     </div>
                 </div>
 
+
             </div>
-
-            <!-- <a href="progreso.html">
-                <button type="button" class="btn btn-primary carrito">
-                    <i class='fas fa-shopping-cart' style='font-size:36px'></i>
-                </button>
-            </a> -->
-
         </nav>
     </section>
     
     <div class="cont-form">
-        <form action="">
+        <form action="" id="formulario-compra">
             <div class="row-form">
                 <div class="col">
                     <h3 class="tittle-form">Dirección de envío</h3>
 
                     <div class="input-Box">
                         <span>Nombre Completo :</span>
-                        <input type="text" placeholder="Nombre Completo">
+                        <input type="text" placeholder="Nombre Completo" name="nombre" id="nombre">
                     </div>
                     <div class="input-Box">
                         <span>Correo electrónico :</span>
-                        <input type="email" placeholder="example@example.com">
+                        <input type="email" placeholder="example@example.ex" name="email" id="email">
                     </div>
                     <div class="input-Box">
                         <span>Dirección :</span>
-                        <input type="text" placeholder="Dirección-bloque-numero">
+                        <input type="text" placeholder="Dirección-bloque-numero" name="direccion" id="direccion">
                     </div>
                     <div class="input-Box">
                         <span>Comuna: </span>
-                        <input type="text" placeholder="comuna">
+                        <input type="text" placeholder="comuna"  name="comuna" id="comuna">
                     </div>
 
                     <div class="flex">
                         <div class="input-Box">
                             <span>Región :</span>
-                            <input type="text" placeholder="región">
+                            <input type="text" placeholder="región" name="region" id="region">
                         </div>
                         <div class="input-Box">
                             <span>Código postal :</span>
-                            <input type="text" placeholder="123 456">
+                            <input type="number" placeholder="123 456" name="cpostal" id="cpostal">
                         </div>
                     </div>
                 </div>
@@ -135,27 +130,28 @@
                         <span>Tarjetas disponibles </span>
                         <img src="img/card_img.png" alt="">
                     </div>
+                   
                     <div class="input-Box">
-                        <span>Nombre del propietario :</span>
-                        <input type="text" placeholder="Nombre en la tarjeta">
+                        <span>Ingrese su Run :</span>
+                        <input type="number" placeholder="11.111.111-1" name="run" id="run">
                     </div>
                     <div class="input-Box">
                         <span>Numero tarjeta :</span>
-                        <input type="number" placeholder="1111-2222-3333-4444">
+                        <input type="number" placeholder="1111-2222-3333-4444" name="ntarjeta" id="ntarjeta">
                     </div>
                     <div class="input-Box">
                         <span>Mes de vencimiento :</span>
-                        <input type="text" placeholder="january">
+                        <input type="number" placeholder="07" name="mvencimiento" id="mvencimiento">
                     </div>
 
                     <div class="flex">
                         <div class="input-Box">
                             <span>Año vencimiento :</span>
-                            <input type="number" placeholder="2023">
+                            <input type="number" placeholder="2023" name="avencimiento" id="avencimiento">
                         </div>
                         <div class="input-Box">
                             <span>CVV :</span>
-                            <input type="text" placeholder="1234">
+                            <input type="number" placeholder="1234" name="cvv" id="cvv">
                         </div>
                     </div>
                 </div>
@@ -165,34 +161,62 @@
                 <label for=""><input type="checkbox">Guardar mi información y consultar mas rápidamente la próxima vez </label>
             </div>
 
-            <input type="submit" value="Proceder con el pago" class="submit-btn">
+            <button type="submit" value="Proceder con el pago" class="submit-btn" id="guardarC">Continuar con el pago</button>
         </form>
     </div>
 
     <section class="pie-pagina">
-        <footer class="pie-pagina">
-            <div class="container ct-footer">
-                <div class="bg-footer">
-                    <div class="info-pag">
-                        <h5>Acerca de Nosotros</h5>
-                        <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. <br>
-                            Error possimus nostrum nobis voluptatum neque nesciunt eaque tenetur animi adipisci
-                            molestias, <br>
-                            accusantium maiores quod atque dolores? Sit numquam aut vero placeat?</p>
-                    </div>
-                    <div class="contactos">
-                        <h5>Redes Sociales</h5>
-                        <ul>
-                            <li><a href="progreso.html">Instagram</a></li>
-                            <li><a href="progreso.html">FaceBook</a></li>
-                            <li><a href="progreso.html">TikTok</a></li>
-                            <li><a href="progreso.html">Twitter</a></li>
-                        </ul>
-                    </div>
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-sm-12 col-lg-6 col-xl-6 info-form">
+                    <h4>Nosotros</h4>
+                    <p>Nos dedicamos a venderte tus mangas favoritos al mejor precio y al alcance de tu mano. Puedes poner tu confianza en nosotros sin
+                        preocuparte por mala calidad y pobre entrega.
+                    </p>
+                </div>
+                <div class="col-sm-12 col-lg-6 col-xl-6 social-form">
+                    <h4>Redes Sociales</h4>
+                    <ul>
+                        <li>
+                            <a href="">
+                                <i class="fab fa-whatsapp fa-2x" style="color: #25d366;"></i>
+                            </a>
+                        </li>
+                        <li class="pe-3 ps-3">
+                            <a href="">
+                                <i class="fab fa-instagram fa-2x" style="color: #ac2bac;"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <i class="fab fa-facebook-f fa-2x" style="color: #3b5998;"></i>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </footer>
+            <div class="row">
+                <div class="contactos-form">
+                    <h4>Contactanos</h4>
+                    <form id="contactForm">
+                        
+                        <div class="form-group">
+                            <label for="emailInput">Correo electrónico</label>
+                            <input type="email" name="correo" class="form-control" id="emailInput"
+                                placeholder="Ingresa tu correo electrónico">
+                        </div>
+                        <div class="form-group">
+                            <label for="commentInput">Comentarios</label>
+                            <textarea class="form-control" name="mensaje" id="commentInput" rows="5"
+                                placeholder="Escribe aquí tus comentarios"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-2" id="guardar">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </section>
+
 
 
 
@@ -208,6 +232,7 @@
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
     <script type="text/javascript" src="js/form-query.js"></script>
+    <script type="text/javascript" src="js/compra.js"></script>
 </body>
 
 </html>
