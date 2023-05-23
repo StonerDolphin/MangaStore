@@ -19,21 +19,21 @@
     <script src="https://kit.fontawesome.com/4166c17111.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body class="cuerpo">
     <section class="encabezado">
         <nav class="navbar navbar-expand-sm navbar-#f8fbc7 bg-#f8fbc7">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.html"><img src="img/one-piece-logo.png" alt=""
-                        class="img-fluid logo"></a>
+                                                               class="img-fluid logo"></a>
                 <a class="navbar-brand" href="index.html">Manga Store</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="mynavbar">
-                    <ul class="navbar-nav me-auto ms-auto">
+                    <ul class="navbar-nav me-auto ">
                         <li class="nav-item">
-                            <a class="nav-link" href="progreso.html">Tienda</a>
+                            <a class="nav-link" href="tienda.html">Tienda</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="progreso.html">Novedades</a>
@@ -54,7 +54,7 @@
                         <input class="form-control" type="text" placeholder="Buscar">
                         <button class="btn btn-primary p-1 me-2" type="button"><i class="fa fa-search"></i></button>
                     </form>
-                    
+
                 </div>
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -82,41 +82,88 @@
                         </div>
                     </div>
                 </div>
-                
+
 
             </div>
         </nav>
     </section>
+    
+    <div class="cont-form">
+        <form action="" id="formulario-compra">
+            <div class="row-form">
+                <div class="col">
+                    <h3 class="tittle-form">Dirección de envío</h3>
 
-    <section id="login">
-        <div class="form-box">
-            <div class="form-value">
-                <form action="">
-                    <h2 class="title-login">Iniciar Sesión</h2>
-                    <div class="inputbox">
-                        <i class="fa-sharp fa-solid fa-envelope"></i>
-                        <input type="correo" class="form-input" name="form-input" id="correo" required>
-                        <label for="correo">Correo electrónico</label>
+                    <div class="input-Box">
+                        <span>Nombre Completo :</span>
+                        <input type="text" placeholder="Nombre Completo" name="nombre" id="nombre">
                     </div>
-                    <div class="inputbox">
-                        <i class="fa-solid fa-lock"></i>
-                        <input type="password" class="form-input" name="form-input" id="pass" required>
-                        <label for="pass">Contraseña</label>
+                    <div class="input-Box">
+                        <span>Correo electrónico :</span>
+                        <input type="email" placeholder="example@example.ex" name="email" id="email">
                     </div>
-                    <div class="forget">
-                        <label for=""><input type="checkbox">Recuerdame <a href="#">¿Olvidó su contraseña?</a></label>
+                    <div class="input-Box">
+                        <span>Dirección :</span>
+                        <input type="text" placeholder="Dirección-bloque-numero" name="direccion" id="direccion">
                     </div>
-                    <button class="ini">INICIAR SESIÓN</button>
-                    <div class="register">
-                        <p>¿No tienes cuenta? <a href="registrarse.html">Registrate aquí</a></p>
+                    <div class="input-Box">
+                        <span>Comuna: </span>
+                        <input type="text" placeholder="comuna"  name="comuna" id="comuna">
                     </div>
-                </form>
+
+                    <div class="flex">
+                        <div class="input-Box">
+                            <span>Región :</span>
+                            <input type="text" placeholder="región" name="region" id="region">
+                        </div>
+                        <div class="input-Box">
+                            <span>Código postal :</span>
+                            <input type="number" placeholder="123 456" name="cpostal" id="cpostal">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <h3 class="tittle-form">Datos pago</h3>
+
+                    <div class="input-Box">
+                        <span>Tarjetas disponibles </span>
+                        <img src="img/card_img.png" alt="">
+                    </div>
+                   
+                    <div class="input-Box">
+                        <span>Ingrese su Run :</span>
+                        <input type="number" placeholder="11.111.111-1" name="run" id="run">
+                    </div>
+                    <div class="input-Box">
+                        <span>Numero tarjeta :</span>
+                        <input type="number" placeholder="1111-2222-3333-4444" name="ntarjeta" id="ntarjeta">
+                    </div>
+                    <div class="input-Box">
+                        <span>Mes de vencimiento :</span>
+                        <input type="number" placeholder="07" name="mvencimiento" id="mvencimiento">
+                    </div>
+
+                    <div class="flex">
+                        <div class="input-Box">
+                            <span>Año vencimiento :</span>
+                            <input type="number" placeholder="2023" name="avencimiento" id="avencimiento">
+                        </div>
+                        <div class="input-Box">
+                            <span>CVV :</span>
+                            <input type="number" placeholder="1234" name="cvv" id="cvv">
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
 
+            <div class="record-me">
+                <label for=""><input type="checkbox">Guardar mi información y consultar mas rápidamente la próxima vez </label>
+            </div>
 
-
+            <button type="submit" value="Proceder con el pago" class="submit-btn" id="guardarC">Continuar con el pago</button>
+        </form>
+    </div>
 
     <section class="pie-pagina">
         <div class="container my-5">
@@ -152,6 +199,7 @@
                 <div class="contactos-form">
                     <h4>Contactanos</h4>
                     <form id="contactForm">
+                        
                         <div class="form-group">
                             <label for="emailInput">Correo electrónico</label>
                             <input type="email" name="correo" class="form-control" id="emailInput"
@@ -173,10 +221,6 @@
 
 
 
-
-
-
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -188,7 +232,7 @@
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
     <script type="text/javascript" src="js/form-query.js"></script>
-    <script src="js/login.js"></script>
+    <script type="text/javascript" src="js/compra.js"></script>
 </body>
 
 </html>
