@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
     <script src="https://kit.fontawesome.com/4166c17111.js" crossorigin="anonymous"></script>
 </head>
 
@@ -23,7 +24,7 @@
     <section class="encabezado">
         <nav class="navbar navbar-expand-sm navbar-#f8fbc7 bg-#f8fbc7">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html"><img src="img/one-piece-logo.png" alt=""
+                <a class="navbar-brand" href="index.html"><img src="{% static '/img/one-piece-logo.png' %}" alt=""
                         class="img-fluid logo"></a>
                 <a class="navbar-brand" href="index.html">Manga Store</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
@@ -102,19 +103,19 @@
                         <!-- The slideshow/carousel -->
                         <div class="carousel-inner">
                             <div class="carousel-item active c-item">
-                                <img src="img/anime.jpg" alt="" class="d-block rounded c-img" style="width:100%">
+                                <img src="{% static '/img/anime.jpg' %}" alt="" class="d-block rounded c-img" style="width:100%">
                                 <div class="carousel-caption">
 
                                 </div>
                             </div>
                             <div class="carousel-item c-item">
-                                <img src="img/manga2.png" alt="" class="d-block rounded c-img" style="width:100%">
+                                <img src="{% static '/img/manga2.png' %}" alt="" class="d-block rounded c-img" style="width:100%">
                                 <div class="carousel-caption">
 
                                 </div>
                             </div>
                             <div class="carousel-item c-item">
-                                <img src="img/mangass.jpg" alt="New York" class="d-block rounded c-img"
+                                <img src="{% static '/img/mangass.jpg' %}" alt="New York" class="d-block rounded c-img"
                                     style="width:100%">
                                 <div class="carousel-caption">
 
@@ -138,7 +139,7 @@
                 <div class="row p-1 fila">
                     <div class="col-sm-12 col-lg-3 col-xl-3 caja ">
                         <a href="progreso.html">
-                            <img class="img-main" src="img/one-piece-volume105.png" alt="">
+                            <img class="img-main" src="{% static '/img/one-piece-volume105.png' %}" alt="">
                         </a>
                         <div class="caja ps-3">
                             <p class="info-main-edit mt-3">IVREA Argentina</p>
@@ -150,7 +151,7 @@
                     </div>
                     <div class="col-sm-12 col-lg-3 col-xl-3 caja  ">
                         <a href="progreso.html">
-                            <img class="img-main" src="img/JJK-14.png" alt="">
+                            <img class="img-main" src="{% static '/img/JJK-14.png' %}" alt="">
                         </a>
                         <div class="caja ps-3">
                             <p class="info-main-edit mt-3">IVREA Argentia</p>
@@ -162,7 +163,7 @@
                     </div>
                     <div class="col-sm-12 col-lg-3 col-xl-3 caja ">
                         <a href="producto.html">
-                            <img class="img-main" src="img/CSM-14.png" alt="">
+                            <img class="img-main" src="{% static '/img/CSM-14.png' %}" alt="">
                         </a>
                         <div class="caja ps-3">
                             <p class="info-main-edit mt-3">NORMA Editorial</p>
@@ -174,7 +175,7 @@
                     </div>
                     <div class="col-sm-12 col-lg-3 col-xl-3 caja">
                         <a href="progreso.html">
-                            <img class="img-main" src="img/BL-7.png" alt="">
+                            <img class="img-main" src="{% static '/img/BL-7.png' %}" alt="">
                         </a>
                         <div class="caja ps-3">
                             <p class="info-main-edit mt-3">IVREA España</p>
@@ -190,7 +191,7 @@
                 <div class="row p-1 fila mt-2">
                     <div class="col-sm-12 col-lg-3 col-xl-3 caja ">
                         <a href="progreso.html">
-                            <img class="img-main" src="img/BC-24.png" alt="">
+                            <img class="img-main" src="{% static '/img/BC-24.png' %}" alt="">
                         </a>
                         <div class="caja ps-3">
                             <p class="info-main-edit mt-3">PANINI Manga</p>
@@ -204,7 +205,7 @@
 
                     <div class="col-sm-12 col-lg-3 col-xl-3 caja  ">
                         <a href="progreso.html">
-                            <img class="img-main" src="img/OP-8.webp" alt="">
+                            <img class="img-main" src="{% static '/img/OP-8.webp' %}" alt="">
                         </a>
                         <div class="caja ps-3">
                             <p class="info-main-edit mt-3">IVREA España</p>
@@ -219,7 +220,7 @@
 
                     <div class="col-sm-12 col-lg-3 col-xl-3 caja ">
                         <a href="progreso.html">
-                            <img class="img-main" src="img/DDD-2.png" alt="">
+                            <img class="img-main" src="{% static '/img/DDD-2.png' %}" alt="">
                         </a>
                         <div class="caja ps-3">
                             <p class="info-main-edit mt-3">NORMA Editorial</p>
@@ -234,7 +235,7 @@
 
                     <div class="col-sm-12 col-lg-3 col-xl-3 caja">
                         <a href="progreso.html">
-                            <img class="img-main" src="img/VL-20.png" alt="">
+                            <img class="img-main" src="{% static '/img/VL-20.png' %}" alt="">
                         </a>
                         <div class="caja ps-3">
                             <p class="info-main-edit mt-3">PANINI Manga</p>
@@ -243,14 +244,10 @@
                             </a>
                             <p class="info-main-pre">$9.990 CLP</p>
                         </div>
-
-                        
-
                     </div>
                 </div>
             </div>
-    </section>
-
+        </section>
     </section>
 
 
@@ -320,7 +317,7 @@
         integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="js/form-query.js"></script>
+    <script type="text/javascript" src="{% static '/js/form-query.js' %}"></script>
 
 </body>
 
