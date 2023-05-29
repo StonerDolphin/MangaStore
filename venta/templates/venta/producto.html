@@ -1,0 +1,68 @@
+{% extends "venta/base.html"%} {% load static %} {% block content %}
+
+<section class="producto" id="bg">
+  <div class="container limit">
+    <div class="row producto m-0">
+      <div class="col-sm-12 col-lg-6 col-xl-6 limit me-2">
+        <img class="img-fluid img-mangas-p" src="{% static '/img/CSM-14.png' %}" alt="" />
+      </div>
+      <div class="col-sm-12 col-lg-6 col-xl-6 limit">
+        <h2 class="tamanno-t">Chainsaw Man</h2>
+        <div class="precio-producto">
+          <span class="tamanno">$9.990 CLP</span>
+          <span></span>
+        </div>
+        <div class="tabla-info">
+          <table class="table table-striped table-borderless">
+            <tbody>
+              <tr>
+                <td>Volumen:</td>
+                <td>#14</td>
+              </tr>
+              <tr>
+                <td>Autor:</td>
+                <td>Tatsuki Fujimoto</td>
+              </tr>
+              <tr>
+                <td>Editorial:</td>
+                <td>IVEREA Argentina</td>
+              </tr>
+              <tr>
+                <td>Genero:</td>
+                <td>Shonen</td>
+              </tr>
+              <tr>
+                <td>Stock:</td>
+                <td>4 Unidades</td>
+              </tr>
+            </tbody>
+          </table>
+          <div>
+            <a href="compra.html">
+              <button type="button" class="btn btn-outline-primary">
+                Comprar
+              </button>
+            </a>
+            <button type="button" class="btn btn-outline-primary">
+              Agregar al carrito
+            </button>
+            <button type="button" class="btn btn-outline-primary">
+              <i class="fa fa-heart" style="font-size: 24px"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="descripcion">
+        <h3>Descripcion</h3>
+        <p>
+          'Chainsaw Man' es la historia de Denji, un adolescente que carga con
+          las inmensas deudas de su padre y que malvive como puede para
+          saldarlas, ya sea vendiendo sus órganos o haciendo todo tipo de
+          trabajos malpagados. Su única compañía es Pochita, un demonio
+          motosierra.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

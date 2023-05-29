@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,46 +16,47 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
     <script src="https://kit.fontawesome.com/4166c17111.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body class="cuerpo">
     <section class="encabezado">
         <nav class="navbar navbar-expand-sm navbar-#f8fbc7 bg-#f8fbc7">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html"><img src="img/one-piece-logo.png" alt=""
-                                                               class="img-fluid logo"></a>
-                <a class="navbar-brand" href="index.html">Manga Store</a>
+                <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static '/img/one-piece-logo.png' %}" alt=""
+                        class="img-fluid logo"></a>
+                <a class="navbar-brand" href="{% url 'index' %}">Manga Store</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="mynavbar">
-                    <ul class="navbar-nav me-auto ms-auto">
+                    <ul class="navbar-nav me-auto ">
                         <li class="nav-item">
-                            <a class="nav-link" href="progreso.html">Tienda</a>
+                            <a class="nav-link" href="{% url 'tienda' %}">Tienda</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="progreso.html">Novedades</a>
+                            <a class="nav-link" href="{% url 'progreso' %}">Novedades</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="progreso.html">Ofertas</a>
+                            <a class="nav-link" href="{% url 'progreso' %}">Ofertas</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav sesion">
                         <li class="nav-item">
-                            <a href="login.html">Log In</a>
+                            <a href="{% url 'login' %}">Log In</a>
                         </li>
                         <li class="nav-item">
-                            <a href="registrarse.html">Sign In</a>
+                            <a href="{% url 'registrarse' %}">Sign In</a>
                         </li>
                     </ul>
                     <form class="d-flex">
-                        <input class="form-control" type="text" placeholder="Buscar">
+                        <label for="buscar"> </label>
+                        <input id="buscar" class="form-control" type="text" placeholder="Buscar">
                         <button class="btn btn-primary p-1 me-2" type="button"><i class="fa fa-search"></i></button>
                     </form>
-                    
+
                 </div>
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -76,47 +78,20 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-primary c-modal"><a href="compra.html">Continuar
-                                        con la compra</a></button>
+                                <a href="{% url 'compra' %}">
+                                    <button type="button" class="btn btn-primary c-modal">Continuar con la compra</button>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-
             </div>
         </nav>
     </section>
+  
+    {% block content%}
 
-    <section id="login">
-        <div class="form-box">
-            <div class="form-value">
-                <form action="">
-                    <h2 class="title-login">Iniciar Sesión</h2>
-                    <div class="inputbox">
-                        <i class="fa-sharp fa-solid fa-envelope"></i>
-                        <input type="correo" class="form-input" name="form-input" id="correo" required>
-                        <label for="correo">Correo electrónico</label>
-                    </div>
-                    <div class="inputbox">
-                        <i class="fa-solid fa-lock"></i>
-                        <input type="password" class="form-input" name="form-input" id="pass" required>
-                        <label for="pass">Contraseña</label>
-                    </div>
-                    <div class="forget">
-                        <label for=""><input type="checkbox">Recuerdame <a href="#">¿Olvidó su contraseña?</a></label>
-                    </div>
-                    <button class="ini">INICIAR SESIÓN</button>
-                    <div class="register">
-                        <p>¿No tienes cuenta? <a href="registrarse.html">Registrate aquí</a></p>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-
-
-
+    {% endblock %}
 
     <section class="pie-pagina">
         <div class="container my-5">
@@ -175,20 +150,17 @@
 
 
 
-
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    <script src="https://code.jquery.com/jquery-3.6.4.js"
+        integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
         crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+        integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="js/form-query.js"></script>
-    <script src="js/login.js"></script>
+    <script type="text/javascript" src="{% static '/js/form-query.js' %}"></script>
+
 </body>
 
 </html>
