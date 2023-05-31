@@ -48,11 +48,13 @@ class manga(models.Model):
     nro_volumen       = models.CharField(max_length = 10)
     precio            = models.CharField(max_length = 100)
     autor             = models.CharField(max_length = 100)
+    stock             = models.CharField(max_length=100, null=True)
+    cover             = models.ImageField(default = 'null', upload_to = 'manga')
     fecha_publicacion = models.DateField()
     sinopsis          = models.TextField()
-    stock             = models.CharField(max_length = 100)
     id_genero         = models.ForeignKey('genero', on_delete=models.CASCADE, db_column='id_genero')
     id_editorial      = models.ForeignKey('editorial', on_delete=models.CASCADE, db_column='id_editorial')
     def __str__(self):
         return str(self.titulo)+" "+str(self.nro_volumen)
+
 
