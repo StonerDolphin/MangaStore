@@ -1,8 +1,13 @@
 {% extends "venta/base.html"%} {% load static %} {% block content %}
 
 <section id="register">
+
   <div class="form-r">
-    <form action="" class="formulario" id="formulario">
+    {% if success %}
+        existe success
+    {% endif %}
+    <form action="{% url 'registrarse' %}" method="post" class="formulario" id="formulario">
+        {% csrf_token %}
       <!-- Dato: Usuario -->
       <div class="form-group" id="grupo__usuario">
         <label for="usuario" class="form-label">Usuario</label>
@@ -21,7 +26,6 @@
           Y solo puede contener numeros, letras y guion bajo.
         </p>
       </div>
-
       <!-- Dato: Nombre -->
       <div class="form-group" id="grupo__nombre">
         <label for="nombre" class="form-label">Nombre</label>
@@ -136,6 +140,7 @@
           Formulario enviado exitosamente!
         </p>
       </div>
+
     </form>
   </div>
 </section>

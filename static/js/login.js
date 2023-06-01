@@ -4,7 +4,7 @@
             let formRegistro = document.getElementsByName('form-input');
         for (let i = 0; i < formRegistro.length; i++) {
             formRegistro[i].addEventListener('blur', function(){
-                if (this.value.length >= 1) {
+                if (this.value.length >= 0) {
                     this.nextElementSibling.classList.add('active');
                     this.nextElementSibling.classList.remove('error');
                 } else if (this.value.length = " ") {
