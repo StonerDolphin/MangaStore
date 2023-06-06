@@ -18,14 +18,14 @@ class editorial(models.Model):
 
 class region(models.Model):
     # Campos del modelo
-    id_region   = models.AutoField(primary_key   =  True, max_length = 10)
+    id_region   = models.AutoField(primary_key   =  True)
     nomb_region = models.CharField(max_length = 100)
     def __str__(self):
         return str(self.nomb_region)
 
 class comuna(models.Model):
     # Campos del modelo
-    id_comuna   = models.AutoField(primary_key   =  True, max_length = 10)
+    id_comuna   = models.AutoField(primary_key   =  True)
     nomb_comuna = models.CharField(max_length = 100)
     id_region   = models.ForeignKey('region', on_delete=models.CASCADE, db_column='id_region')
     def __str__(self):
@@ -56,6 +56,4 @@ class manga(models.Model):
     id_editorial      = models.ForeignKey('editorial', on_delete=models.CASCADE, db_column='id_editorial')
     def __str__(self):
         return str(self.titulo)+" "+str(self.nro_volumen)
-
-class
 
