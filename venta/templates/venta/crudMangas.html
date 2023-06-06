@@ -1,0 +1,95 @@
+{% extends "venta/base.html"%}
+
+{% load static %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-dismissible alert-success">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong class="text-dark">{{ message }}</strong>
+            </div>
+            {% endfor %}
+            {% endif %}
+            <h2>Ingresar Manga</h2>
+            <div class="card">
+                <div class="card-body">
+                    <form action="/registrarManga/" method="POST">{% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" id="txtId" name="txtId" class="form-control" placeholder="Id"
+                                minlength="1" maxlength="6" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="txtTitulo" name="txtTitulo" class="form-control" placeholder="Titulo"
+                                maxlength="100" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="nVolumen" name="nVolumen" class="form-control" placeholder="Numero del volumen"
+                                 required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" id="nPrecio" name="nPrecio" class="form-control" placeholder="Precio Manga"
+                                maxlength="7" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="txtAutor" name="txtAutor" class="form-control" placeholder="Autor"
+                                maxlength="50" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" id="nStock" name="nStock" class="form-control" placeholder="Stock"
+                                maxlength="50" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="txtFecha" name="txtFecha" class="form-control" placeholder="Fecha Publicación"
+                                maxlength="50" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="txtSinopsis" name="txtSinopsis" class="form-control" placeholder="Sinopsis"
+                                maxlength="500" required>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+            <h1>Listado de Cursos</h1>
+            <div class="table-responsive py-2">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Id</th>
+                            <th>Titulo</th>
+                            <th>Stock</th>
+                            <th>Autor</th>
+                            <th colspan="2">Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for m in manga %}
+                        <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{m.id_manga}}</td>
+                            <td>{{m.titulo}}</td>
+                            <td>{{m.stock}}</td>
+                            <td>{{m.autor}}</td>
+                            <td><a href="modificarManga/{{m.id}}" class="btn btn-info">Editar</a></td>
+                            <td><a href="eliminarManga/{{m.id}}" class="btn btn-danger btnEliminacion">Eliminar</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>  
+
+</div>
+
+{% endblock %}

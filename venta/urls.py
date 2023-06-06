@@ -26,4 +26,9 @@ urlpatterns = [
     path('progreso',views.progreso, name='progreso'),
     path('registrarse',views.registrarse, name='registrarse'),
     path('tienda',views.tienda, name='tienda'),
+    path('crud',views.crud, name='crud'),
+    path('registrarManga/', views.registrarManga),
+    path('modificarMangas/<id>', views.modificarMangas),
+    path('editarManga/', views.editarManga),
+    path('eliminarManga/<codigo>', views.eliminarManga),
 ]
