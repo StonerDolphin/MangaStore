@@ -59,32 +59,34 @@
             </div>
         </div>
         <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
-            <h1>Listado de Cursos</h1>
+            <h1>Listado de Mangas</h1>
             <div class="table-responsive py-2">
                 <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Id</th>
-                            <th>Titulo</th>
-                            <th>Stock</th>
-                            <th>Autor</th>
-                            <th colspan="2">Opciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for m in manga %}
-                        <tr>
-                            <td>{{forloop.counter}}</td>
-                            <td>{{m.id_manga}}</td>
-                            <td>{{m.titulo}}</td>
-                            <td>{{m.stock}}</td>
-                            <td>{{m.autor}}</td>
-                            <td><a href="modificarManga/{{m.id}}" class="btn btn-info">Editar</a></td>
-                            <td><a href="eliminarManga/{{m.id}}" class="btn btn-danger btnEliminacion">Eliminar</a></td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
+                    {% if manga %}
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Id</th>
+                                <th>Titulo</th>
+                                <th>Stock</th>
+                                <th>Autor</th>
+                                <th colspan="2">Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for m in manga %}
+                            <tr>
+                                <td>{{forloop.counter}}
+                                <td>{{m.id_manga}}
+                                <td>{{m.titulo}}
+                                <td>{{m.stock}}
+                                <td>{{m.autor}}
+                                <td><a href="modificarManga/{{m.id}}" class="btn btn-info">Editar</a>
+                                <td><a href="eliminarManga/{{m.id}}" class="btn btn-danger btnEliminacion">Eliminar</a>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    {% endif %}
                 </table>
             </div>
         </div>

@@ -30,10 +30,20 @@ def crud(request):
     context ={'mangas':venta}
     return render(request,'venta/crudMangas.html', context)
 
-def home(request):
-    mangasListados = Manga.objects.all()
-    messages.success(request, '¡Cursos listados!')
-    return render(request, "crudMangas.html", {"cursos": mangasListados})
+def lista_mangas(request):
+    lista_mangas = Manga.objects.raw('select * from venta_manga') #select * from Manga
+    context = {"manga":lista_mangas}
+    return render(request,'venta/crudMangas.html', context)
+
+def lista_generos(request):
+    lista_generos = Genero.objects.all() #select * from Genero
+    context = {"generos":lista_generos}
+    return render(request,'venta/crudMangas.html', context)
+
+def lista_editoriales(request):
+    lista_editoreales = Editorial.objects.all() #select * from Editorial
+    context = {"editoriales":lista_editoreales}
+    return render(request,'venta/crudMangas.html', context)
 
 def registrarManga(request):
     id_manga = request.POST['txtId']
