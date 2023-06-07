@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
-from venta.models import cliente, comuna
+from venta.models import Cliente
 from django.contrib import messages
 
 # Create your views here.
@@ -54,10 +54,7 @@ def registrarse(request):
             user = User.objects.create_user(username=usuario, password=password, email=correo, first_name=nombre)
             user.save()
 
-            # Select * from comuna where id = 1
-            idComuna = comuna.objects.get(id_comuna=1)
-
-            c = cliente.objects.create(user=user, telefono=telefono, nombre=nombre, email=correo, id_comuna=idComuna)
+            c = Cliente.objects.create(user=user, telefono=telefono, nombre=nombre, email=correo)
             c.save()
 
             messages.success(request, 'Cliente creado')
