@@ -44,12 +44,29 @@
                                 maxlength="50" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="txtFecha" name="txtFecha" class="form-control" placeholder="Fecha Publicación"
+                            <input type="date" id="txtFecha" name="dFecha" class="form-control" placeholder="Fecha Publicación"
                                 maxlength="50" required>
                         </div>
                         <div class="form-group">
                             <input type="text" id="txtSinopsis" name="txtSinopsis" class="form-control" placeholder="Sinopsis"
                                 maxlength="500" required>
+                        </div>
+                        
+                            <pre>Género:              <select name="genero">
+                                    {% for g in generos %}
+                                        <option value="{{g.id_genero}}" >{{g.generos}}</option>
+                                    {% endfor %}
+                                </select>
+                            </pre>
+                        
+                        <div class="form-group">
+                            <label>
+                                <select name="editorial">
+                                    {% for e in editoriales %}
+                                        <option value="{{e.id_editorial}}" >{{e.id_editorial}}</option>
+                                    {% endfor %}
+                                </select>
+                            </label>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
@@ -62,7 +79,7 @@
             <h1>Listado de Mangas</h1>
             <div class="table-responsive py-2">
                 <table class="table table-striped">
-                    {% if manga %}
+                    {% if mangas %}
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -70,17 +87,19 @@
                                 <th>Titulo</th>
                                 <th>Stock</th>
                                 <th>Autor</th>
+                                <th>Genero</th>
                                 <th colspan="2">Opciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {% for m in manga %}
+                            {% for m in mangas %}
                             <tr>
                                 <td>{{forloop.counter}}
                                 <td>{{m.id_manga}}
                                 <td>{{m.titulo}}
                                 <td>{{m.stock}}
                                 <td>{{m.autor}}
+                                <td>{{m.id_genero}}
                                 <td><a href="modificarManga/{{m.id}}" class="btn btn-info">Editar</a>
                                 <td><a href="eliminarManga/{{m.id}}" class="btn btn-danger btnEliminacion">Eliminar</a>
                             </tr>
