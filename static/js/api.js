@@ -28,6 +28,3 @@ const productos = data => {
     });
     mangas.innerHTML = elemetos
 }
-
-
-

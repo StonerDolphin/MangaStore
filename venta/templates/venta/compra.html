@@ -1,0 +1,125 @@
+{% extends "venta/base.html"%} {% load static %} {% block content %}
+
+<div class="cont-form">
+  <form action="" id="formulario-compra">
+    <div class="row-form">
+      <div class="col">
+        <h3 class="tittle-form">Dirección de envío</h3>
+
+        <div class="input-Box">
+          <span>Nombre Completo :</span>
+          <input
+            type="text"
+            placeholder="Nombre Completo"
+            name="nombre"
+            id="nombre"
+          />
+        </div>
+        <div class="input-Box">
+          <span>Correo electrónico :</span>
+          <input
+            type="email"
+            placeholder="example@example.ex"
+            name="email"
+            id="email"
+          />
+        </div>
+        <div class="input-Box">
+          <span>Dirección :</span>
+          <input
+            type="text"
+            placeholder="Dirección-bloque-numero"
+            name="direccion"
+            id="direccion"
+          />
+        </div>
+        <div class="input-Box">
+          <span>Comuna: </span>
+          <input type="text" placeholder="comuna" name="comuna" id="comuna" />
+        </div>
+
+        <div class="flex">
+          <div class="input-Box">
+            <span>Región :</span>
+            <input type="text" placeholder="región" name="region" id="region" />
+          </div>
+          <div class="input-Box">
+            <span>Código postal :</span>
+            <input
+              type="number"
+              placeholder="123 456"
+              name="cpostal"
+              id="cpostal"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <h3 class="tittle-form">Datos pago</h3>
+
+        <div class="input-Box">
+          <span>Tarjetas disponibles </span>
+          <img src="{% static 'img/card_img.png' %}" alt="" />
+        </div>
+
+        <div class="input-Box">
+          <span>Ingrese su Run :</span>
+          <input type="number" placeholder="11.111.111-1" name="run" id="run" />
+        </div>
+        <div class="input-Box">
+          <span>Numero tarjeta :</span>
+          <input
+            type="number"
+            placeholder="1111-2222-3333-4444"
+            name="ntarjeta"
+            id="ntarjeta"
+          />
+        </div>
+        <div class="input-Box">
+          <span>Mes de vencimiento :</span>
+          <input
+            type="number"
+            placeholder="07"
+            name="mvencimiento"
+            id="mvencimiento"
+          />
+        </div>
+
+        <div class="flex">
+          <div class="input-Box">
+            <span>Año vencimiento :</span>
+            <input
+              type="number"
+              placeholder="2023"
+              name="avencimiento"
+              id="avencimiento"
+            />
+          </div>
+          <div class="input-Box">
+            <span>CVV :</span>
+            <input type="number" placeholder="1234" name="cvv" id="cvv" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="record-me">
+      <label for=""
+        ><input type="checkbox" />Guardar mi información y consultar mas
+        rápidamente la próxima vez
+      </label>
+    </div>
+
+    <button
+      type="submit"
+      value="Proceder con el pago"
+      class="submit-btn"
+      id="guardarC"
+    >
+      Continuar con el pago
+    </button>
+  </form>
+</div>
+
+{% endblock %}

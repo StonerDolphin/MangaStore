@@ -1,0 +1,170 @@
+{% extends "venta/base.html"%}
+
+{% load static %}
+
+{% block content %}
+
+    <section id="bg">
+        <div class="container">
+            <div class="row">
+                <section class="carrusel">
+                    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+                        <!-- Indicators/dots -->
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                            <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+                        </div>
+                        <!-- The slideshow/carousel -->
+                        <div class="carousel-inner">
+                            <div class="carousel-item active c-item">
+                                <img src="{% static '/img/anime.jpg' %}" alt="" class="d-block rounded c-img" style="width:100%">
+                                <div class="carousel-caption">
+
+                                </div>
+                            </div>
+                            <div class="carousel-item c-item">
+                                <img src="{% static '/img/manga2.png' %}" alt="" class="d-block rounded c-img" style="width:100%">
+                                <div class="carousel-caption">
+
+                                </div>
+                            </div>
+                            <div class="carousel-item c-item">
+                                <img src="{% static '/img/mangass.jpg' %}" alt="New York" class="d-block rounded c-img"
+                                    style="width:100%">
+                                <div class="carousel-caption">
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Left and right controls/icons -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <section class="main">
+            <div class="container caja">
+                <h1 class="d-flex justify-content-center">Novedades</h1>
+                <div class="row p-1 fila">
+                    <div class="col-sm-12 col-lg-3 col-xl-3 caja ">
+                        <a href="progreso.html">
+                            <img class="img-main" src="{% static '/img/one-piece-volume105.png' %}" alt="">
+                        </a>
+                        <div class="caja ps-3">
+                            <p class="info-main-edit mt-3">IVREA Argentina</p>
+                            <a href="progreso.html">
+                                <p class="info-main-nom">One Piece #105</p>
+                            </a>
+                            <p class="info-main-pre">$7.890 CLP</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-lg-3 col-xl-3 caja  ">
+                        <a href="progreso.html">
+                            <img class="img-main" src="{% static '/img/JJK-14.png' %}" alt="">
+                        </a>
+                        <div class="caja ps-3">
+                            <p class="info-main-edit mt-3">IVREA Argentia</p>
+                            <a href="progreso.html">
+                                <p class="info-main-nom">Jujutsu Kaisen #14</p>
+                            </a>
+                            <p class="info-main-pre">$6.990 CLP</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-lg-3 col-xl-3 caja ">
+                        <a href="{% url 'producto' %}">
+                            <img class="img-main" src="{% static '/img/CSM-14.png' %}" alt="">
+                        </a>
+                        <div class="caja ps-3">
+                            <p class="info-main-edit mt-3">NORMA Editorial</p>
+                            <a href="producto.html">
+                                <p class="info-main-nom">Chainsaw Man #14</p>
+                            </a>
+                            <p class="info-main-pre">$7.990 CLP</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-lg-3 col-xl-3 caja">
+                        <a href="progreso.html">
+                            <img class="img-main" src="{% static '/img/BL-7.png' %}" alt="">
+                        </a>
+                        <div class="caja ps-3">
+                            <p class="info-main-edit mt-3">IVREA España</p>
+                            <a href="progreso.html">
+                                <p class="info-main-nom">Blue Lock #7</p>
+                            </a>
+                            <p class="info-main-pre">$5.990 CLP</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row p-1 fila mt-2">
+                    <div class="col-sm-12 col-lg-3 col-xl-3 caja ">
+                        <a href="progreso.html">
+                            <img class="img-main" src="{% static '/img/BC-24.png' %}" alt="">
+                        </a>
+                        <div class="caja ps-3">
+                            <p class="info-main-edit mt-3">PANINI Manga</p>
+                            <a href="progreso.html">
+                                <p class="info-main-nom">Black Clover #24</p>
+                            </a>
+                            <p class="info-main-pre">$6.750 CLP</p>
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-12 col-lg-3 col-xl-3 caja  ">
+                        <a href="progreso.html">
+                            <img class="img-main" src="{% static '/img/OP-8.webp' %}" alt="">
+                        </a>
+                        <div class="caja ps-3">
+                            <p class="info-main-edit mt-3">IVREA España</p>
+                            <a href="progreso.html">
+                                <p class="info-main-nom">One Punch Man #8</p>
+                            </a>
+                            <p class="info-main-pre">$9.990 CLP</p>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-sm-12 col-lg-3 col-xl-3 caja ">
+                        <a href="progreso.html">
+                            <img class="img-main" src="{% static '/img/DDD-2.png' %}" alt="">
+                        </a>
+                        <div class="caja ps-3">
+                            <p class="info-main-edit mt-3">NORMA Editorial</p>
+                            <a href="progreso.html">
+                                <p class="info-main-nom">DanDaDan #2</p>
+                            </a>
+                            <p class="info-main-pre">$8.450 CLP</p>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-sm-12 col-lg-3 col-xl-3 caja">
+                        <a href="progreso.html">
+                            <img class="img-main" src="{% static '/img/VL-20.png' %}" alt="">
+                        </a>
+                        <div class="caja ps-3">
+                            <p class="info-main-edit mt-3">PANINI Manga</p>
+                            <a href="progreso.html">
+                                <p class="info-main-nom">Vinland Saga</p>
+                            </a>
+                            <p class="info-main-pre">$9.990 CLP</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+
+{% endblock %}    

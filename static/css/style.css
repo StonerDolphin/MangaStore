@@ -15,7 +15,7 @@ body{
 
 /**Pagina en Construccion**/
 .fuera-servicio {
-    background-image: url(../img/pagina-en-construccion.png);
+    background-image: url(/static/img/pagina-en-construccion.png);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -96,7 +96,7 @@ body{
 
 /**Main**/
 #bg{
-    background: url(../img/fondo-inicio.png) no-repeat;
+    background: url(/static/img/fondo-inicio.png) no-repeat;
     background-position: center;
     background-size: cover;
     backdrop-filter: blur(5px);
@@ -192,7 +192,7 @@ margin-bottom:5px;
     align-items: center;
     min-height: 91.5vh;
     width: 100%;
-    background: url(../img/fondo.png) no-repeat;
+    background: url(/static/img/fondo.png) no-repeat;
     background-position: center;
     background-size: cover;
 }
@@ -328,7 +328,7 @@ input:valid~label {
     align-items: center;
     min-height: 91.5vh;
     width: 100%;
-    background: url(../img/fondo2.png) no-repeat;
+    background: url(/static/img/fondo2.png) no-repeat;
     background-position: center;
     background-size: cover;
 }
@@ -516,7 +516,7 @@ color: red;
     align-items: center;
     padding: 25px;
     min-height: 100vh;
-    background: url(../img/fondo-compra.png)no-repeat;
+    background: url(/static/img/fondo-compra.png)no-repeat;
     background-position: center;
     background-size: cover;
     padding-bottom: 70px;
@@ -524,7 +524,7 @@ color: red;
 .cont-form form{
     padding: 20px;
     width: 700px;
-    background: url(../img/fondo-rec.png)no-repeat;
+    background: url(/static/img/fondo-rec.png)no-repeat;
     background-position: center;
     background-size: cover;
     box-shadow: 0 5px 10px rgb(0, 0, 0,.1);
@@ -600,6 +600,21 @@ color: red;
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {}
 
+@media screen and (max-width: 800px) {
+	.formulario {
+		grid-template-columns: 1fr;
+	}
+
+	.formulario__grupo-terminos, 
+	.formulario__mensaje,
+	.form-group-btn-enviar {
+		grid-column: 1;
+	}
+
+	.formulario__btn {
+		width: 100%;
+	}
+}
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {}
 
