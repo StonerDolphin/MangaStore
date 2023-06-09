@@ -42,12 +42,12 @@ def registrarse(request):
     context = {}
 
     if request.method == 'POST':
-        usuario = request.POST.get('usuario')
-        password = request.POST.get('password')
-        password2 = request.POST.get('password2')
-        nombre = request.POST.get('nombre')
-        correo = request.POST.get('correo')
-        telefono = request.POST.get('telefono')
+        usuario       = request.POST.get('usuario')
+        password      = request.POST.get('password')
+        password2     = request.POST.get('password2')
+        nombre        = request.POST.get('nombre')
+        correo        = request.POST.get('correo')
+        telefono      = request.POST.get('telefono')
 
         if password == password2:
 
