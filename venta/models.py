@@ -4,15 +4,16 @@ from django.db import models
 # Create your models here.
 class Genero(models.Model):
     # Campos del modelo
-    id_genero   = models.CharField(primary_key   =  True, max_length = 10)
-    nomb_genero = models.CharField(max_length = 100)
+    id_genero   = models.CharField(primary_key=True, max_length = 10)
+    nomb_genero = models.CharField(max_length = 100, blank=False, null=False)
     def __str__(self):
         return str(self.nomb_genero)
+
 
 class Editorial(models.Model):
     # Campos del modelo
     id_editorial   = models.CharField(primary_key   =  True, max_length = 10)
-    nomb_editorial = models.CharField(max_length = 100)
+    nomb_editorial = models.CharField(max_length = 100, blank=False, null=False)
     def __str__(self):
         return str(self.nomb_editorial)
 

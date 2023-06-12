@@ -5,79 +5,9 @@
 {% block body %}
 
 <div class="container">
-    <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
-            {% if messages %}
-            {% for message in messages %}
-            <div class="alert alert-dismissible alert-success">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <strong class="text-dark">{{ message }}</strong>
-            </div>
-            {% endfor %}
-            {% endif %}
-            <h2>Ingresar Manga</h2>
-            <div class="card">
-                <div class="card-body">
-                    <form action="/registrarManga/" method="POST">{% csrf_token %}
-                        <div class="form-group">
-                            <input type="text" id="txtId" name="txtId" class="form-control" placeholder="Id"
-                                minlength="1" maxlength="6" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="txtTitulo" name="txtTitulo" class="form-control" placeholder="Titulo"
-                                maxlength="100" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="nVolumen" name="nVolumen" class="form-control" placeholder="Numero del volumen"
-                                 required>
-                        </div>
-                        <div class="form-group">
-                            <input type="number" id="nPrecio" name="nPrecio" class="form-control" placeholder="Precio Manga"
-                                maxlength="7" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="txtAutor" name="txtAutor" class="form-control" placeholder="Autor"
-                                maxlength="50" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="number" id="nStock" name="nStock" class="form-control" placeholder="Stock"
-                                maxlength="50" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="date" id="txtFecha" name="dFecha" class="form-control" placeholder="Fecha Publicación"
-                                maxlength="50" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="txtSinopsis" name="txtSinopsis" class="form-control" placeholder="Sinopsis"
-                                maxlength="500" required>
-                        </div>
-                        
-                            <pre>Género:              <select name="genero">
-                                    {% for g in generos %}
-                                        <option value="{{g.id_genero}}" >{{g.generos}}</option>
-                                    {% endfor %}
-                                </select>
-                            </pre>
-                        
-                        <div class="form-group">
-                            <label>
-                                <select name="editorial">
-                                    {% for e in editoriales %}
-                                        <option value="{{e.id_editorial}}" >{{e.id_editorial}}</option>
-                                    {% endfor %}
-                                </select>
-                            </label>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+        <div class=>
             <h1>Listado de Mangas</h1>
-            <div class="table-responsive py-2">
+            <div class="table-responsive">
                 <table class="table table-striped">
                     {% if mangas %}
                         <thead>
@@ -85,9 +15,14 @@
                                 <th>#</th>
                                 <th>Id</th>
                                 <th>Titulo</th>
-                                <th>Stock</th>
-                                <th>Autor</th>
+                                <th>Nro.Volumen</th>
+                                <th>Precio</th>
                                 <th>Genero</th>
+                                <th>Stock</th>
+                                <th>Imagen</th>
+                                <th>Fecha Publi</th>
+                                <th>Genero</th>
+                                <th>Editorial</th>
                                 <th colspan="2">Opciones</th>
                             </tr>
                         </thead>
@@ -97,9 +32,14 @@
                                 <td>{{forloop.counter}}
                                 <td>{{m.id_manga}}
                                 <td>{{m.titulo}}
-                                <td>{{m.stock}}
+                                <td>{{m.nro_volumen}}
+                                <td>{{m.precio}}
                                 <td>{{m.autor}}
+                                <td>{{m.stock}}
+                                <td>{{m.cover}}
+                                <td>{{m.fecha_publicacion}}
                                 <td>{{m.id_genero}}
+                                <td>{{m.id_editorial}}
                                 <td><a href="modificarManga/{{m.id}}" class="btn btn-info">Editar</a>
                                 <td><a href="eliminarManga/{{m.id}}" class="btn btn-danger btnEliminacion">Eliminar</a>
                             </tr>
@@ -108,9 +48,22 @@
                     {% endif %}
                 </table>
             </div>
+        </div>  
+    <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="button">
+                <a href="{% url 'registrarManga' %}">Agregar un nuevo Manga</a>
+            </button>
         </div>
-    </div>  
-
 </div>
+
+
+
+
+
+
+
+
+
+
 
 {% endblock %}
