@@ -75,8 +75,8 @@ def registrarManga(request):
         objManga.save()
         lista_generos = Genero.objects.all()
         lista_editoriales = Editorial.objects.all()
-        context = {"mensaje":"Se guardó alumno", "generos":lista_generos,"editoriales":lista_editoriales}
-        messages.success(request, '¡Curso registrado!')
+        context = {"generos":lista_generos,"editoriales":lista_editoriales}
+        messages.success(request, '¡Manga registrado!')
         return render(request,'venta/agregarManga.html', context)
 
 def modificarMangas(request, id_manga):
@@ -103,14 +103,20 @@ def editarManga(request):
     manga.sinopsis = sinopsis
     manga.save()
 
-    messages.success(request, '¡Curso actualizado!')
+    messages.success(request, '¡Manga actualizado!')
 
     return redirect('/')
 
-def eliminarManga(request, id_manga):
-    manga = Manga.objects.get(id_manga=id_manga)
-    manga.delete()
-
-    messages.success(request, '¡Curso eliminado!')
-
-    return redirect('/')
+def eliminarManga(request, pk):
+    try:
+        manga = Manga.objects.get(id_manga=pk)
+        manga.delete()
+        mensaje = "El manga se eliminó"
+        mangas = Manga.objects.all()
+        context = {"mangas":mangas,"mensaje":mensaje}
+        return render(request,'venta/crudMangas.html', context)
+    except:
+        mensaje = "El manga no se eliminó"
+        mangas = Manga.objects.all()
+        context = {"mangas":mangas,"mensaje":mensaje}
+        return render(request,'venta/crudMangas.html', context)

@@ -33,5 +33,5 @@ urlpatterns = [
     path('registrarManga', views.registrarManga, name='registrarManga'),
     path('modificarMangas/<id>', views.modificarMangas, name='modificarManga'),
     path('editarManga/', views.editarManga, name='editarManga'),
-    path('eliminarManga/<codigo>', views.eliminarManga, name='eliminarManga'),
+    path('eliminarManga/<str:pk>', views.eliminarManga, name='eliminarManga'),
 ]
