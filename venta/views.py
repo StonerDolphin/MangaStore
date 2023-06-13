@@ -1,5 +1,6 @@
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
+from django.db import IntegrityError
 from django.shortcuts import render, redirect
 from venta.models import Cliente
 from django.contrib import messages
@@ -12,6 +13,7 @@ def inicio(request):
 def compra(request):
     return render (request,'venta/compra.html')
 
+
 def signin(request):
     context = {}
 
@@ -19,15 +21,19 @@ def signin(request):
         username = request.POST['usuario']
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
+
         if user is None:
-            messages.error(request, 'El usuario no existe')
-            return render(request,'venta/login.html')
+            if User.objects.filter(username=username).exists():
+                messages.error(request, 'Contraseña incorrecta')
+            else:
+                messages.error(request, 'El usuario no existe')
+            return render(request, 'venta/login.html')
 
         messages.success(request, 'Exito')
         login(request, user)
         return redirect('index')
     else:
-        return render(request,'venta/login.html')
+        return render(request, 'venta/login.html')
 
 def producto(request):
     return render(request,'venta/producto.html')
@@ -36,9 +42,7 @@ def progreso(request):
     return render(request,'venta/progreso.html')
 
 
-
 def registrarse(request):
-
     context = {}
 
     if request.method == 'POST':
@@ -50,22 +54,27 @@ def registrarse(request):
         telefono      = request.POST.get('telefono')
 
         if password == password2:
+            try:
+                user = User.objects.create_user(username=usuario, password=password, email=correo, first_name=nombre)
+                user.save()
 
-            user = User.objects.create_user(username=usuario, password=password, email=correo, first_name=nombre)
-            user.save()
+                c = Cliente.objects.create(user=user, telefono=telefono, nombre=nombre, email=correo)
+                c.save()
 
-            c = Cliente.objects.create(user=user, telefono=telefono, nombre=nombre, email=correo)
-            c.save()
+                messages.success(request, 'Cliente creado')
+                context['success'] = True
 
-            messages.success(request, 'Cliente creado')
-            context['success'] = True
+                return render(request, 'venta/registrarse.html', context)
 
-            return render(request, 'venta/registrarse.html', context)
+            except Exception as e:
+                print(e)
+                return render(request, 'venta/registrarse.html', context)
+
         else:
             messages.error(request, 'Las contraseñas no coinciden')
             return render(request, 'venta/registrarse.html', context)
     else:
-        return render(request,'venta/registrarse.html', context)
+        return render(request, 'venta/registrarse.html', context)
 
 def tienda(request):
     return render(request,'venta/tienda.html')
