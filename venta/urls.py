@@ -19,19 +19,35 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+
     path('', views.inicio, name='index'),
+
     path('compra',views.compra, name='compra'),
+
     path('signin',views.signin, name='signin'),
+
     path('producto',views.producto, name='producto'),
+
     path('progreso',views.progreso, name='progreso'),
+
     path('signup',views.signup, name='signup'),
+
     path('tienda',views.tienda, name='tienda'),
+
     path('crud',views.crud, name='crud'),
+
     path('generos',views.generos, name='generos'),
+
     path('mangas',views.mangas, name='mangas'),
+
     path('lista_editoreales',views.lista_editoriales, name='lista_editoreales'),
+
     path('registrarManga/', views.registrarManga),
+
     path('modificarMangas/<id>', views.modificarMangas),
+
     path('editarManga/', views.editarManga),
+
     path('eliminarManga/<codigo>', views.eliminarManga),
+
 ]
