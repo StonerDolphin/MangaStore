@@ -21,10 +21,10 @@ from . import views
 urlpatterns = [
     path('', views.inicio, name='index'),
     path('compra',views.compra, name='compra'),
-    path('login',views.login, name='login'),
+    path('signin',views.signin, name='signin'),
     path('producto',views.producto, name='producto'),
     path('progreso',views.progreso, name='progreso'),
-    path('registrarse',views.registrarse, name='registrarse'),
+    path('signup',views.signup, name='signup'),
     path('tienda',views.tienda, name='tienda'),
     path('crud',views.crud, name='crud'),
     path('generos',views.generos, name='generos'),
