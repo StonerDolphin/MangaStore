@@ -16,7 +16,7 @@
             {% endfor %}
             {% endif %}
             <h2>Ingresar Manga</h2>
-            <div class="card">
+            <div class="container">
                 <div class="card-body">
                     <form action="{% url 'registrarManga' %}" method="POST">{% csrf_token %}
                         <div class="form-group">
@@ -51,7 +51,7 @@
                             <input type="text" id="txtSinopsis" name="txtSinopsis" class="form-control" placeholder="Sinopsis"
                                 maxlength="500" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <pre>Género: <select name="genero">
                                 {% for tmp in generos %}
@@ -76,12 +76,35 @@
                                 <a href="{% url 'crud' %}"> Volver a Lista de Mangas</a> 
                             </button>
                         </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+                            <h2>Ingresar Imagen</h2>
+                            <div class="card">
+                                <div class="card-body">
+                                    <form action="{% url 'registrarManga' %}" method="POST">{% csrf_token %}
+                                        <div class="form-group">
+                                            <div>
+                                                <label for="imagen">Imagen:</label>
+                                                <input type="file" id="imagen" name="imagen" accept="image/*" required onchange="mostrarVistaPrevia()">
+                                            </div>
+                                        </div>
+                                        <div></div>>
+                                            <img id="vista-previa" src="#" alt="Vista previa de la imagen"/>
+                                        </div>
+                                    </form>
+                                </div>
+                        </div>
                     </form>
                 </div>
             </div>
+            
         </div>
+            
+        </div>   
+        
+        
     </div>  
 
 </div>
-
+<script src="{% static 'js/mImagen.js' %}"></script>
 {% endblock %}

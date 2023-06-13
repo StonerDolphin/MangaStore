@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import Genero,Editorial,Region,Comuna,Cliente,Manga
 from django.contrib import messages
+from django.db import IntegrityError
 # Create your views here.
 
 def inicio(request):
@@ -64,6 +65,7 @@ def registrarManga(request):
         sinopsis = request.POST['txtSinopsis']
         generos = request.POST['genero']
         editoriales = request.POST['editorial']
+        cover = request.POST['imagen']
 
         objGenero=Genero.objects.get(id_genero = generos)
         objEditorial=Editorial.objects.get(id_editorial = editoriales)
@@ -71,7 +73,7 @@ def registrarManga(request):
             id_manga=id_manga, titulo=titulo, nro_volumen=nro_volumen,
             precio=precio, autor=autor, stock=stock, 
             fecha_publicacion=fecha_publicacion, sinopsis=sinopsis,
-            id_genero=objGenero,id_editorial=objEditorial)
+            id_genero=objGenero,id_editorial=objEditorial,cover=cover)
         objManga.save()
         lista_generos = Genero.objects.all()
         lista_editoriales = Editorial.objects.all()
@@ -105,6 +107,7 @@ def modificarMangas(request):
         generos = request.POST['genero']
         editoriales = request.POST['editorial']
 
+        
         objGenero = Genero.objects.get(id_genero = generos)
         objEditorial=Editorial.objects.get(id_editorial = editoriales)
         
@@ -118,9 +121,10 @@ def modificarMangas(request):
         objManga.fecha_publicacion = fecha_publicacion
         objManga.sinopsis          = sinopsis
         objManga.id_genero         = objGenero
-        objEditorial.id_editorial  = objEditorial
-        
-        objManga.save() #update 
+        objManga.id_editorial      = objEditorial
+            
+        objManga.save() #update
+      
         lista_generos = Genero.objects.all()
         lista_editoriales = Editorial.objects.all()
         context = {"generos":lista_generos,"editoriales":lista_editoriales, "manga":objManga}
