@@ -21,9 +21,17 @@ from . import views
 urlpatterns = [
     path('', views.inicio, name='index'),
     path('compra',views.compra, name='compra'),
-    path('login', views.signin, name='login'),
+    path('login',views.login, name='login'),
     path('producto',views.producto, name='producto'),
     path('progreso',views.progreso, name='progreso'),
     path('registrarse',views.registrarse, name='registrarse'),
     path('tienda',views.tienda, name='tienda'),
+    path('crud',views.crud, name='crud'),
+    path('generos',views.generos, name='generos'),
+    path('mangas',views.mangas, name='mangas'),
+    path('lista_editoreales',views.lista_editoriales, name='lista_editoreales'),
+    path('registrarManga/', views.registrarManga),
+    path('modificarMangas/<id>', views.modificarMangas),
+    path('editarManga/', views.editarManga),
+    path('eliminarManga/<codigo>', views.eliminarManga),
 ]

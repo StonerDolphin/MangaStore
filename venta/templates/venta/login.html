@@ -2,29 +2,22 @@
 
 {% load static %}
 
-{% block content %}
+{% block body %}
+
     <section id="login">
-        {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
         <div class="form-box">
             <div class="form-value">
-                <form action="{% url 'login' %}" method="post" >
-                    {% csrf_token %}
+                <form action="">
                     <h2 class="title-login">Iniciar Sesión</h2>
                     <div class="inputbox">
                         <i class="fa-sharp fa-solid fa-envelope"></i>
-                        <input type="text" class="form-input" name="usuario" id="usuario" required>
-                        <label for="usuario">Usuario</label>
+                        <input type="correo" class="form-input" name="form-input" id="correo" required>
+                        <label for="correo">Correo electrónico</label>
                     </div>
                     <div class="inputbox">
                         <i class="fa-solid fa-lock"></i>
-                        <input type="password" class="form-input" name="password" id="password" required>
-                        <label for="password">Contraseña</label>
+                        <input type="password" class="form-input" name="form-input" id="pass" required>
+                        <label for="pass">Contraseña</label>
                     </div>
                     <div class="forget">
                         <label for=""><input type="checkbox">Recuerdame <a href="#">¿Olvidó su contraseña?</a></label>

@@ -590,6 +590,12 @@ color: red;
     display: flex;
     justify-content: center;
 }
+th,
+td {
+  text-align: center;
+  vertical-align: middle;
+}
+
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {}

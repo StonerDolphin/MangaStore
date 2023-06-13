@@ -1,4 +1,4 @@
-{% extends "venta/base.html"%} {% load static %} {% block content %}
+{% extends "venta/base.html"%} {% load static %} {% block body %}
 
 <div class="cont-form">
   <form action="" id="formulario-compra">
@@ -60,7 +60,7 @@
 
         <div class="input-Box">
           <span>Tarjetas disponibles </span>
-          <img src="{% static 'img/card_img.png' %}" alt="" />
+          <img src="img/card_img.png" alt="" />
         </div>
 
         <div class="input-Box">
@@ -121,5 +121,4 @@
     </button>
   </form>
 </div>
-
 {% endblock %}
