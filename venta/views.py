@@ -1,5 +1,6 @@
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
+from django.db import IntegrityError
 from django.shortcuts import render, redirect
 from .models import Genero, Editorial, Region, Comuna, Cliente, Manga
 from django.contrib import messages
@@ -22,8 +23,12 @@ def signin(request):
         username = request.POST['usuario']
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
+
         if user is None:
-            messages.error(request, 'El usuario no existe')
+            if User.objects.filter(username=username).exists():
+                messages.error(request, 'Contraseña incorrecta')
+            else:
+                messages.error(request, 'El usuario no existe')
             return render(request, 'venta/login.html')
 
         messages.success(request, 'Exito')
@@ -64,14 +69,16 @@ def signup(request):
                 context['success'] = True
 
                 return render(request, 'venta/registrarse.html', context)
+
             except Exception as e:
                 print(e)
-                return render(request, 'venta/registrarse.html')
+                return render(request, 'venta/registrarse.html', context)
+
         else:
             messages.error(request, 'Las contraseñas no coinciden')
             return render(request, 'venta/registrarse.html')
     else:
-        return render(request, 'venta/registrarse.html')
+        return render(request, 'venta/registrarse.html', context)
 
 
 def tienda(request):
