@@ -48,7 +48,7 @@
                                 <td>{{m.fecha_publicacion}}
                                 <td>{{m.id_genero}}
                                 <td>{{m.id_editorial}}
-                                <td><a href="modificarManga/{{m.id}}" class="btn btn-info">Editar</a>
+                                <td><a href="{% url 'buscar_manga' pk=m.id_manga %}" class="btn btn-info">Editar</a>
                                 <td><a href="{% url 'eliminarManga' pk=m.id_manga %}" class="btn btn-danger btnEliminacion">Eliminar</a>
                             </tr>
                             {% endfor %}
