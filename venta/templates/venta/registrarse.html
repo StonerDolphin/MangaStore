@@ -1,4 +1,6 @@
-{% extends "venta/base.html" %} {% load static %} {% block content %}
+{% extends "venta/base.html" %}
+{% load static %}
+{% block content %}
 
 <section id="register">
 
@@ -6,7 +8,7 @@
     {% if success %}
          success
     {% endif %}
-    <form action="{% url 'signup' %}" method="post" class="formulario" id="formulario">
+    <form action="{% url 'signup' %}" method="POST" class="formulario" id="formulario">
         {% csrf_token %}
       <!-- Dato: Usuario -->
       <div class="form-group" id="grupo__usuario">
