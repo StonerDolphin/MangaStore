@@ -23,10 +23,7 @@ def progreso(request):
 
 def signup(request):
     context = {}
-    print('registro')
     if request.method == 'POST':
-        print('request.POST')
-        print(request.POST)
         usuario = request.POST.get('usuario')
         password = request.POST.get('password')
         password2 = request.POST.get('password2')
@@ -36,7 +33,6 @@ def signup(request):
 
         if password == password2:
             try:
-                print('pre')
                 user = User.objects.create_user(username=usuario, password=password, email=correo, first_name=nombre)
                 user.save()
 
@@ -45,11 +41,8 @@ def signup(request):
 
                 messages.success(request, 'Cliente creado')
                 context['success'] = True
-                print('finish')
                 return render(request, 'venta/registrarse.html', context)
             except Exception as e:
-                print('e')
-                print(e)
                 return render(request, 'venta/registrarse.html', context)
         else:
             messages.error(request, 'Las contraseñas no coinciden')
