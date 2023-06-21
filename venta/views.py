@@ -20,7 +20,7 @@ def producto(request):
 def progreso(request):
     return render(request,'venta/progreso.html')
 
-def registrarse(request):
+def signup(request):
     return render(request,'venta/registrarse.html')
 
 def tienda(request):
