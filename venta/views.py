@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.shortcuts import render,redirect
 from .models import Genero,Editorial,Region,Comuna,Cliente,Manga
 from django.contrib import messages
@@ -21,7 +22,35 @@ def progreso(request):
     return render(request,'venta/progreso.html')
 
 def signup(request):
-    return render(request,'venta/registrarse.html')
+    context = {}
+    if request.method == 'POST':
+        usuario = request.POST.get('usuario')
+        password = request.POST.get('password')
+        password2 = request.POST.get('password2')
+        nombre = request.POST.get('nombre')
+        correo = request.POST.get('correo')
+        telefono = request.POST.get('telefono')
+
+        if password == password2:
+            try:
+                user = User.objects.create_user(username=usuario, password=password, email=correo, first_name=nombre)
+                user.save()
+
+                c = Cliente.objects.create(user=user, telefono=telefono, nombre=nombre, email=correo)
+                c.save()
+
+                messages.success(request, 'Cliente creado')
+                context['success'] = True
+
+                return render(request, 'venta/registrarse.html', context)
+            except Exception as e:
+                print(e)
+                return render(request, 'venta/registrarse.html', context)
+        else:
+            messages.error(request, 'Las contraseñas no coinciden')
+            return render(request, 'venta/registrarse.html', context)
+    else:
+        return render(request, 'venta/registrarse.html', context)
 
 def tienda(request):
     return render(request,'venta/tienda.html')

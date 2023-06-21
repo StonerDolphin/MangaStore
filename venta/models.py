@@ -38,10 +38,9 @@ class Cliente(models.Model):
     nombre    = models.CharField(max_length = 100)
     email     = models.EmailField(unique    = True)
     telefono  = models.CharField(max_length = 20)
-
-
     def __str__(self):
         return str(self.nombre)
+
 class Manga(models.Model):
     # Campos del modelo
     id_manga          = models.CharField(primary_key = True, max_length = 10)
