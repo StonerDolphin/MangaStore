@@ -1,3 +1,4 @@
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.shortcuts import render,redirect
 from .models import Genero,Editorial,Region,Comuna,Cliente,Manga
@@ -12,8 +13,20 @@ def inicio(request):
 def compra(request):
     return render (request,'venta/compra.html')
 
-def login(request):
-    return render(request,'venta/login.html')
+def signin(request):
+    if request.method == 'POST':
+        correo = request.POST['correo']
+        password = request.POST['password']
+        user = authenticate(request, username = correo, password = password)
+        if user is None:
+            messages.error(request, 'El usuario no existe')
+            return render(request, 'venta/login.html')
+        else:
+            messages.success(request, 'Exito')
+            login(request, user)
+            return redirect('index')
+    else:
+        return render(request, 'venta/login.html')
 
 def producto(request):
     return render(request,'venta/producto.html')
@@ -33,7 +46,7 @@ def signup(request):
 
         if password == password2:
             try:
-                user = User.objects.create_user(username=usuario, password=password, email=correo, first_name=nombre)
+                user = User.objects.create_user(username=correo, password=password, email=correo, first_name=usuario)
                 user.save()
 
                 c = Cliente.objects.create(user=user, telefono=telefono, nombre=nombre, email=correo)
@@ -43,6 +56,8 @@ def signup(request):
                 context['success'] = True
                 return render(request, 'venta/registrarse.html', context)
             except Exception as e:
+                print('e')
+                print(e)
                 return render(request, 'venta/registrarse.html', context)
         else:
             messages.error(request, 'Las contraseñas no coinciden')
