@@ -2,6 +2,9 @@
 
 <section id="register">
   <div class="form-r">
+      {% if success %}
+          usuario creado
+      {% endif %}
     <form action="{% url 'signup' %}" method="post" class="formulario" id="formulario">
         {% csrf_token %}
       <!-- Dato: Usuario -->

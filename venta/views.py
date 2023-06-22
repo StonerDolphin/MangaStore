@@ -28,13 +28,14 @@ def signin(request):
     else:
         return render(request, 'venta/login.html')
 
+
 def producto(request):
-    return render(request,'venta/producto.html')
+    return render(request, 'venta/producto.html')
 
 def progreso(request):
-    return render(request,'venta/progreso.html')
+    return render(request, 'venta/progreso.html')
 
-def signup(request):
+def signup(request):    
     context = {}
     if request.method == 'POST':
         usuario = request.POST.get('usuario')
@@ -54,6 +55,7 @@ def signup(request):
 
                 messages.success(request, 'Cliente creado')
                 context['success'] = True
+
                 return render(request, 'venta/registrarse.html', context)
             except Exception as e:
                 print('e')

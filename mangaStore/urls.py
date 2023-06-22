@@ -21,6 +21,7 @@ from mangaStore import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('venta.urls')),
+    path('accounts/', include('django.contrib.auth.urls'))
 ]
 if settings.DEBUG:
     from django.conf.urls.static import static
