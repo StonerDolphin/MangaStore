@@ -1,0 +1,60 @@
+{% extends "venta/base.html"%}
+
+{% load static %}
+
+{% block body %}
+
+<div class="container">
+        <div class="row">
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-dismissible alert-success">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong class="text-dark">{{ message }}</strong>
+            </div>
+            {% endfor %}
+            {% endif %}
+            <h1>Listado de Mangas</h1>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    {% if clientes %}
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Id</th>
+                                <th>nom_usuario</th>
+                                <th>nombre</th>
+                                <th>email</th>
+
+                                <th colspan="2">Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for c in clientes %}
+                            <tr>
+                                <td>{{forloop.counter}}
+                                <td>{{c.id}}
+                                <td>{{c.last_name}}
+                                <td>{{c.first_name}}
+                                <td>{{c.username}}
+                                <td><a href="" class="btn btn-info">Editar</a>
+                                <td><a href="" class="btn btn-danger btnEliminacion">Eliminar</a>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    {% endif %}
+                </table>
+            </div>
+        </div>
+    <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="button">
+                <a href="{% url 'crearUsuario' %}">Agregar un nuevo Usuario</a>
+            </button>
+        </div>
+    </div>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+{% endblock %}
