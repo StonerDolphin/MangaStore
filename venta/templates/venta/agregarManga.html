@@ -6,7 +6,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+        <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
             {% if messages %}
             {% for message in messages %}
             <div class="alert alert-dismissible alert-success">
@@ -76,35 +76,30 @@
                                 <a href="{% url 'crud' %}"> Volver a Lista de Mangas</a> 
                             </button>
                         </div>
-
-                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
-                            <h2>Ingresar Imagen</h2>
-                            <div class="card">
-                                <div class="card-body">
-                                    <form action="{% url 'registrarManga' %}" method="POST">{% csrf_token %}
-                                        <div class="form-group">
-                                            <div>
-                                                <label for="imagen">Imagen:</label>
-                                                <input type="file" id="imagen" name="imagen" accept="image/*" required onchange="mostrarVistaPrevia()">
-                                            </div>
-                                        </div>
-                                        <div></div>>
-                                            <img id="vista-previa" src="#" alt="Vista previa de la imagen"/>
-                                        </div>
-                                    </form>
-                                </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+            <h2>Ingresar Imagen</h2>
+            <div class="card">
+                <div class="card-body">
+                    <form action="{% url 'registrarManga' %}" method="POST">{% csrf_token %}
+                        <div class="form-group">
+                            <div>
+                                <label for="imagen">Imagen:</label>
+                                <input type="file" id="imagen" name="imagen" accept="image/*" required onchange="mostrarVistaPrevia()">
+                            </div>
+                        </div>
+                        <div>
+                            <img id="vista-previa" src="#" alt="Vista previa de la imagen"/>
                         </div>
                     </form>
                 </div>
             </div>
-            
         </div>
-            
-        </div>   
-        
-        
-    </div>  
-
+    </div>
 </div>
+
 <script src="{% static 'js/mImagen.js' %}"></script>
 {% endblock %}
