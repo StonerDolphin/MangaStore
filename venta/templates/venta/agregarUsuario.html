@@ -9,13 +9,13 @@
         <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
             {% if messages %}
             {% for message in messages %}
-            <div class="alert alert-dismissible alert-success">
+            <div class="alert alert-dismissible {% if message.tags == 'error' %}alert-danger{% else %}alert-success{% endif %}">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <strong class="text-dark">{{ message }}</strong>
             </div>
             {% endfor %}
             {% endif %}
-            <h2>Ingresar Manga</h2>
+            <h2>Ingresar Usuario</h2>
             <div class="container">
                 <div class="card-body">
                     <form action="{% url 'crearUsuario' %}" method="POST">{% csrf_token %}
@@ -41,7 +41,7 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="password" id="password" name="password" class="form-control" placeholder=" "
+                            <input type="password" id="password" name="password" class="form-control" placeholder="Password"
                                 maxlength="100" required>
                         </div>
 
@@ -68,7 +68,7 @@
 
                         <div class="form-group">
                             <button type="button" class="btn btn-success btn-block text-white">
-                                <a href="{% url 'listaCliente' %}"> Volver a Lista de Usuarios</a>
+                                <a href="{% url 'clientes' %}"> Volver a Lista de Usuarios</a>
                             </button>
                         </div>
                     </form>

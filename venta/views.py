@@ -43,7 +43,6 @@ def signup(request):
 
                 return render(request, 'venta/registrarse.html', context)
             except Exception as e:
-
                 print(e)
                 return render(request, 'venta/registrarse.html', context)
         else:
@@ -74,11 +73,16 @@ def listaUsuario(request):
 
 def crearUsuario(request):
     if request.method == "POST":
-        usuario = request.POST['usuario']
-        nombre = request.POST['nombre']
-        correo = request.POST['correo']
+        usuario  = request.POST['usuario']
+        nombre   = request.POST['nombre']
+        correo   = request.POST['correo']
         telefono = request.POST['telefono']
         password = request.POST['password']
+
+        # Verificar si el correo electrónico ya está registrado.
+        if User.objects.filter(email=correo).exists():
+            messages.add_message(request, messages.ERROR, '¡Este correo electrónico ya está en uso!')
+            return render(request, 'venta/agregarUsuario.html')
 
         objUser = User.objects.create_user(username=correo, password=password, first_name= nombre,
                                            last_name=usuario, email=correo)
@@ -91,6 +95,19 @@ def crearUsuario(request):
         return render(request, 'venta/agregarUsuario.html')
     else:
         return render(request, 'venta/agregarUsuario.html')
+
+def eliminarUsuario(request, pk):
+    try:
+        user = User.objects.get(id = pk)
+        user.delete()
+
+        usuarios = User.objects.all()
+        context = {"usuarios": usuarios}
+        return render(request, 'venta/crudClientes.html', context)
+    except User.DoesNotExist:
+        usuarios = User.objects.all()
+        context = {"usuarios": usuarios}
+        return render(request, 'venta/crudClientes.html',context)
 
 def tienda(request):
     return render(request,'venta/tienda.html')

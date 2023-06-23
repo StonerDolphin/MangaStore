@@ -36,4 +36,5 @@ urlpatterns = [
     path('eliminarManga/<str:pk>', views.eliminarManga, name='eliminarManga'),
     path('listaCliente', views.listaUsuario, name='clientes'),
     path('crearUsuario', views.crearUsuario, name='crearUsuario'),
+    path('eleminarUsuario/<str:pk>', views.eliminarUsuario, name='eleminarUsuario')
 ]

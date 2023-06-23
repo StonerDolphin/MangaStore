@@ -38,7 +38,7 @@
                                 <td>{{c.first_name}}
                                 <td>{{c.username}}
                                 <td><a href="" class="btn btn-info">Editar</a>
-                                <td><a href="" class="btn btn-danger btnEliminacion">Eliminar</a>
+                                <td><a href="{% url 'eleminarUsuario' pk=c.id %}" class="btn btn-danger btnEliminacion">Eliminar</a>
                             </tr>
                             {% endfor %}
                         </tbody>
