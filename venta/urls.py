@@ -34,4 +34,6 @@ urlpatterns = [
     path('buscar_manga/<str:pk>',views.buscar_manga, name='buscar_manga'),
     path('modificarMangas', views.modificarMangas, name='modificarMangas'),
     path('eliminarManga/<str:pk>', views.eliminarManga, name='eliminarManga'),
+    path('listaCliente', views.listaUsuario, name='clientes'),
+    path('crearUsuario', views.crearUsuario, name='crearUsuario'),
 ]

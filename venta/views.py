@@ -13,22 +13,6 @@ def inicio(request):
 def compra(request):
     return render (request,'venta/compra.html')
 
-def signin(request):
-    if request.method == 'POST':
-        correo = request.POST['correo']
-        password = request.POST['password']
-        user = authenticate(request, username = correo, password = password)
-        if user is None:
-            messages.error(request, 'El usuario no existe')
-            return render(request, 'venta/login.html')
-        else:
-            messages.success(request, 'Exito')
-            login(request, user)
-            return redirect('index')
-    else:
-        return render(request, 'venta/login.html')
-
-
 def producto(request):
     return render(request, 'venta/producto.html')
 
@@ -47,7 +31,8 @@ def signup(request):
 
         if password == password2:
             try:
-                user = User.objects.create_user(username=correo, password=password, email=correo, first_name=usuario)
+                user = User.objects.create_user(username=correo, password=password, email=correo,
+                                                first_name=nombre, last_name=usuario)
                 user.save()
 
                 c = Cliente.objects.create(user=user, telefono=telefono, nombre=nombre, email=correo)
@@ -58,7 +43,7 @@ def signup(request):
 
                 return render(request, 'venta/registrarse.html', context)
             except Exception as e:
-                print('e')
+
                 print(e)
                 return render(request, 'venta/registrarse.html', context)
         else:
@@ -66,6 +51,46 @@ def signup(request):
             return render(request, 'venta/registrarse.html', context)
     else:
         return render(request, 'venta/registrarse.html', context)
+
+def signin(request):
+    if request.method == 'POST':
+        correo = request.POST['correo']
+        password = request.POST['password']
+        user = authenticate(request, username = correo, password = password)
+        if user is None:
+            messages.error(request, 'El usuario no existe')
+            return render(request, 'venta/login.html')
+        else:
+            messages.success(request, 'Exito')
+            login(request, user)
+            return redirect('index')
+    else:
+        return render(request, 'venta/login.html')
+
+def listaUsuario(request):
+    usuario = User.objects.all()
+    context = {'clientes': usuario}
+    return render(request, 'venta/crudClientes.html',context)
+
+def crearUsuario(request):
+    if request.method == "POST":
+        usuario = request.POST['usuario']
+        nombre = request.POST['nombre']
+        correo = request.POST['correo']
+        telefono = request.POST['telefono']
+        password = request.POST['password']
+
+        objUser = User.objects.create_user(username=correo, password=password, first_name= nombre,
+                                           last_name=usuario, email=correo)
+        objUser.save()
+
+        objclient = Cliente.objects.create(user=objUser, telefono=telefono, nombre=nombre, email=correo)
+        objclient.save()
+
+        messages.success(request, '¡Usuario Creado!')
+        return render(request, 'venta/agregarUsuario.html')
+    else:
+        return render(request, 'venta/agregarUsuario.html')
 
 def tienda(request):
     return render(request,'venta/tienda.html')
