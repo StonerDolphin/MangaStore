@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from .models import Genero,Editorial,Region,Comuna,Cliente,Manga
 from django.contrib import messages
 from django.db import IntegrityError
+from datetime import datetime
 # Create your views here.
 
 def inicio(request):
@@ -63,7 +64,7 @@ def registrarManga(request):
         sinopsis = request.POST['txtSinopsis']
         generos = request.POST['genero']
         editoriales = request.POST['editorial']
-        cover = request.FILES['imagen']  # Acceder al archivo de imagen usando request.FILES
+        cover = request.FILES['imagen']  
         
         objGenero = Genero.objects.get(id_genero=generos)
         objEditorial = Editorial.objects.get(id_editorial=editoriales)
@@ -101,11 +102,11 @@ def modificarMangas(request):
         precio= request.POST['nPrecio']
         autor = request.POST['txtAutor']
         stock = request.POST['nStock']
-        fecha_publicacion = request.POST['dFecha']
+        fecha_publicacion = fecha_publicacion = datetime.strptime(request.POST['dFecha'], '%Y-%m-%d').date()
         sinopsis = request.POST['txtSinopsis']
         generos = request.POST['genero']
         editoriales = request.POST['editorial']
-
+        cover = request.FILES['imagen']
         
         objGenero = Genero.objects.get(id_genero = generos)
         objEditorial=Editorial.objects.get(id_editorial = editoriales)
@@ -121,12 +122,13 @@ def modificarMangas(request):
         objManga.sinopsis          = sinopsis
         objManga.id_genero         = objGenero
         objManga.id_editorial      = objEditorial
+        objManga.cover             = cover
             
         objManga.save() #update
       
         lista_generos = Genero.objects.all()
         lista_editoriales = Editorial.objects.all()
-        context = {"generos":lista_generos,"editoriales":lista_editoriales, "manga":objManga}
+        context = {"generos":lista_generos,"editoriales":lista_editoriales, "manga":objManga, "fecha_publicacion": fecha_publicacion}
         messages.success(request, '¡Manga actualizado!')
         return render(request,'venta/modificarMangas.html', context)
     else:

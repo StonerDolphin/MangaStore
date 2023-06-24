@@ -4,22 +4,23 @@
 
 {% block body %}
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
-            {% if messages %}
-            {% for message in messages %}
-            <div class="alert alert-dismissible alert-success">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <strong class="text-dark">{{ message }}</strong>
-            </div>
-            {% endfor %}
-            {% endif %}
-            <h2>Ingresar Manga</h2>
-            {% if manga %}
-                <div class="card">
-                <div class="card-body">
-                    <form action="{% url 'modificarMangas' %}" method="POST">{% csrf_token %}
+
+<form action="{% url 'modificarMangas' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-dismissible alert-success">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong class="text-dark">{{ message }}</strong>
+                </div>
+                {% endfor %}
+                {% endif %}
+                <h2>Ingresar Manga</h2>
+                <div class="container">
+                    <div class="card-body">
                         <div class="form-group">
                             <input type="text" id="txtId" name="txtId" class="form-control" placeholder="Id"
                                 minlength="1" maxlength="6" value="{{manga.id_manga}}" required>
@@ -46,7 +47,7 @@
                         </div>
                         <div class="form-group">
                             <input type="date" id="txtFecha" name="dFecha" class="form-control" placeholder="Fecha Publicación"
-                                maxlength="50" value="{{manga.fecha_publicacion}}" required>
+                                maxlength="50" value="{{fecha_publicacion|date:'Y-m-d'}}" required>
                         </div>
                         <div class="form-group">
                             <input type="text" id="txtSinopsis" name="txtSinopsis" class="form-control" placeholder="Sinopsis"
@@ -77,21 +78,37 @@
                                 {% endfor %}
                             </select></pre>                            
                         </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
-                        </div>
-                        <div class="form-group">
-                            <button type="button" class="btn btn-success btn-block text-white">
-                                <a href="{% url 'crud' %}"> Volver a Lista de Mangas</a> 
-                            </button>
-                        </div>
-                    </form>
+                        <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                        <button type="button" class="btn btn-success btn-block text-white">
+                            <a href="{% url 'crud' %}">Volver a Lista de Mangas</a> 
+                        </button>
+                    </div>
                 </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+                <h2>Ingresar Imagen</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label for="imagen">Imagen actual:</label>
+                                <br>
+                                <img src="{{ manga.cover.url }}" alt="Imagen actual">
+                            </div>
+                            <div>
+                                <label for="imagen">Imagen nueva:</label>
+                                <input type="file" id="imagen" name="imagen" accept="image/*" required onchange="mostrarVistaPrevia()">
+                            </div>
+                        </div>
+                        <div>
+                            <img id="vista-previa" src="#" alt="Vista previa de la imagen"/>
+                        </div>
+                    </div>
                 </div>
-            {% endif %}
+            </div>
         </div>
-    </div>  
+    </div>
+</form>
 
-</div>
-
+<script src="{% static 'js/mImagen.js' %}"></script>
 {% endblock %}
