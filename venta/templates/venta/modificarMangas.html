@@ -18,12 +18,19 @@
                 </div>
                 {% endfor %}
                 {% endif %}
-                <h2>Ingresar Manga</h2>
+                <h2>Modificar Manga</h2>
                 <div class="container">
                     <div class="card-body">
                         <div class="form-group">
                             <input type="text" id="txtId" name="txtId" class="form-control" placeholder="Id"
                                 minlength="1" maxlength="6" value="{{manga.id_manga}}" required>
+                            {% if messages %}
+                                {% for message in messages %}
+                                    {% if message.tags == 'error' %}
+                                        <span class="text-danger">{{ message }}</span>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
                         </div>
                         <div class="form-group">
                             <input type="text" id="txtTitulo" name="txtTitulo" class="form-control" placeholder="Titulo"

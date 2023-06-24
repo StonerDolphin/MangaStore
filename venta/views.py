@@ -116,6 +116,23 @@ def modificarMangas(request):
         
         objManga = Manga()
         objManga.id_manga          = id_manga
+        if Manga.objects.filter(id_manga=id_manga).exists():
+            objManga.titulo            = titulo
+            objManga.nro_volumen       = nro_volumen
+            objManga.precio            = precio
+            objManga.autor             = autor
+            objManga.stock             = stock
+            objManga.fecha_publicacion = fecha_publicacion
+            objManga.sinopsis          = sinopsis
+            objManga.id_genero         = objGenero
+            objManga.id_editorial      = objEditorial
+            objManga.cover             = cover
+      
+            lista_generos = Genero.objects.all()
+            lista_editoriales = Editorial.objects.all()
+            context = {"generos":lista_generos,"editoriales":lista_editoriales, "manga":objManga}
+            messages.error(request, '¡El ID de manga ya existe!')
+            return render(request,'venta/modificarMangas.html', context)
         objManga.titulo            = titulo
         objManga.nro_volumen       = nro_volumen
         objManga.precio            = precio
