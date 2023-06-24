@@ -22,12 +22,19 @@
                     <div class="card-body">
                         <div class="form-group">
                             <input type="text" id="txtId" name="txtId" class="form-control" placeholder="Id" minlength="1" maxlength="6" required>
+                            {% if messages %}
+                                {% for message in messages %}
+                                    {% if message.tags == 'error' %}
+                                        <span class="text-danger">{{ message }}</span>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
                         </div>
                         <div class="form-group">
                             <input type="text" id="txtTitulo" name="txtTitulo" class="form-control" placeholder="Titulo" maxlength="100" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="nVolumen" name="nVolumen" class="form-control" placeholder="Numero del volumen" required>
+                            <input type="number" id="nVolumen" name="nVolumen" class="form-control" placeholder="Numero del volumen" required>
                         </div>
                         <div class="form-group">
                             <input type="number" id="nPrecio" name="nPrecio" class="form-control" placeholder="Precio Manga" maxlength="7" required>

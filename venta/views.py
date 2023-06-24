@@ -55,6 +55,9 @@ def registrarManga(request):
         return render(request, 'venta/agregarManga.html', context)
     else:
         id_manga = request.POST['txtId']
+        if Manga.objects.filter(id_manga=id_manga).exists():
+            messages.error(request, '¡El ID de manga ya existe!')
+            return render(request, 'venta/agregarManga.html')
         titulo = request.POST['txtTitulo']
         nro_volumen = request.POST['nVolumen']
         precio = request.POST['nPrecio']
