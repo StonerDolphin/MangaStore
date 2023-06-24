@@ -119,6 +119,32 @@ def buscarUsuario(request, pk):
         context = {"mensaje": mensaje}
         return render(request,'venta/crudClientes.html',context)
 
+def modificarUsuario(request):
+    if request.method == "POST":
+        usuario  = request.POST['usuario']
+        nombre   = request.POST['nombre']
+        correo   = request.POST['correo']
+        telefono = request.POST['telefono']
+
+        objUser = User()
+        objUser.last_name  = usuario
+        objUser.first_name = nombre
+        objUser.username   = correo
+
+        objCli = Cliente()
+        objCli.user     = objUser
+        objCli.nombre   = nombre
+        objCli.email    = correo
+        objCli.telefono = telefono
+
+        objUser.save()
+        objCli.save()
+
+        messages.success(request,'Usuario actualizado')
+        context ={"usuarios": objUser}
+        return render(request, 'venta/modificarUsuario.html', context)
+    else:
+        return render(request, 'venta/crudClientes.html')
 def tienda(request):
     return render(request,'venta/tienda.html')
 

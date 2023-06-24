@@ -15,45 +15,31 @@
             </div>
             {% endfor %}
             {% endif %}
-            <h2>Ingresar Manga</h2>
-            {% if manga %}
+            <h2>Actualizar Usuario</h2>
+            {% if user and cliente %}
                 <div class="card">
                 <div class="card-body">
-                    <form action="{% url 'modificarMangas' %}" method="POST">{% csrf_token %}
-                        <div class="form-group">
-                            <input type="text" id="txtId" name="txtId" class="form-control" placeholder="Id"
-                                minlength="1" maxlength="6" value="{{manga.id_manga}}" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="txtTitulo" name="txtTitulo" class="form-control" placeholder="Titulo"
-                                maxlength="100" value="{{manga.titulo}}" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="nVolumen" name="nVolumen" class="form-control" placeholder="Numero del volumen"
-                            value="{{manga.nro_volumen}}" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="number" id="nPrecio" name="nPrecio" class="form-control" placeholder="Precio Manga"
-                                maxlength="7" value="{{manga.precio}}" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="txtAutor" name="txtAutor" class="form-control" placeholder="Autor"
-                                maxlength="50" value="{{manga.autor}}" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="number" id="nStock" name="nStock" class="form-control" placeholder="Stock"
-                                maxlength="50" value="{{manga.stock}}" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="date" id="txtFecha" name="dFecha" class="form-control" placeholder="Fecha Publicación"
-                                maxlength="50" value="{{manga.fecha_publicacion}}" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="txtSinopsis" name="txtSinopsis" class="form-control" placeholder="Sinopsis"
-                                maxlength="500" value="{{manga.sinopsis}}" required>
-                        </div>
+                    <form action="{% url 'modificarUsuario' %}" method="POST">{% csrf_token %}
 
                         <div class="form-group">
+                            <input type="text" id="usuario" name="usuario" class="form-control" placeholder="Usuario"
+                                maxlength="100" value="{{user.last_name}}" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre"
+                            value="{{user.first_name}}" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="correo" name="correo" class="form-control" placeholder="Email"
+                                 value="{{user.username}}" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" id="telefono" name="telefono" class="form-control" placeholder="xxx-xxx-xxxx"
+                                maxlength="9" value="{{cliente.telefono}}" required>
+                        </div>
+
+
+                        {% comment %}<div class="form-group">
                             <pre>Género: <select name="genero">
                                 {% for tmp in generos %}
                                     {% if tmp.nomb_genero == manga.id_genero.nomb_genero %}
@@ -76,13 +62,13 @@
                                     {% endif %}
                                 {% endfor %}
                             </select></pre>
-                        </div>
+                        </div>{% endcomment %}
                         <div class="form-group">
                             <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
                         </div>
                         <div class="form-group">
                             <button type="button" class="btn btn-success btn-block text-white">
-                                <a href="{% url 'crud' %}"> Volver a Lista de Mangas</a>
+                                <a href="{% url 'crudClientes' %}"> Volver a Lista de Mangas</a>
                             </button>
                         </div>
                     </form>
