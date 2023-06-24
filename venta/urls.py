@@ -36,7 +36,7 @@ urlpatterns = [
     path('eliminarManga/<str:pk>', views.eliminarManga, name='eliminarManga'),
     path('listaCliente', views.listaUsuario, name='clientes'),
     path('crearUsuario', views.crearUsuario, name='crearUsuario'),
-    path('eleminarUsuario/<str:pk>', views.eliminarUsuario, name='eleminarUsuario'),
+    path('eliminarUsuario/<str:pk>', views.eliminarUsuario, name='eliminarUsuario'),
     path('buscarUsuario/<str:pk>', views.buscarUsuario, name='buscarUsuario'),
     path('modificarUsuario', views.modificarUsuario, name='modificarUsuario')
 ]

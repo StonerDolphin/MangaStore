@@ -104,7 +104,7 @@ def eliminarUsuario(request, pk):
         usuarios = User.objects.all()
         context = {"usuarios": usuarios}
         return render(request, 'venta/crudClientes.html', context)
-    except User.DoesNotExist:
+    except:
         usuarios = User.objects.all()
         context = {"usuarios": usuarios}
         return render(request, 'venta/crudClientes.html',context)
@@ -144,7 +144,7 @@ def modificarUsuario(request):
         context ={"usuarios": objUser}
         return render(request, 'venta/modificarUsuario.html', context)
     else:
-        return render(request, 'venta/crudClientes.html')
+        return render(request, 'venta/modificarMangas.html')
 def tienda(request):
     return render(request,'venta/tienda.html')
 

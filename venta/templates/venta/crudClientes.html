@@ -14,7 +14,7 @@
             </div>
             {% endfor %}
             {% endif %}
-            <h1>Listado de Mangas</h1>
+            <h1>Listado de Usuarios</h1>
             <div class="table-responsive">
                 <table class="table table-striped">
                     {% if clientes %}
@@ -37,8 +37,8 @@
                                 <td>{{c.last_name}}
                                 <td>{{c.first_name}}
                                 <td>{{c.username}}
-                                <td><a href="" class="btn btn-info">Editar</a>
-                                <td><a href="{% url 'eleminarUsuario' pk=c.id %}" class="btn btn-danger btnEliminacion">Eliminar</a>
+                                <td><a href="{% url 'buscarUsuario' pk=c.id %}" class="btn btn-info">Editar</a>
+                                <td><a href="{% url 'eliminarUsuario' pk=c.id %}" class="btn btn-danger btnEliminacion">Eliminar</a>
                             </tr>
                             {% endfor %}
                         </tbody>
