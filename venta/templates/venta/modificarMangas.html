@@ -46,8 +46,8 @@
                                 maxlength="50" value="{{manga.stock}}" required>
                         </div>
                         <div class="form-group">
-                            <input type="date" id="txtFecha" name="dFecha" class="form-control" placeholder="Fecha Publicación"
-                                maxlength="50" value="{{fecha_publicacion|date:'Y-m-d'}}" required>
+                            <input type="date" id="dFecha" name="dFecha" class="form-control" placeholder="Fecha Publicación"
+                                maxlength="50" value="{{manga.fecha_publicacion|date:'Y-m-d'}}" required>
                         </div>
                         <div class="form-group">
                             <input type="text" id="txtSinopsis" name="txtSinopsis" class="form-control" placeholder="Sinopsis"

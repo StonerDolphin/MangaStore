@@ -102,7 +102,7 @@ def modificarMangas(request):
         precio= request.POST['nPrecio']
         autor = request.POST['txtAutor']
         stock = request.POST['nStock']
-        fecha_publicacion = fecha_publicacion = datetime.strptime(request.POST['dFecha'], '%Y-%m-%d').date()
+        fecha_publicacion = request.POST['dFecha']
         sinopsis = request.POST['txtSinopsis']
         generos = request.POST['genero']
         editoriales = request.POST['editorial']
@@ -128,13 +128,13 @@ def modificarMangas(request):
       
         lista_generos = Genero.objects.all()
         lista_editoriales = Editorial.objects.all()
-        context = {"generos":lista_generos,"editoriales":lista_editoriales, "manga":objManga, "fecha_publicacion": fecha_publicacion}
+        context = {"generos":lista_generos,"editoriales":lista_editoriales, "manga":objManga}
         messages.success(request, '¡Manga actualizado!')
         return render(request,'venta/modificarMangas.html', context)
     else:
         mangas = Manga.objects.all()
         context = {"mangas":mangas}
-        return render(request,'venta/crudMangas.html', context)
+        return render(request,'venta/crudMangas.html',{'fecha_publicacion': fecha_publicacion}, context)
 
 
 
