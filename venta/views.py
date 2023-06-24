@@ -109,6 +109,16 @@ def eliminarUsuario(request, pk):
         context = {"usuarios": usuarios}
         return render(request, 'venta/crudClientes.html',context)
 
+def buscarUsuario(request, pk):
+    if pk != "":
+        user = User.objects.get(id=pk)
+        context = {"usuarios": user}
+        return render(request, 'venta/modificarUsuario.html', context)
+    else:
+        mensaje = "el Usuario no existe"
+        context = {"mensaje": mensaje}
+        return render(request,'venta/crudClientes.html',context)
+
 def tienda(request):
     return render(request,'venta/tienda.html')
 
@@ -175,7 +185,7 @@ def buscar_manga(request,pk):
         context = {"manga":manga, "generos":lista_generos,"editoriales":lista_editoriales}
         return render(request,'venta/modificarMangas.html', context)
     else:
-        mensaje = "El alumno NO existe"
+        mensaje = "El manga NO existe"
         context = {"mensaje":mensaje}
         return render(request,'venta/index.html', context)
 
