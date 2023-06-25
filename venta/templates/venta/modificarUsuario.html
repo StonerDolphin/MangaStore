@@ -18,61 +18,61 @@
             <h2>Actualizar Usuario</h2>
             {% if user and cliente %}
                 <div class="card">
-                <div class="card-body">
-                    <form action="{% url 'modificarUsuario' %}" method="POST">{% csrf_token %}
+                    <div class="card-body">
+                        <form action="{% url 'modificarUsuario' %}" method="POST">{% csrf_token %}
 
-                        <div class="form-group">
-                            <input type="text" id="usuario" name="usuario" class="form-control" placeholder="Usuario"
-                                maxlength="100" value="{{user.last_name}}" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre"
-                            value="{{user.first_name}}" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="correo" name="correo" class="form-control" placeholder="Email"
-                                 value="{{user.username}}" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="number" id="telefono" name="telefono" class="form-control" placeholder="xxx-xxx-xxxx"
-                                maxlength="9" value="{{cliente.telefono}}" required>
-                        </div>
+                            <div class="form-group">
+                                <input type="text" id="usuario" name="usuario" class="form-control" placeholder="Usuario"
+                                    maxlength="100" value="{{user.last_name}}" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre"
+                                value="{{user.first_name}}" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="correo" name="correo" class="form-control" placeholder="Email"
+                                     value="{{user.username}}" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="number" id="telefono" name="telefono" class="form-control" placeholder="xxx-xxx-xxxx"
+                                    maxlength="9" value="{{cliente.telefono}}" required>
+                            </div>
 
 
-                        {% comment %}<div class="form-group">
-                            <pre>Género: <select name="genero">
-                                {% for tmp in generos %}
-                                    {% if tmp.nomb_genero == manga.id_genero.nomb_genero %}
-                                        <option value="{{tmp.id_genero}}" selected>{{tmp.nomb_genero}}</option>
-                                    {% else %}
-                                        <option value="{{tmp.id_genero}}">{{tmp.nomb_genero}}</option>
-                                    {% endif %}
-                                {% endfor %}
-                            </select></pre>
+                            {% comment %}<div class="form-group">
+                                <pre>Género: <select name="genero">
+                                    {% for tmp in generos %}
+                                        {% if tmp.nomb_genero == manga.id_genero.nomb_genero %}
+                                            <option value="{{tmp.id_genero}}" selected>{{tmp.nomb_genero}}</option>
+                                        {% else %}
+                                            <option value="{{tmp.id_genero}}">{{tmp.nomb_genero}}</option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </select></pre>
 
-                        </div>
+                            </div>
 
-                        <div class="form-group">
-                            <pre>Editorial: <select name="editorial">
-                                {% for tmp in editoriales %}
-                                    {% if tmp.nomb_editorial == manga.id_editorial.nomb_editorial %}
-                                        <option value="{{tmp.id_editorial}}" selected>{{tmp.nomb_editorial}}</option>
-                                    {% else %}
-                                        <option value="{{tmp.id_editorial}}">{{tmp.nomb_editorial}}</option>
-                                    {% endif %}
-                                {% endfor %}
-                            </select></pre>
-                        </div>{% endcomment %}
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
-                        </div>
-                        <div class="form-group">
-                            <button type="button" class="btn btn-success btn-block text-white">
-                                <a href="{% url 'crudClientes' %}"> Volver a Lista de Mangas</a>
-                            </button>
-                        </div>
-                    </form>
-                </div>
+                            <div class="form-group">
+                                <pre>Editorial: <select name="editorial">
+                                    {% for tmp in editoriales %}
+                                        {% if tmp.nomb_editorial == manga.id_editorial.nomb_editorial %}
+                                            <option value="{{tmp.id_editorial}}" selected>{{tmp.nomb_editorial}}</option>
+                                        {% else %}
+                                            <option value="{{tmp.id_editorial}}">{{tmp.nomb_editorial}}</option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </select></pre>
+                            </div>{% endcomment %}
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn btn-success btn-block text-white">
+                                    <a href="{% url 'crudClientes' %}"> Volver a Lista de Mangas</a>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             {% endif %}
         </div>

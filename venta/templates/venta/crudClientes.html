@@ -22,9 +22,10 @@
                             <tr>
                                 <th>#</th>
                                 <th>Id</th>
-                                <th>nom_usuario</th>
+                                <th>usuario</th>
                                 <th>nombre</th>
                                 <th>email</th>
+                                <th>telefono</th>
 
                                 <th colspan="2">Opciones</th>
                             </tr>
@@ -37,6 +38,7 @@
                                 <td>{{c.last_name}}
                                 <td>{{c.first_name}}
                                 <td>{{c.username}}
+                                <td>{{c.telefono}}
                                 <td><a href="{% url 'buscarUsuario' pk=c.id %}" class="btn btn-info">Editar</a>
                                 <td><a href="{% url 'eliminarUsuario' pk=c.id %}" class="btn btn-danger btnEliminacion">Eliminar</a>
                             </tr>

@@ -68,6 +68,7 @@ def signin(request):
 
 def listaUsuario(request):
     usuario = User.objects.all()
+    cliente = Cliente.objects.all()
     context = {'clientes': usuario}
     return render(request, 'venta/crudClientes.html',context)
 
@@ -105,8 +106,6 @@ def eliminarUsuario(request, pk):
         context = {"usuarios": usuarios}
         return render(request, 'venta/crudClientes.html', context)
     except:
-        usuarios = User.objects.all()
-        context = {"usuarios": usuarios}
         return render(request, 'venta/crudClientes.html',context)
 
 def buscarUsuario(request, pk):
