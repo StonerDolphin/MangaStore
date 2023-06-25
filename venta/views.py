@@ -106,6 +106,8 @@ def eliminarUsuario(request, pk):
         context = {"usuarios": usuarios}
         return render(request, 'venta/crudClientes.html', context)
     except:
+        usuarios = User.objects.all()
+        context = {"usuarios": usuarios}
         return render(request, 'venta/crudClientes.html',context)
 
 def buscarUsuario(request, pk):
@@ -116,26 +118,33 @@ def buscarUsuario(request, pk):
     else:
         mensaje = "el Usuario no existe"
         context = {"mensaje": mensaje}
-        return render(request,'venta/crudClientes.html',context)
+        return render(request,'venta/modificarUsuario.html',context)
 
-def modificarUsuario(request):
+def modificarUsuario(request, pk):
     if request.method == "POST":
         usuario  = request.POST['usuario']
         nombre   = request.POST['nombre']
         correo   = request.POST['correo']
         telefono = request.POST['telefono']
 
-        objUser = User()
+        try:
+            # Obtener la instancia de User y Cliente existente
+            objUser = User.objects.get(id=pk)
+            objCli = Cliente.objects.get(user=objUser)
+        except (User.DoesNotExist, Cliente.DoesNotExist):
+            messages.error(request,'Usuario o cliente no encontrado')
+            return render(request, 'venta/modificarUsuario.html')
+
+        # Actualizar los atributos de las instancias
         objUser.last_name  = usuario
         objUser.first_name = nombre
         objUser.username   = correo
 
-        objCli = Cliente()
-        objCli.user     = objUser
         objCli.nombre   = nombre
         objCli.email    = correo
         objCli.telefono = telefono
 
+        # Guardar las instancias actualizadas
         objUser.save()
         objCli.save()
 
@@ -143,7 +152,8 @@ def modificarUsuario(request):
         context ={"usuarios": objUser}
         return render(request, 'venta/modificarUsuario.html', context)
     else:
-        return render(request, 'venta/modificarMangas.html')
+        return render(request, 'venta/modificarUsuario.html')
+
 def tienda(request):
     return render(request,'venta/tienda.html')
 
