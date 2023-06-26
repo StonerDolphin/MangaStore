@@ -69,8 +69,30 @@ def signin(request):
 
 @login_required
 def listaUsuario(request):
-    clientes = Cliente.objects.all()
+    search = request.GET.get('search')
+    search_field = request.GET.get('search_field')
 
+    if search and search_field:
+        # SELECT ALL FROM USER WHERE LASTNAME = SEARCH
+        clientes = []
+
+        # datos de la tabla != id de la tabla
+        # {milo@gmail.com, apellido, id} != id (milo@gmail.com)
+
+        # retorna ids de users
+        if search_field == '1':
+            usuarios_query = User.objects.filter(last_name__contains=search)
+        elif search_field == '2':
+            usuarios_query = User.objects.filter(first_name__contains=search)
+        else:
+            usuarios_query = User.objects.filter(username__contains=search)
+
+        for usuario in usuarios_query:
+            # datos
+            cliente = Cliente.objects.get(user=usuario)
+            clientes.append(cliente)
+    else:
+        clientes = Cliente.objects.all()
     context = {"users": clientes}
     return render(request, 'venta/crudClientes.html',context)
 @login_required

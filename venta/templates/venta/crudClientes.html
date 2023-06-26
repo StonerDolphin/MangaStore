@@ -15,6 +15,21 @@
             {% endfor %}
             {% endif %}
             <h1>Listado de Usuarios</h1>
+
+            <div>
+                <form class="d-flex" method="get" action="{% url 'clientes' %}">
+                    <div>
+                        <select class="form-select" name="search_field" aria-label="Default select example">
+                            <option selected>Buscar por</option>
+                            <option value="1">Usuario</option>
+                            <option value="2">Nombre</option>
+                            <option value="3">Email</option>
+                        </select>
+                    </div>
+                    <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
             <div class="table-responsive">
                 <table class="table table-striped">
                     {% if users %}
@@ -49,9 +64,9 @@
             </div>
         </div>
     <div class="d-grid gap-2">
-            <button class="btn btn-primary" type="button">
+        <button class="btn btn-primary" type="button">
                 <a href="{% url 'crearUsuario' %}">Agregar un nuevo Usuario</a>
-            </button>
+        </button>
         </div>
     </div>
 
