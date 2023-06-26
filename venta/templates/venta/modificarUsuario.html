@@ -16,10 +16,11 @@
             {% endfor %}
             {% endif %}
             <h2>Actualizar Usuario</h2>
-            {% if user and cliente %}
+            {% if user %}
                 <div class="card">
                     <div class="card-body">
-                        <form action="{% url 'modificarUsuario' %}" method="POST">{% csrf_token %}
+                        <form action="{% url 'modificarUsuario' pk=user.id %}" method="POST">
+                            {% csrf_token %}
 
                             <div class="form-group">
                                 <input type="text" id="usuario" name="usuario" class="form-control" placeholder="Usuario"
@@ -35,7 +36,7 @@
                             </div>
                             <div class="form-group">
                                 <input type="number" id="telefono" name="telefono" class="form-control" placeholder="xxx-xxx-xxxx"
-                                    maxlength="9" value="{{cliente.telefono}}" required>
+                                    maxlength="9" value="{{user.telefono}}" required>
                             </div>
 
 
@@ -67,8 +68,8 @@
                                 <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
                             </div>
                             <div class="form-group">
-                                <button type="button" class="btn btn-success btn-block text-white">
-                                    <a href="{% url 'crudClientes' %}"> Volver a Lista de Mangas</a>
+                                <button type="submit" class="btn btn-success btn-block text-white">
+                                    <a href="{% url 'clientes' %}"> Volver a Lista de Mangas</a>
                                 </button>
                             </div>
                         </form>

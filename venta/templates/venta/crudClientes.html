@@ -17,7 +17,7 @@
             <h1>Listado de Usuarios</h1>
             <div class="table-responsive">
                 <table class="table table-striped">
-                    {% if clientes %}
+                    {% if users %}
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -31,16 +31,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for c in clientes %}
+                            {% for c in users %}
                             <tr>
                                 <td>{{forloop.counter}}
-                                <td>{{c.id}}
-                                <td>{{c.last_name}}
-                                <td>{{c.first_name}}
-                                <td>{{c.username}}
+                                <td>{{c.user.id}}
+                                <td>{{c.user.last_name}}
+                                <td>{{c.user.first_name}}
+                                <td>{{c.user.username}}
                                 <td>{{c.telefono}}
-                                <td><a href="{% url 'buscarUsuario' pk=c.id %}" class="btn btn-info">Editar</a>
-                                <td><a href="{% url 'eliminarUsuario' pk=c.id %}" class="btn btn-danger btnEliminacion">Eliminar</a>
+                                <td><a href="{% url 'modificarUsuario' pk=c.user.id %}" class="btn btn-info">Editar</a>
+                                <td><a href="{% url 'eliminarUsuario' pk=c.user.id %}" class="btn btn-danger btnEliminacion">Eliminar</a>
                             </tr>
                             {% endfor %}
                         </tbody>
@@ -58,5 +58,5 @@
 
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+<script src="{% static '/js/modalU.js' %}"></script>
 {% endblock %}

@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render,redirect
 from .models import Genero,Editorial,Region,Comuna,Cliente,Manga
@@ -66,12 +67,13 @@ def signin(request):
     else:
         return render(request, 'venta/login.html')
 
+@login_required
 def listaUsuario(request):
-    usuario = User.objects.all()
-    cliente = Cliente.objects.all()
-    context = {'clientes': usuario}
-    return render(request, 'venta/crudClientes.html',context)
+    clientes = Cliente.objects.all()
 
+    context = {"users": clientes}
+    return render(request, 'venta/crudClientes.html',context)
+@login_required
 def crearUsuario(request):
     if request.method == "POST":
         usuario  = request.POST['usuario']
@@ -96,20 +98,16 @@ def crearUsuario(request):
         return render(request, 'venta/agregarUsuario.html')
     else:
         return render(request, 'venta/agregarUsuario.html')
-
+@login_required
 def eliminarUsuario(request, pk):
     try:
         user = User.objects.get(id = pk)
         user.delete()
-
-        usuarios = User.objects.all()
-        context = {"usuarios": usuarios}
-        return render(request, 'venta/crudClientes.html', context)
+        return redirect('clientes')
     except:
-        usuarios = User.objects.all()
-        context = {"usuarios": usuarios}
-        return render(request, 'venta/crudClientes.html',context)
-
+        messages.add_message(request, messages.ERROR, 'No se pudo eliminar este usuario')
+        return redirect('clientes')
+@login_required
 def buscarUsuario(request, pk):
     if pk != "":
         user = User.objects.get(id=pk)
@@ -119,7 +117,7 @@ def buscarUsuario(request, pk):
         mensaje = "el Usuario no existe"
         context = {"mensaje": mensaje}
         return render(request,'venta/modificarUsuario.html',context)
-
+@login_required
 def modificarUsuario(request, pk):
     if request.method == "POST":
         usuario  = request.POST['usuario']
@@ -131,32 +129,43 @@ def modificarUsuario(request, pk):
             # Obtener la instancia de User y Cliente existente
             objUser = User.objects.get(id=pk)
             objCli = Cliente.objects.get(user=objUser)
+
+            # Actualizar los atributos de las instancias
+            objUser.first_name = nombre
+            objUser.last_name  = usuario
+            objUser.username   = correo
+
+            objCli.nombre   = nombre
+            objCli.email    = correo
+            objCli.telefono = telefono
+
+            # Guardar las instancias actualizadas
+            objUser.save()
+            objCli.save()
         except (User.DoesNotExist, Cliente.DoesNotExist):
             messages.error(request,'Usuario o cliente no encontrado')
             return render(request, 'venta/modificarUsuario.html')
 
-        # Actualizar los atributos de las instancias
-        objUser.last_name  = usuario
-        objUser.first_name = nombre
-        objUser.username   = correo
-
-        objCli.nombre   = nombre
-        objCli.email    = correo
-        objCli.telefono = telefono
-
-        # Guardar las instancias actualizadas
-        objUser.save()
-        objCli.save()
-
         messages.success(request,'Usuario actualizado')
-        context ={"usuarios": objUser}
+        return redirect('clientes')
+    else: # GET
+        user = User.objects.get(id=pk)
+        cliente = Cliente.objects.get(user=user)
+        obj = {
+            'id': user.id,
+            'first_name': user.first_name,
+            'last_name': user.last_name,
+            'username': user.username,
+            'nombre': cliente.nombre,
+            'email': cliente.email,
+            'telefono': cliente.telefono
+        }
+        context = {"user": obj}
         return render(request, 'venta/modificarUsuario.html', context)
-    else:
-        return render(request, 'venta/modificarUsuario.html')
 
 def tienda(request):
     return render(request,'venta/tienda.html')
-
+@login_required
 def crud(request):
     venta = Manga.objects.all()
     context ={'mangas':venta}
@@ -176,7 +185,7 @@ def lista_editoriales(request):
     context = {"editoriales":lista_editoriales}
     return render(request,'venta/crudMangas.html', context)
 
-
+@login_required
 def registrarManga(request):
 
     if request.method != "POST":
@@ -211,7 +220,7 @@ def registrarManga(request):
         context = {"generos":lista_generos,"editoriales":lista_editoriales}
         messages.success(request, '¡Manga registrado!')
         return render(request,'venta/agregarManga.html', context)
-
+@login_required
 def buscar_manga(request,pk):
     if pk != "":
         manga = Manga.objects.get(id_manga=pk)
@@ -223,7 +232,7 @@ def buscar_manga(request,pk):
         mensaje = "El manga NO existe"
         context = {"mensaje":mensaje}
         return render(request,'venta/index.html', context)
-
+@login_required
 def modificarMangas(request):
     if request.method == "POST":
         
@@ -253,7 +262,6 @@ def modificarMangas(request):
         objManga.sinopsis          = sinopsis
         objManga.id_genero         = objGenero
         objManga.id_editorial      = objEditorial
-            
         objManga.save() #update
       
         lista_generos = Genero.objects.all()
@@ -267,7 +275,7 @@ def modificarMangas(request):
         return render(request,'venta/crudMangas.html', context)
 
 
-
+@login_required
 def eliminarManga(request, pk):
     try:
         manga = Manga.objects.get(id_manga=pk)

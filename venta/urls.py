@@ -30,13 +30,15 @@ urlpatterns = [
     path('generos',views.lista_genero, name='generos'),
     path('mangas',views.mangas, name='mangas'),
     path('editoriales',views.lista_editoriales, name='editoriales'),
+
     path('registrarManga', views.registrarManga, name='registrarManga'),
     path('buscar_manga/<str:pk>',views.buscar_manga, name='buscar_manga'),
     path('modificarMangas', views.modificarMangas, name='modificarMangas'),
     path('eliminarManga/<str:pk>', views.eliminarManga, name='eliminarManga'),
+
     path('listaCliente', views.listaUsuario, name='clientes'),
     path('crearUsuario', views.crearUsuario, name='crearUsuario'),
     path('eliminarUsuario/<str:pk>', views.eliminarUsuario, name='eliminarUsuario'),
     path('buscarUsuario/<str:pk>', views.buscarUsuario, name='buscarUsuario'),
-    path('modificarUsuario', views.modificarUsuario, name='modificarUsuario'),
+    path('modificarUsuario/<str:pk>', views.modificarUsuario, name='modificarUsuario'),
 ]
