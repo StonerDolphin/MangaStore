@@ -30,7 +30,7 @@ urlpatterns = [
     path('generos',views.lista_genero, name='generos'),
     path('mangas',views.mangas, name='mangas'),
     path('editoriales',views.lista_editoriales, name='editoriales'),
-
+    path('logout_view',views.logout_view, name='logout'),
     path('registrarManga', views.registrarManga, name='registrarManga'),
     path('buscar_manga/<str:pk>',views.buscar_manga, name='buscar_manga'),
     path('modificarMangas', views.modificarMangas, name='modificarMangas'),
@@ -41,4 +41,5 @@ urlpatterns = [
     path('eliminarUsuario/<str:pk>', views.eliminarUsuario, name='eliminarUsuario'),
     path('buscarUsuario/<str:pk>', views.buscarUsuario, name='buscarUsuario'),
     path('modificarUsuario/<str:pk>', views.modificarUsuario, name='modificarUsuario'),
+    path('menu',views.menu, name='menu'),
 ]

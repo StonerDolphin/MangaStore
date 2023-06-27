@@ -1,5 +1,7 @@
-from django.contrib.auth import authenticate, login
-from django.contrib.auth.decorators import login_required
+import json
+
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.models import User
 from django.shortcuts import render,redirect
 from .models import Genero,Editorial,Region,Comuna,Cliente,Manga
@@ -19,6 +21,9 @@ def producto(request):
 
 def progreso(request):
     return render(request, 'venta/progreso.html')
+@login_required
+def menu(request):
+    return render(request, 'venta/menu.html')
 
 def signup(request):    
     context = {}
@@ -67,35 +72,47 @@ def signin(request):
     else:
         return render(request, 'venta/login.html')
 
+def logout_view(request):
+    logout(request)
+    return redirect('index')
+
 @login_required
+@user_passes_test(lambda user: user.is_superuser)
 def listaUsuario(request):
     search = request.GET.get('search')
     search_field = request.GET.get('search_field')
 
     if search and search_field:
-        # SELECT ALL FROM USER WHERE LASTNAME = SEARCH
-        clientes = []
-
         # datos de la tabla != id de la tabla
         # {milo@gmail.com, apellido, id} != id (milo@gmail.com)
-
         # retorna ids de users
         if search_field == '1':
-            usuarios_query = User.objects.filter(last_name__contains=search)
+            # SELECT ALL FROM USER WHERE LASTNAME = SEARCH
+            clientes = User.objects.filter(last_name__contains=search, is_superuser=False)
         elif search_field == '2':
-            usuarios_query = User.objects.filter(first_name__contains=search)
+            clientes = User.objects.filter(first_name__contains=search, is_superuser=False)
         else:
-            usuarios_query = User.objects.filter(username__contains=search)
-
-        for usuario in usuarios_query:
-            # datos
-            cliente = Cliente.objects.get(user=usuario)
-            clientes.append(cliente)
+            clientes = User.objects.filter(username__contains=search, is_superuser=False)
     else:
         clientes = Cliente.objects.all()
-    context = {"users": clientes}
+
+    clientes_list = []
+    for cliente in clientes:
+        user = User.objects.get(username=cliente.user)
+        entry = {
+            'id': user.id,
+            'first_name': user.first_name,
+            'last_name': user.last_name,
+            'username': user.username,
+             'telefono': cliente.telefono
+        }
+        clientes_list.append(entry)
+
+    context = {"users": clientes_list}
     return render(request, 'venta/crudClientes.html',context)
+
 @login_required
+@user_passes_test(lambda user: user.is_superuser)
 def crearUsuario(request):
     if request.method == "POST":
         usuario  = request.POST['usuario']
@@ -120,7 +137,9 @@ def crearUsuario(request):
         return render(request, 'venta/agregarUsuario.html')
     else:
         return render(request, 'venta/agregarUsuario.html')
+
 @login_required
+@user_passes_test(lambda user: user.is_superuser)
 def eliminarUsuario(request, pk):
     try:
         user = User.objects.get(id = pk)
@@ -129,17 +148,19 @@ def eliminarUsuario(request, pk):
     except:
         messages.add_message(request, messages.ERROR, 'No se pudo eliminar este usuario')
         return redirect('clientes')
+
 @login_required
+@user_passes_test(lambda user: user.is_superuser)
 def buscarUsuario(request, pk):
-    if pk != "":
-        user = User.objects.get(id=pk)
-        context = {"usuarios": user}
-        return render(request, 'venta/modificarUsuario.html', context)
-    else:
-        mensaje = "el Usuario no existe"
-        context = {"mensaje": mensaje}
-        return render(request,'venta/modificarUsuario.html',context)
+    # if pk != "":
+    #     user = User.objects.get(id=pk)
+    #     contelxt = {"usuarios": user}
+    #     return render(request, 'venta/modificarUsuario.html', context)
+    # else:
+    return redirect('clientes')
+
 @login_required
+# @user_passes_test(lambda user: user.is_superuser)
 def modificarUsuario(request, pk):
     if request.method == "POST":
         usuario  = request.POST['usuario']
@@ -166,13 +187,14 @@ def modificarUsuario(request, pk):
             objCli.save()
         except (User.DoesNotExist, Cliente.DoesNotExist):
             messages.error(request,'Usuario o cliente no encontrado')
-            return render(request, 'venta/modificarUsuario.html')
+            return redirect('clientes')
 
         messages.success(request,'Usuario actualizado')
         return redirect('clientes')
     else: # GET
         user = User.objects.get(id=pk)
         cliente = Cliente.objects.get(user=user)
+
         obj = {
             'id': user.id,
             'first_name': user.first_name,
@@ -208,6 +230,7 @@ def lista_editoriales(request):
     return render(request,'venta/crudMangas.html', context)
 
 @login_required
+@user_passes_test(lambda user: user.is_staff)
 def registrarManga(request):
 
     if request.method != "POST":
@@ -243,6 +266,7 @@ def registrarManga(request):
         messages.success(request, '¡Manga registrado!')
         return render(request,'venta/agregarManga.html', context)
 @login_required
+@user_passes_test(lambda user: user.is_staff)
 def buscar_manga(request,pk):
     if pk != "":
         manga = Manga.objects.get(id_manga=pk)
@@ -255,6 +279,7 @@ def buscar_manga(request,pk):
         context = {"mensaje":mensaje}
         return render(request,'venta/index.html', context)
 @login_required
+@user_passes_test(lambda user: user.is_staff)
 def modificarMangas(request):
     if request.method == "POST":
         
@@ -298,6 +323,7 @@ def modificarMangas(request):
 
 
 @login_required
+@user_passes_test(lambda user: user.is_staff)
 def eliminarManga(request, pk):
     try:
         manga = Manga.objects.get(id_manga=pk)

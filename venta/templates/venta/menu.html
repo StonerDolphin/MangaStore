@@ -1,0 +1,32 @@
+{% extends "venta/base.html"%}
+
+{% load static %}
+
+{% block body %}
+
+   <div class="container ">
+        <div class="d-flex flex-column align-items-center justify-content-center">
+            {% if user.is_superuser == 1 %}
+                <div class="my-3">
+                    <a href="{% url 'crud' %}">
+                        <button type="button" class="btn btn-primary btn-lg" style="width: 200px;">Mangas</button>
+                    </a>
+                </div>
+                <div class="my-3">
+                    <a href="{% url 'clientes' %}">
+                        <button type="button" class="btn btn-primary btn-lg" style="width: 200px;">Usuarios</button>
+                    </a>
+                </div>
+            {% else %}
+                <div class="my-3">
+                    <a href="{% url 'crud' %}">
+                        <button type="button" class="btn btn-primary btn-lg" style="width: 200px;">Mangas</button>
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+
+
+{% endblock %}
