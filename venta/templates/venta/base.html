@@ -24,17 +24,20 @@
 
 <body class="cuerpo">
     <section class="encabezado">
-        <nav class="navbar navbar-expand-sm navbar-#f8fbc7 bg-#f8fbc7">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static '/img/one-piece-logo.png' %}" alt=""
-                        class="img-fluid logo"></a>
+
+                <!-- Logo Section -->
+                <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static '/img/one-piece-logo.png' %}" alt="" class="img-fluid logo"></a>
                 <a class="navbar-brand" href="{% url 'index' %}">Manga Store</a>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+                <!-- Navigation Links and Authentication Section -->
                 <div class="collapse navbar-collapse" id="mynavbar">
-                    <ul class="navbar-nav me-auto ">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'tienda' %}">Tienda</a>
                         </li>
@@ -44,8 +47,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'progreso' %}">Ofertas</a>
                         </li>
-                    </ul>
-                    <ul class="navbar-nav sesion">
+                        <!-- Authentication Section -->
                         {% if request.user.is_authenticated %}
                             {% if user.is_staff == 1 %}
                                 <li class="nav-item">
@@ -55,62 +57,38 @@
                                     <a class="nav-link" href="{% url 'menu' %}">Administrar</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+                                    <a class="nav-link" href="{% url 'logout' %}">Cerrar Sesión</a>
                                 </li>
                             {% else %}
                                 <li class="nav-item">
-                                    <a class="nav-link" href="">Hola, {{ request.user.last_name}}</a>
+                                    <a class="nav-link" href="">Hola, {{ request.user.last_name }}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+                                    <a class="nav-link" href="{% url 'logout' %}">Cerrar Sesión</a>
                                 </li>
                             {% endif %}
                         {% else %}
                             <li class="nav-item">
-                                <a href="{% url 'signin' %}">Log In</a>
+                                <a class="nav-link" href="{% url 'signin' %}">Log In</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{% url 'signup' %}">Sign Up</a>
+                                <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
                             </li>
                         {% endif %}
                     </ul>
+
                     <form class="d-flex">
                         <label for="buscar"> </label>
-                        <input id="buscar" class="form-control" type="text" placeholder="Buscar">
-                        <button class="btn btn-primary p-1 me-2" type="button"><i class="fa fa-search"></i></button>
+                        <input id="buscar" class="form-control me-2" type="text" placeholder="Buscar">
+                        <button class="btn btn-primary p-1" type="button"><i class="fa fa-search"></i></button>
                     </form>
-                </div>
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <i class='fas fa-shopping-cart' style='font-size:36px'></i>
-                </button>
-
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Carrito de compra</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                ...
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                <a href="{% url 'compra' %}">
-                                    <button type="button" class="btn btn-primary c-modal">Continuar con la compra</button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </nav>
     </section>
 </body>
+
+
 
     
     {% block body%}

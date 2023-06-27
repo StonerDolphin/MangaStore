@@ -23,7 +23,11 @@ body{
     height: 1500px;
 }
 
-
+.navbar-section {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
 
 /*Header*/
 .logo {
