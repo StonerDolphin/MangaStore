@@ -1,0 +1,121 @@
+{% extends "venta/base.html"%}
+
+{% load static %}
+
+{% block body %}
+
+
+<form action="{% url 'modificarMangas' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-dismissible alert-success">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong class="text-dark">{{ message }}</strong>
+                </div>
+                {% endfor %}
+                {% endif %}
+                <h2>Modificar Manga</h2>
+                <div class="container">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <input type="text" id="txtId" name="txtId" class="form-control" placeholder="Id"
+                                minlength="1" maxlength="6" value="{{manga.id_manga}}" required>
+                            {% if messages %}
+                                {% for message in messages %}
+                                    {% if message.tags == 'error' %}
+                                        <span class="text-danger">{{ message }}</span>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="txtTitulo" name="txtTitulo" class="form-control" placeholder="Titulo"
+                                maxlength="100" value="{{manga.titulo}}" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" id="nVolumen" name="nVolumen" class="form-control" placeholder="Numero del volumen"
+                            value="{{manga.nro_volumen}}" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" id="nPrecio" name="nPrecio" class="form-control" placeholder="Precio Manga"
+                                maxlength="7" value="{{manga.precio}}" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="txtAutor" name="txtAutor" class="form-control" placeholder="Autor"
+                                maxlength="50" value="{{manga.autor}}" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" id="nStock" name="nStock" class="form-control" placeholder="Stock"
+                                maxlength="50" value="{{manga.stock}}" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="date" id="dFecha" name="dFecha" class="form-control" placeholder="Fecha Publicación"
+                                maxlength="50" value="{{manga.fecha_publicacion|date:'Y-m-d'}}" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="txtSinopsis" name="txtSinopsis" class="form-control" placeholder="Sinopsis"
+                                maxlength="500" value="{{manga.sinopsis}}" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <pre>Género: <select name="genero">
+                                {% for tmp in generos %}
+                                    {% if tmp.nomb_genero == manga.id_genero.nomb_genero %}
+                                        <option value="{{tmp.id_genero}}" selected>{{tmp.nomb_genero}}</option>
+                                    {% else %}
+                                        <option value="{{tmp.id_genero}}">{{tmp.nomb_genero}}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select></pre>
+                            
+                        </div>
+
+                        <div class="form-group">
+                            <pre>Editorial: <select name="editorial">
+                                {% for tmp in editoriales %}
+                                    {% if tmp.nomb_editorial == manga.id_editorial.nomb_editorial %}
+                                        <option value="{{tmp.id_editorial}}" selected>{{tmp.nomb_editorial}}</option>
+                                    {% else %}
+                                        <option value="{{tmp.id_editorial}}">{{tmp.nomb_editorial}}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select></pre>                            
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                        <button type="button" class="btn btn-success btn-block text-white">
+                            <a href="{% url 'crud' %}">Volver a Lista de Mangas</a> 
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+                <h2>Ingresar Imagen</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label for="imagen">Imagen actual:</label>
+                                <br>
+                                <img src="{{ manga.cover.url }}" alt="Imagen actual">
+                            </div>
+                            <div>
+                                <label for="imagen">Imagen nueva:</label>
+                                <input type="file" id="imagen" name="imagen" accept="image/*" required onchange="mostrarVistaPrevia()">
+                            </div>
+                        </div>
+                        <div>
+                            <img id="vista-previa" src="#" alt="Vista previa de la imagen"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script src="{% static 'js/mImagen.js' %}"></script>
+{% endblock %}

@@ -21,33 +21,18 @@ from . import views
 urlpatterns = [
 
     path('', views.inicio, name='index'),
-
     path('compra',views.compra, name='compra'),
-
-    path('signin',views.signin, name='signin'),
-
+    path('login',views.login, name='login'),
     path('producto',views.producto, name='producto'),
-
     path('progreso',views.progreso, name='progreso'),
-
-    path('signup',views.signup, name='signup'),
-
+    path('registrarse',views.registrarse, name='registrarse'),
     path('tienda',views.tienda, name='tienda'),
-
     path('crud',views.crud, name='crud'),
-
-    path('generos',views.generos, name='generos'),
-
+    path('generos',views.lista_genero, name='generos'),
     path('mangas',views.mangas, name='mangas'),
-
-    path('lista_editoreales',views.lista_editoriales, name='lista_editoreales'),
-
-    path('registrarManga/', views.registrarManga),
-
-    path('modificarMangas/<id>', views.modificarMangas),
-
-    path('editarManga/', views.editarManga),
-
-    path('eliminarManga/<codigo>', views.eliminarManga),
-
+    path('editoriales',views.lista_editoriales, name='editoriales'),
+    path('registrarManga', views.registrarManga, name='registrarManga'),
+    path('buscar_manga/<str:pk>',views.buscar_manga, name='buscar_manga'),
+    path('modificarMangas', views.modificarMangas, name='modificarMangas'),
+    path('eliminarManga/<str:pk>', views.eliminarManga, name='eliminarManga'),
 ]
