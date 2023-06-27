@@ -84,32 +84,27 @@ def listaUsuario(request):
     search_field = request.GET.get('search_field')
 
     if search and search_field:
+        # SELECT ALL FROM USER WHERE LASTNAME = SEARCH
+        clientes = []
+
         # datos de la tabla != id de la tabla
         # {milo@gmail.com, apellido, id} != id (milo@gmail.com)
+
         # retorna ids de users
         if search_field == '1':
-            # SELECT ALL FROM USER WHERE LASTNAME = SEARCH
-            clientes = User.objects.filter(last_name__contains=search, is_superuser=False)
+            usuarios_query = User.objects.filter(last_name__contains=search)
         elif search_field == '2':
-            clientes = User.objects.filter(first_name__contains=search, is_superuser=False)
+            usuarios_query = User.objects.filter(first_name__contains=search)
         else:
-            clientes = User.objects.filter(username__contains=search, is_superuser=False)
+            usuarios_query = User.objects.filter(username__contains=search)
+
+        for usuario in usuarios_query:
+            # datos
+            cliente = Cliente.objects.get(user=usuario)
+            clientes.append(cliente)
     else:
         clientes = Cliente.objects.all()
-
-    clientes_list = []
-    for cliente in clientes:
-        user = User.objects.get(username=cliente.user)
-        entry = {
-            'id': user.id,
-            'first_name': user.first_name,
-            'last_name': user.last_name,
-            'username': user.username,
-             'telefono': cliente.telefono
-        }
-        clientes_list.append(entry)
-
-    context = {"users": clientes_list}
+    context = {"users": clientes}
     return render(request, 'venta/crudClientes.html',context)
 
 @login_required
