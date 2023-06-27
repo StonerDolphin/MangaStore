@@ -48,7 +48,7 @@ def signup(request):
                 messages.success(request, 'Cliente creado')
                 context['success'] = True
 
-                return render(request, 'venta/registrarse.html', context)
+                return redirect('signin')
             except Exception as e:
                 print(e)
                 return render(request, 'venta/registrarse.html', context)
