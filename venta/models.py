@@ -50,7 +50,7 @@ class Manga(models.Model):
     autor = models.CharField(max_length = 100)
     stock = models.CharField(max_length = 100, null = True)
     cover = models.ImageField(default = 'null', upload_to = 'manga')
-    fecha_publicacion = models.DateField()
+    fecha_publicacion = models.DateField(blank=False, null=False)
     sinopsis = models.TextField()
     id_genero = models.ForeignKey(Genero, on_delete = models.CASCADE, db_column = 'id_genero')
     id_editorial = models.ForeignKey(Editorial, on_delete = models.CASCADE, db_column = 'id_editorial')
