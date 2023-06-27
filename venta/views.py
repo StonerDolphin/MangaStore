@@ -242,7 +242,10 @@ def registrarManga(request):
         id_manga = request.POST['txtId']
         if Manga.objects.filter(id_manga=id_manga).exists():
             messages.error(request, '¡El ID de manga ya existe!')
-            return render(request, 'venta/agregarManga.html')
+            lista_generos = Genero.objects.all()
+            lista_editoriales = Editorial.objects.all()
+            context = {"generos": lista_generos, "editoriales": lista_editoriales}
+            return render(request, 'venta/agregarManga.html', context)
         titulo = request.POST['txtTitulo']
         nro_volumen = request.POST['nVolumen']
         precio = request.POST['nPrecio']
@@ -266,7 +269,11 @@ def registrarManga(request):
         lista_editoriales = Editorial.objects.all()
         context = {"generos": lista_generos, "editoriales": lista_editoriales}
         messages.success(request, '¡Manga registrado!')
-        return render(request,'venta/agregarManga.html', context)
+        return render(request, 'venta/agregarManga.html', context)
+
+
+
+
 @login_required
 @user_passes_test(lambda user: user.is_staff)
 def buscar_manga(request,pk):
@@ -284,11 +291,10 @@ def buscar_manga(request,pk):
 @user_passes_test(lambda user: user.is_staff)
 def modificarMangas(request):
     if request.method == "POST":
-        
         id_manga = request.POST['txtId']
-        titulo= request.POST['txtTitulo']
-        nro_volumen= request.POST['nVolumen']
-        precio= request.POST['nPrecio']
+        titulo = request.POST['txtTitulo']
+        nro_volumen = request.POST['nVolumen']
+        precio = request.POST['nPrecio']
         autor = request.POST['txtAutor']
         stock = request.POST['nStock']
         fecha_publicacion = request.POST['dFecha']
@@ -297,50 +303,45 @@ def modificarMangas(request):
         editoriales = request.POST['editorial']
         cover = request.FILES['imagen']
         
-        objGenero = Genero.objects.get(id_genero = generos)
-        objEditorial=Editorial.objects.get(id_editorial = editoriales)
+        objGenero = Genero.objects.get(id_genero=generos)
+        objEditorial = Editorial.objects.get(id_editorial=editoriales)
         
-        objManga = Manga()
-        objManga.id_manga          = id_manga
         if Manga.objects.filter(id_manga=id_manga).exists():
-            objManga.titulo            = titulo
-            objManga.nro_volumen       = nro_volumen
-            objManga.precio            = precio
-            objManga.autor             = autor
-            objManga.stock             = stock
+            objManga = Manga.objects.get(id_manga=id_manga)
+            objManga.titulo = titulo
+            objManga.nro_volumen = nro_volumen
+            objManga.precio = precio
+            objManga.autor = autor
+            objManga.stock = stock
             objManga.fecha_publicacion = fecha_publicacion
-            objManga.sinopsis          = sinopsis
-            objManga.id_genero         = objGenero
-            objManga.id_editorial      = objEditorial
-            objManga.cover             = cover
+            objManga.sinopsis = sinopsis
+            objManga.id_genero = objGenero
+            objManga.id_editorial = objEditorial
+            objManga.cover = cover
+            objManga.save()  # Guardar el objeto Manga actualizado
       
             lista_generos = Genero.objects.all()
             lista_editoriales = Editorial.objects.all()
-            context = {"generos":lista_generos,"editoriales":lista_editoriales, "manga":objManga}
-            messages.error(request, '¡El ID de manga ya existe!')
-            return render(request,'venta/modificarMangas.html', context)
-        objManga.titulo            = titulo
-        objManga.nro_volumen       = nro_volumen
-        objManga.precio            = precio
-        objManga.autor             = autor
-        objManga.stock             = stock
-        objManga.fecha_publicacion = fecha_publicacion
-        objManga.sinopsis          = sinopsis
-        objManga.id_genero         = objGenero
-        objManga.id_editorial      = objEditorial
-        objManga.cover             = cover
-            
-        objManga.save() #update
+            context = {"generos": lista_generos, "editoriales": lista_editoriales, "manga": objManga}
+            messages.success(request, '¡Manga actualizado!')
+            return render(request, 'venta/modificarMangas.html', context)
+        
+        objManga = Manga.objects.create(id_manga=id_manga, titulo=titulo, nro_volumen=nro_volumen, precio=precio,
+                                        autor=autor, stock=stock, fecha_publicacion=fecha_publicacion,
+                                        sinopsis=sinopsis, id_genero=objGenero, id_editorial=objEditorial,
+                                        cover=cover)
       
         lista_generos = Genero.objects.all()
         lista_editoriales = Editorial.objects.all()
-        context = {"generos":lista_generos,"editoriales":lista_editoriales, "manga":objManga}
+        context = {"generos": lista_generos, "editoriales": lista_editoriales, "manga": objManga}
         messages.success(request, '¡Manga actualizado!')
-        return render(request,'venta/modificarMangas.html', context)
+        return render(request, 'venta/modificarMangas.html', context)
     else:
         mangas = Manga.objects.all()
-        context = {"mangas":mangas}
-        return render(request,'venta/crudMangas.html',{'fecha_publicacion': fecha_publicacion}, context)
+        context = {"mangas": mangas}
+        return render(request, 'venta/crudMangas.html', {'fecha_publicacion': fecha_publicacion}, context)
+
+
 
 
 @login_required
