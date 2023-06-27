@@ -7,16 +7,17 @@
     <section id="login">
         <div class="form-box">
             <div class="form-value">
-                <form action="">
+                <form action="{% url 'signin' %}" method="post">
+                    {% csrf_token %}
                     <h2 class="title-login">Iniciar Sesión</h2>
                     <div class="inputbox">
                         <i class="fa-sharp fa-solid fa-envelope"></i>
-                        <input type="correo" class="form-input" name="form-input" id="correo" required>
+                        <input type="correo" class="form-input" name="correo" id="correo" required>
                         <label for="correo">Correo electrónico</label>
                     </div>
                     <div class="inputbox">
                         <i class="fa-solid fa-lock"></i>
-                        <input type="password" class="form-input" name="form-input" id="pass" required>
+                        <input type="password" class="form-input" name="password" id="pass" required>
                         <label for="pass">Contraseña</label>
                     </div>
                     <div class="forget">
@@ -24,7 +25,7 @@
                     </div>
                     <button class="ini">INICIAR SESIÓN</button>
                     <div class="register">
-                        <p>¿No tienes cuenta? <a href="registrarse.html">Registrate aquí</a></p>
+                        <p>¿No tienes cuenta? <a href="{% url 'signup' %}">Registrate aquí</a></p>
                     </div>
                 </form>
             </div>

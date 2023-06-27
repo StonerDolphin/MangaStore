@@ -46,19 +46,39 @@
                         </li>
                     </ul>
                     <ul class="navbar-nav sesion">
-                        <li class="nav-item">
-                            <a href="{% url 'login' %}">Log In</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{% url 'registrarse' %}">Sign In</a>
-                        </li>
+                        {% if request.user.is_authenticated %}
+                            {% if user.is_staff == 1 %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="">Hola, {{ request.user.username }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'menu' %}">Administrar</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="">Hola, {{ request.user.last_name}}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+                                </li>
+                            {% endif %}
+                        {% else %}
+                            <li class="nav-item">
+                                <a href="{% url 'signin' %}">Log In</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{% url 'signup' %}">Sign Up</a>
+                            </li>
+                        {% endif %}
                     </ul>
                     <form class="d-flex">
                         <label for="buscar"> </label>
                         <input id="buscar" class="form-control" type="text" placeholder="Buscar">
                         <button class="btn btn-primary p-1 me-2" type="button"><i class="fa fa-search"></i></button>
                     </form>
-
                 </div>
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -90,6 +110,8 @@
             </div>
         </nav>
     </section>
+</body>
+
     
     {% block body%}
 
