@@ -160,7 +160,7 @@ def buscarUsuario(request, pk):
     return redirect('clientes')
 
 @login_required
-# @user_passes_test(lambda user: user.is_superuser)
+@user_passes_test(lambda user: user.is_superuser)
 def modificarUsuario(request, pk):
     if request.method == "POST":
         usuario  = request.POST['usuario']
