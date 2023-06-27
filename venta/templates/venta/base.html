@@ -26,7 +26,6 @@
     <section class="encabezado">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-
                 <!-- Logo Section -->
                 <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static '/img/one-piece-logo.png' %}" alt="" class="img-fluid logo"></a>
                 <a class="navbar-brand" href="{% url 'index' %}">Manga Store</a>
@@ -35,7 +34,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <!-- Navigation Links and Authentication Section -->
+                <!-- Navigation Links Section -->
                 <div class="collapse navbar-collapse" id="mynavbar">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
@@ -47,6 +46,15 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'progreso' %}">Ofertas</a>
                         </li>
+                    </ul>
+
+                    <form class="d-flex mx-lg-2 mb-2 mb-lg-0">
+                        <label for="buscar"> </label>
+                        <input id="buscar" class="form-control me-2" type="text" placeholder="Buscar">
+                        <button class="btn btn-primary p-1" type="button"><i class="fa fa-search"></i></button>
+                    </form>
+
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <!-- Authentication Section -->
                         {% if request.user.is_authenticated %}
                             {% if user.is_staff == 1 %}
@@ -69,24 +77,20 @@
                             {% endif %}
                         {% else %}
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'signin' %}">Log In</a>
+                                <a class="nav-link" href="{% url 'signin' %}">Iniciar Sesión</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+                                <a class="nav-link" href="{% url 'signup' %}">Registrarse</a>
                             </li>
                         {% endif %}
                     </ul>
-
-                    <form class="d-flex">
-                        <label for="buscar"> </label>
-                        <input id="buscar" class="form-control me-2" type="text" placeholder="Buscar">
-                        <button class="btn btn-primary p-1" type="button"><i class="fa fa-search"></i></button>
-                    </form>
                 </div>
             </div>
         </nav>
     </section>
 </body>
+
+
 
 
 
