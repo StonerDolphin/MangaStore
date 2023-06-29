@@ -64,7 +64,7 @@
                         {% if request.user.is_authenticated %}
                             {% if user.is_staff == 1 %}
                                 <li class="nav-item">
-                                    <a class="nav-link" href="">Hola, {{ request.user.username }}</a>
+                                    <a class="nav-link" href="">Hola, {{ request.user.last_name }}</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'menu' %}">Administrar</a>
