@@ -4,66 +4,128 @@
 
 {% block body %}
 
+<style>
+    .card-container {
+        margin: 10px;
+    }
+    .card-container .card {
+        height: 100%;
+    }
+    .card-container .card-img-top {
+        height: 200px;
+        object-fit: contain;
+    }
+    .form-select {
+      
+        width: 100%;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      }
+      
+</style>
+
 <div class="container">
+    <div class="row">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-dismissible alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong class="text-dark">{{ message }}</strong>
+        </div>
+        {% endfor %}
+        {% endif %}
+        <h1>Listado de Mangas</h1>
+
         <div class="row">
-            {% if messages %}
-            {% for message in messages %}
-            <div class="alert alert-dismissible alert-success">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <strong class="text-dark">{{ message }}</strong>
+            <div class="col-md-12">
+                <form method="GET" action="{% url 'buscar_manga_filtros' %}" class="mb-4">
+                    <div class="input-group">
+                        <input type="text" name="q" class="form-control" placeholder="Buscar por nombre o autor">
+                        <button type="submit" class="btn btn-primary">Buscar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <form method="GET" action="{% url 'filtrar_mangas' %}" class="mb-4">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <select name="genero" class="form-select">
+                                <option value="">Todos los géneros</option>
+                                {% for genero in generos %}
+                                    <option value="{{ genero.id_genero }}">{{ genero.nomb_genero }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <select name="editorial" class="form-select">
+                                <option value="">Todas las editoriales</option>
+                                {% for editorial in editoriales %}
+                                    <option value="{{ editorial.id_editorial }}">{{ editorial.nomb_editorial }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <select name="precio" class="form-select">
+                                <option value="">Todos los precios</option>
+                                <option value="0-10000">0 - 10000</option>
+                                <option value="10001-20000">10000 - 20000</option>
+                                <option value="20000-50000">20000 - 50000</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">Filtrar</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            {% if mangas %}
+            {% for m in mangas %}
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card-container card">
+                    <img src="{{ m.cover.url }}" class="card-img-top" alt="Imagen del manga">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ m.titulo }}</h5>
+                        <p class="card-text">
+                            <strong>ID: </strong>{{ m.id_manga }}<br>
+                            <strong>Número de Volumen: </strong>{{ m.nro_volumen }}<br>
+                            <strong>Precio: </strong>{{ m.precio }}<br>
+                            <strong>Autor: </strong>{{ m.autor }}<br>
+                            <strong>Stock: </strong>{{ m.stock }}<br>
+                            <strong>Fecha de Publicación: </strong>{{ m.fecha_publicacion }}<br>
+                            <strong>Género: </strong>{{ m.id_genero }}<br>
+                            <strong>Editorial: </strong>{{ m.id_editorial }}<br>
+                        </p>
+                        <a href="{% url 'buscar_manga' pk=m.id_manga %}" class="btn btn-info">Editar</a>
+                        <a href="{% url 'eliminarManga' pk=m.id_manga %}" class="btn btn-danger btnEliminacion">Eliminar</a>
+                    </div>
+                </div>
             </div>
             {% endfor %}
-            {% endif %}
-            <h1>Listado de Mangas</h1>
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    {% if mangas %}
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Id</th>
-                                <th>Titulo</th>
-                                <th>Nro.Volumen</th>
-                                <th>Precio</th>
-                                <th>Genero</th>
-                                <th>Stock</th>
-                                <th>Imagen</th>
-                                <th>Fecha Publi</th>
-                                <th>Genero</th>
-                                <th>Editorial</th>
-                                <th colspan="2">Opciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for m in mangas %}
-                            <tr>
-                                <td>{{forloop.counter}}
-                                <td>{{m.id_manga}}
-                                <td>{{m.titulo}}
-                                <td>{{m.nro_volumen}}
-                                <td>{{m.precio}}
-                                <td>{{m.autor}}
-                                <td>{{m.stock}}
-                                <td>{{m.cover}}
-                                <td>{{m.fecha_publicacion}}
-                                <td>{{m.id_genero}}
-                                <td>{{m.id_editorial}}
-                                <td><a href="{% url 'buscar_manga' pk=m.id_manga %}" class="btn btn-info">Editar</a>
-                                <td><a href="{% url 'eliminarManga' pk=m.id_manga %}" class="btn btn-danger btnEliminacion">Eliminar</a>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    {% endif %}
-                </table>
+            {% else %}
+            <div class="col-md-12">
+                <p>No hay mangas disponibles.</p>
             </div>
-        </div>  
-    <div class="d-grid gap-2">
-            <button class="btn btn-primary" type="button">
-                <a href="{% url 'registrarManga' %}">Agregar un nuevo Manga</a>
-            </button>
+            {% endif %}
         </div>
+    </div>  
+    <div class="d-grid gap-2">
+        <button class="btn btn-primary" type="button">
+            <a href="{% url 'registrarManga' %}">Agregar un nuevo Manga</a>
+        </button>
     </div>
-
+</div>
 
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

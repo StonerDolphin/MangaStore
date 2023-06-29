@@ -356,3 +356,51 @@ def eliminarManga(request, pk):
         mangas = Manga.objects.all()
         context = {"mangas":mangas,"mensaje":mensaje}
         return render(request,'venta/crudMangas.html', context)
+
+@login_required
+@user_passes_test(lambda user: user.is_staff)
+
+def filtrar_mangas(request):
+    generos = Genero.objects.all()
+    editoriales = Editorial.objects.all()
+
+    if request.method == 'GET':
+        genero_id = request.GET.get('genero')
+        editorial_id = request.GET.get('editorial')
+        precio_range = request.GET.get('precio')
+
+        # Realizar la consulta filtrando los mangas según los parámetros seleccionados
+        mangas = Manga.objects.all()
+
+        if genero_id:
+            mangas = mangas.filter(id_genero=genero_id)
+
+        if editorial_id:
+            mangas = mangas.filter(id_editorial=editorial_id)
+
+        if precio_range:
+            min_precio, max_precio = precio_range.split('-')
+            mangas = mangas.filter(precio__gte=min_precio, precio__lte=max_precio)
+
+        context = {
+            'generos': generos,
+            'editoriales': editoriales,
+            'mangas': mangas,
+        }
+
+        return render(request, 'venta/crudMangas.html', context)
+
+    context = {
+        'generos': generos,
+        'editoriales': editoriales,
+    }
+    return render(request, 'venta/crudMangas.html', context)
+
+@login_required
+@user_passes_test(lambda user: user.is_staff)
+def buscar_manga_filtros(request):
+    termino_busqueda = request.GET.get('termino_busqueda')
+
+    mangas_encontrados = Manga.objects.filter(titulo__icontains=termino_busqueda) | Manga.objects.filter(autor__icontains=termino_busqueda)
+
+    return render(request, 'venta/buscar_manga.html', {'mangas_encontrados': mangas_encontrados})
