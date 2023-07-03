@@ -11,14 +11,17 @@ from datetime import datetime
 # Create your views here.
 
 def inicio(request):
-    context={}
+    manga = Manga.objects.all()
+    context = {'mangas': manga}
     return render (request,'venta/index.html', context)
 
 def compra(request):
     return render (request,'venta/compra.html')
 
-def producto(request):
-    return render(request, 'venta/producto.html')
+def producto(request,pk):
+    manga = Manga.objects.get(id_manga=pk)
+    context = {'manga': manga}
+    return render(request, 'venta/producto.html',context)
 
 def progreso(request):
     return render(request, 'venta/progreso.html')
@@ -214,6 +217,7 @@ def crud(request):
 def mangas(request):
     mangas = Manga.objects.all()
     return render(request, 'venta/crudMangas.html', {'mangas': mangas})
+
 
 def lista_genero(request):
     lista_generos = Genero.objects.all() #select * from Genero

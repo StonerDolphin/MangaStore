@@ -49,122 +49,28 @@
                 </section>
             </div>
         </div>
-        <section class="main">
-            <div class="container caja">
-                <h1 class="d-flex justify-content-center">Novedades</h1>
-                <div class="row p-1 fila">
-                    <div class="col-sm-12 col-lg-3 col-xl-3 caja ">
-                        <a href="progreso.html">
-                            <img class="img-main" src="{% static '/img/one-piece-volume105.png' %}" alt="">
-                        </a>
-                        <div class="caja ps-3">
-                            <p class="info-main-edit mt-3">IVREA Argentina</p>
-                            <a href="progreso.html">
-                                <p class="info-main-nom">One Piece #105</p>
-                            </a>
-                            <p class="info-main-pre">$7.890 CLP</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-lg-3 col-xl-3 caja  ">
-                        <a href="progreso.html">
-                            <img class="img-main" src="{% static '/img/JJK-14.png' %}" alt="">
-                        </a>
-                        <div class="caja ps-3">
-                            <p class="info-main-edit mt-3">IVREA Argentia</p>
-                            <a href="progreso.html">
-                                <p class="info-main-nom">Jujutsu Kaisen #14</p>
-                            </a>
-                            <p class="info-main-pre">$6.990 CLP</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-lg-3 col-xl-3 caja ">
-                        <a href="producto.html">
-                            <img class="img-main" src="{% static '/img/CSM-14.png' %}" alt="">
-                        </a>
-                        <div class="caja ps-3">
-                            <p class="info-main-edit mt-3">NORMA Editorial</p>
-                            <a href="producto.html">
-                                <p class="info-main-nom">Chainsaw Man #14</p>
-                            </a>
-                            <p class="info-main-pre">$7.990 CLP</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-lg-3 col-xl-3 caja">
-                        <a href="progreso.html">
-                            <img class="img-main" src="{% static '/img/BL-7.png' %}" alt="">
-                        </a>
-                        <div class="caja ps-3">
-                            <p class="info-main-edit mt-3">IVREA España</p>
-                            <a href="progreso.html">
-                                <p class="info-main-nom">Blue Lock #7</p>
-                            </a>
-                            <p class="info-main-pre">$5.990 CLP</p>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="row p-1 fila mt-2">
-                    <div class="col-sm-12 col-lg-3 col-xl-3 caja ">
-                        <a href="progreso.html">
-                            <img class="img-main" src="{% static '/img/BC-24.png' %}" alt="">
-                        </a>
-                        <div class="caja ps-3">
-                            <p class="info-main-edit mt-3">PANINI Manga</p>
-                            <a href="progreso.html">
-                                <p class="info-main-nom">Black Clover #24</p>
-                            </a>
-                            <p class="info-main-pre">$6.750 CLP</p>
-                        </div>
-                    </div>
-
-
-                    <div class="col-sm-12 col-lg-3 col-xl-3 caja  ">
-                        <a href="progreso.html">
-                            <img class="img-main" src="{% static '/img/OP-8.webp' %}" alt="">
-                        </a>
-                        <div class="caja ps-3">
-                            <p class="info-main-edit mt-3">IVREA España</p>
-                            <a href="progreso.html">
-                                <p class="info-main-nom">One Punch Man #8</p>
-                            </a>
-                            <p class="info-main-pre">$9.990 CLP</p>
-                        </div>
-                    </div>
-
-
-
-                    <div class="col-sm-12 col-lg-3 col-xl-3 caja ">
-                        <a href="progreso.html">
-                            <img class="img-main" src="{% static '/img/DDD-2.png' %}" alt="">
-                        </a>
-                        <div class="caja ps-3">
-                            <p class="info-main-edit mt-3">NORMA Editorial</p>
-                            <a href="progreso.html">
-                                <p class="info-main-nom">DanDaDan #2</p>
-                            </a>
-                            <p class="info-main-pre">$8.450 CLP</p>
-                        </div>
-                    </div>
-
-
-
-                    <div class="col-sm-12 col-lg-3 col-xl-3 caja">
-                        <a href="progreso.html">
-                            <img class="img-main" src="{% static '/img/VL-20.png' %}" alt="">
-                        </a>
-                        <div class="caja ps-3">
-                            <p class="info-main-edit mt-3">PANINI Manga</p>
-                            <a href="progreso.html">
-                                <p class="info-main-nom">Vinland Saga</p>
-                            </a>
-                            <p class="info-main-pre">$9.990 CLP</p>
-                        </div>
+    </section>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 justify-content-center">
+            {% for m in mangas %}
+            <div class="col mb-4">
+                <div class="card h-100">
+                    <img class="card-img-top img-fix" src="{{ m.cover.url }}" alt="Card image cap">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ m.titulo }} #{{ m.nro_volumen }}</h5>
+                        <p class="card-text">{{ m.id_editorial }}</p>
+                        <p class="card-text fs-4">${{ m.precio }}</p>
+                        <a href="{% url 'producto' pk=m.id_manga %}" class="btn btn-primary">Ver Producto</a>
                     </div>
                 </div>
             </div>
-        </section>
-    </section>
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+
 
 
 {% endblock %}    

@@ -22,10 +22,11 @@ urlpatterns = [
     path('', views.inicio, name='index'),
     path('compra',views.compra, name='compra'),
     path('signin',views.signin, name='signin'),
-    path('producto',views.producto, name='producto'),
+    path('producto /<str:pk>',views.producto, name='producto'),
     path('progreso',views.progreso, name='progreso'),
     path('signup/',views.signup, name='signup'),
     path('tienda',views.tienda, name='tienda'),
+
 
     path('crud',views.crud, name='crud'),
     path('generos',views.lista_genero, name='generos'),
