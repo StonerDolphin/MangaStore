@@ -406,7 +406,12 @@ def buscar_manga_filtros(request):
     return render(request, 'venta/buscar_manga.html', {'mangas_encontrados': mangas_encontrados})
 
 def carrito(request):
-    context = {}
+    carro = None
+    carItem = []
+    if request.user.is_authenticated:
+        carro, _ = Carrito.objects.get_or_create(user=request.user.cliente)
+        carItem = carro.carritoItems.all()
+    context = {"carro":carro, "items": carItem}
     return render(request, 'venta/carrito.html', context)
 
 

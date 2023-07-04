@@ -3,5 +3,39 @@
 {% load static %}
 
 {% block body %}
+    <div class="table-responsive">
+  <div class="text-center mb-4">
+    <h1>Carrito</h1>
+  </div>
+  <table class="table table-striped">
+    {% if items %}
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Cantidad</th>
+        <th>Precio Unitario</th>
+        <th>Precio Real</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in items %}
+      <tr>
+        <td>{{ item.manga.titulo }}#{{ item.manga.nro_volumen }}</td>
+        <td>{{ item.cantidad }}</td>
+        <td>${{ item.manga.precio }}</td>
+        <td>${{ item.precio }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+    {% endif %}
+  </table>
+  <div class="text-center">
+    <div class="alert alert-info" role="alert">
+      Precio total a pagar: ${{ carro.precioTotal }}
+        <a href="{% url 'compra' %}" class="btn btn-primary ml-2">Pagar </a>
+    </div>
+  </div>
+</div>
+
 
 {% endblock %}

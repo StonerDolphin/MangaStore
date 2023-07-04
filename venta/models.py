@@ -65,13 +65,21 @@ class Carrito(models.Model):
     user = models.ForeignKey(Cliente, on_delete = models.CASCADE, db_column = 'user_id')
     def __str__(self):
         return str(self.id_carrito)
-
+    @property
+    def precioTotal(self):
+        carritoItems = self.carritoItems.all()
+        total = sum([item.precio for item in carritoItems])
+        return total
 class CarritoItem(models.Model):
     manga = models.ForeignKey(Manga, on_delete = models.CASCADE, related_name='items')
     carrito = models.ForeignKey(Carrito, on_delete = models.CASCADE, related_name='carritoItems')
     cantidad = models.IntegerField(default=0)
     def __str__(self):
         return self.manga.titulo
+    @property
+    def precio(self):
+        new_precio = int(self.manga.precio) * self.cantidad
+        return new_precio
 
 class Orden(models.Model):
     # Campos del modelo
