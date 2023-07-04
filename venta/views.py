@@ -414,7 +414,14 @@ def carrito(request):
     context = {"carro":carro, "items": carItem}
     return render(request, 'venta/carrito.html', context)
 
-
+def modal(request):
+    carro = None
+    carItem = []
+    if request.user.is_authenticated:
+        carro, _ = Carrito.objects.get_or_create(user=request.user.cliente)
+        carItem = carro.carritoItems.all()
+    context = {"carro": carro, "items": carItem}
+    return render(request, 'venta/base.html', context)
 def agregar(request):
     data = json.loads(request.body)
     mangaId = data["id"]

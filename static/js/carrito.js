@@ -38,3 +38,13 @@ function agregar(e){
             console.log(error)
         })
 }
+
+ document.addEventListener('DOMContentLoaded', function () {
+            const addButtons = document.querySelectorAll('.add-to-cart');
+            addButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    Swal.fire('Se agrego al carrito');
+                    // Aquí puedes agregar la lógica adicional para agregar el producto al carrito
+                });
+            });
+        });

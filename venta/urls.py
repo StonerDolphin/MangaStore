@@ -48,5 +48,6 @@ urlpatterns = [
     path('menu',views.menu, name='menu'),
 
     path('carrito', views.carrito, name='carrito'),
-    path('agregar', views.agregar, name='agregar')
+    path('agregar', views.agregar, name='agregar'),
+    path('modal', views.modal, name='modal'),
 ]

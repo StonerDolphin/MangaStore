@@ -104,11 +104,17 @@
                             aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        ...
+                    {% if items %}
+                        {% for item in items %}
+                            <p>
+                                {{ item.manga.titulo }}
+                            </p>
+                        {% endfor %}
+                    {% endif %}
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <a href="{% url 'compra' %}">
+                        <a href="{% url 'carrito' %}">
                             <button type="button" class="btn btn-primary c-modal">Continuar con la compra</button>
                         </a>
                     </div>
@@ -184,7 +190,7 @@
 
 
 
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.js"
         integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
