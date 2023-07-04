@@ -1,3 +1,5 @@
+import uuid
+
 from django.contrib.auth.models import User
 from django.db import models
 
@@ -57,11 +59,19 @@ class Manga(models.Model):
     def __str__(self):
         return str(self.titulo) + " " + str(self.nro_volumen)
 
-class carrito(models.Model):
+class Carrito(models.Model):
     # Campos del modelo
-    id_carrito = models.CharField(primary_key = True, max_length = 10)
-    id_manga = models.ForeignKey(Manga, on_delete = models.CASCADE, db_column = 'id_manga')
-    user_id = models.ForeignKey(Cliente, on_delete = models.CASCADE, db_column = 'user_id')
+    id_carrito = models.UUIDField(default=uuid.uuid4, primary_key=True)
+    user = models.ForeignKey(Cliente, on_delete = models.CASCADE, db_column = 'user_id')
+    def __str__(self):
+        return str(self.id_carrito)
+
+class CarritoItem(models.Model):
+    manga = models.ForeignKey(Manga, on_delete = models.CASCADE, related_name='items')
+    carrito = models.ForeignKey(Carrito, on_delete = models.CASCADE, related_name='carritoItems')
+    cantidad = models.IntegerField(default=0)
+    def __str__(self):
+        return self.manga.titulo
 
 class Orden(models.Model):
     # Campos del modelo

@@ -50,23 +50,27 @@
             </div>
         </div>
     </section>
-    <div class="container">
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 justify-content-center">
-            {% for m in mangas %}
+    {% csrf_token %}
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 justify-content-center">
+        {% for m in mangas %}
             <div class="col mb-4">
-                <div class="card h-100">
+                <div class="card h-100 carta">
                     <img class="card-img-top img-fix" src="{{ m.cover.url }}" alt="Card image cap">
                     <div class="card-body text-center">
                         <h5 class="card-title">{{ m.titulo }} #{{ m.nro_volumen }}</h5>
                         <p class="card-text">{{ m.id_editorial }}</p>
                         <p class="card-text fs-4">${{ m.precio }}</p>
                         <a href="{% url 'producto' pk=m.id_manga %}" class="btn btn-primary">Ver Producto</a>
+                        <button class="btn btn-secondary add-to-cart" value="{{ m.id_manga }}">Agregar al carro</button>
+
                     </div>
                 </div>
             </div>
-            {% endfor %}
-        </div>
+        {% endfor %}
     </div>
+</div>
+
 
 
 

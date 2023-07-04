@@ -46,4 +46,7 @@ urlpatterns = [
     path('buscarUsuario/<str:pk>', views.buscarUsuario, name='buscarUsuario'),
     path('modificarUsuario/<str:pk>', views.modificarUsuario, name='modificarUsuario'),
     path('menu',views.menu, name='menu'),
+
+    path('carrito', views.carrito, name='carrito'),
+    path('agregar', views.agregar, name='agregar')
 ]

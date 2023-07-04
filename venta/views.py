@@ -3,8 +3,9 @@ import json
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.models import User
-from django.shortcuts import render,redirect
-from .models import Genero,Editorial,Region,Comuna,Cliente,Manga
+from django.http import JsonResponse
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import Genero, Editorial, Region, Comuna, Cliente, Manga, Carrito, CarritoItem
 from django.contrib import messages
 from django.db import IntegrityError
 from datetime import datetime
@@ -403,3 +404,26 @@ def buscar_manga_filtros(request):
     mangas_encontrados = Manga.objects.filter(titulo__icontains=termino_busqueda) | Manga.objects.filter(autor__icontains=termino_busqueda)
 
     return render(request, 'venta/buscar_manga.html', {'mangas_encontrados': mangas_encontrados})
+
+def carrito(request):
+    context = {}
+    return render(request, 'venta/carrito.html', context)
+
+
+def agregar(request):
+    data = json.loads(request.body)
+    mangaId = data["id"]
+    manga = get_object_or_404(Manga, id_manga=mangaId)
+
+    if request.user.is_authenticated:
+        # Obtener o crear el carrito del usuario
+        carro, _ = Carrito.objects.get_or_create(user=request.user.cliente)
+
+        # Obtener o crear el CarritoItem para el manga y el carrito
+        carItem, _ = CarritoItem.objects.get_or_create(carrito=carro, manga=manga)
+
+        # Incrementar la cantidad de mangas en el CarritoItem
+        carItem.cantidad += 1
+        carItem.save()
+
+    return JsonResponse('funciona', safe=False)
