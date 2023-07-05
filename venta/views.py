@@ -439,3 +439,13 @@ def agregar(request):
         carItem.save()
 
     return JsonResponse('funciona', safe=False)
+
+def boleta(request, manga_id):
+    manga = Manga.objects.get(id_manga=manga_id)
+    # Aquí puedes realizar cualquier otra lógica relacionada con la boleta de compra
+    return render(request, 'boleta.html', {'manga': manga})
+
+def seguimiento(request, manga_id):
+    manga = Manga.objects.get(id_manga=manga_id)
+    # Aquí puedes realizar cualquier otra lógica relacionada con el seguimiento
+    return render(request, 'seguimiento.html', {'manga': manga})

@@ -1,0 +1,14 @@
+{% extends "venta/base.html"%} {% load static %} {% block body %}
+
+<div class="boleta-container">
+    <h1>Boleta de Compra</h1>
+    <div class="manga-details">
+        <p>Título: {{ manga.titulo }}</p>
+        <p>Número de volumen: {{ manga.nro_volumen }}</p>
+        <!-- Agrega más campos del modelo según sea necesario -->
+    </div>
+</div>
+
+
+
+{% endblock %}

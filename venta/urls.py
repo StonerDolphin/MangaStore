@@ -50,4 +50,7 @@ urlpatterns = [
     path('carrito', views.carrito, name='carrito'),
     path('agregar', views.agregar, name='agregar'),
     path('modal', views.modal, name='modal'),
+
+    path('boleta', views.boleta, name='boleta'),
+    path('seguimiento/<str:pk>/', views.seguimiento, name='seguimiento'),
 ]

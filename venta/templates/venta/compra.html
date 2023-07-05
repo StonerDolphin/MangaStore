@@ -110,13 +110,15 @@
         rápidamente la próxima vez
       </label>
     </div>
-
-    <button
-      type="submit"
-      value="Proceder con el pago"
-      class="submit-btn"
-      id="guardarC"
-    >
+    <a href="{% url 'boleta' %}">
+      <button
+        type="submit"
+        value="Proceder con el pago"
+        class="submit-btn"
+        id="guardarC"
+        
+      >
+    </a>
       Continuar con el pago
     </button>
   </form>
