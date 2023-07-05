@@ -38,13 +38,13 @@
               </tr>
             </tbody>
           </table>
-          <div>
-            <a href="compra.html">
-              <button type="button" class="btn btn-outline-primary">
+          <div class="botones">
+            <a href="{% url 'compra' %}">
+              <button type="button" class="btn btn-outline-primary" value="{{ manga.id_manga }}">
                 Comprar
               </button>
             </a>
-            <button type="button" class="btn btn-outline-primary">
+            <button type="button" class="btn btn-outline-primary" value="{{ manga.id_manga }}">
               Agregar al carrito
             </button>
             <button type="button" class="btn btn-outline-primary">
