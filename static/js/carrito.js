@@ -17,7 +17,7 @@ const csrftoken = getCookie('csrftoken');
 
 
 
-let btns = document.querySelectorAll(".carta button")
+let btns = document.querySelectorAll(".carta , .botones button")
 btns.forEach(btn=>{
     btn.addEventListener("click", agregar)
 })
@@ -39,12 +39,23 @@ function agregar(e){
         })
 }
 
- document.addEventListener('DOMContentLoaded', function () {
-            const addButtons = document.querySelectorAll('.add-to-cart');
-            addButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    Swal.fire('Se agrego al carrito');
-                    // Aquí puedes agregar la lógica adicional para agregar el producto al carrito
-                });
-            });
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const botones = document.querySelectorAll('.botones');
+    const cartas = document.querySelectorAll('.carta');
+
+    botones.forEach(boton => {
+        boton.addEventListener('click', () => {
+            Swal.fire('Se agrego al carrito');
+            // Aquí puedes agregar la lógica adicional para agregar el producto al carrito
         });
+    });
+
+    cartas.forEach(carta => {
+        carta.addEventListener('click', () => {
+            Swal.fire('Se agrego al carrito');
+            // Aquí puedes agregar la lógica adicional para agregar el producto al carrito
+        });
+    });
+});
