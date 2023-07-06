@@ -4,60 +4,55 @@
 
 {% block body %}
 
-    <section id="bg">
-        <div class="container">
-            <div class="row">
-                <section class="carrusel">
-                    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+  <section id="bg">
+    <div class="container">
+        <div class="row">
+            <section class="carrusel">
+                <div id="demo" class="carousel slide" data-bs-ride="carousel">
 
-                        <!-- Indicators/dots -->
-                        <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-                            <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-                            <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-                        </div>
-                        <!-- The slideshow/carousel -->
-                        <div class="carousel-inner">
-                            <div class="carousel-item active c-item">
-                                <img src="{% static '/img/anime.jpg' %}" alt="" class="d-block rounded c-img" style="width:100%">
-                                <div class="carousel-caption">
-
-                                </div>
-                            </div>
-                            <div class="carousel-item c-item">
-                                <img src="{% static '/img/manga2.png' %}" alt="" class="d-block rounded c-img" style="width:100%">
-                                <div class="carousel-caption">
-
-                                </div>
-                            </div>
-                            <div class="carousel-item c-item">
-                                <img src="{% static '/img/mangass.jpg' %}" alt="New York" class="d-block rounded c-img"
-                                    style="width:100%">
-                                <div class="carousel-caption">
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Left and right controls/icons -->
-                        <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon"></span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-                            <span class="carousel-control-next-icon"></span>
-                        </button>
+                    <!-- Indicators/dots -->
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
                     </div>
-                </section>
-            </div>
+
+                    <!-- The slideshow/carousel -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active c-item">
+                            <img src="{% static '/img/anime.jpg' %}" alt="" class="d-block rounded c-img" style="width:100%">
+                            <div class="carousel-caption"></div>
+                        </div>
+                        <div class="carousel-item c-item">
+                            <img src="{% static '/img/manga2.png' %}" alt="" class="d-block rounded c-img" style="width:100%">
+                            <div class="carousel-caption"></div>
+                        </div>
+                        <div class="carousel-item c-item">
+                            <img src="{% static '/img/mangass.jpg' %}" alt="New York" class="d-block rounded c-img" style="width:100%">
+                            <div class="carousel-caption"></div>
+                        </div>
+                    </div>
+
+                    <!-- Left and right controls/icons -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+            </section>
         </div>
-    </section>
-    {% csrf_token %}
+    </div>
+</section>
+
 <div class="container">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 justify-content-center">
         {% if mangas %}
             {% for m in mangas %}
                 <div class="col mb-4">
                     <div class="card h-100 carta">
-                        <img class="card-img-top img-fix" src="{{ m.cover.url }}" alt="Card image cap">
+                        <img class="card-img-top img-fix card-image" src="{{ m.cover.url }}" alt="Card image cap">
                         <div class="card-body text-center">
                             <h5 class="card-title">{{ m.titulo }} #{{ m.nro_volumen }}</h5>
                             <p class="card-text">{{ m.id_editorial }}</p>
