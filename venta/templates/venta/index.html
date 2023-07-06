@@ -51,14 +51,14 @@
         {% if mangas %}
             {% for m in mangas %}
                 <div class="col mb-4">
-                    <div class="card h-100 carta">
+                    <div class="card h-100 ">
                         <img class="card-img-top img-fix card-image" src="{{ m.cover.url }}" alt="Card image cap">
                         <div class="card-body text-center">
                             <h5 class="card-title">{{ m.titulo }} #{{ m.nro_volumen }}</h5>
                             <p class="card-text">{{ m.id_editorial }}</p>
                             <p class="card-text fs-4">${{ m.precio }}</p>
                             <a href="{% url 'producto' pk=m.id_manga %}" class="btn btn-primary">Ver Producto</a>
-                            <button class="btn btn-secondary add-to-cart" value="{{ m.id_manga }}">Agregar al carro</button>
+                            <button class="btn btn-secondary add-to-cart carta" value="{{ m.id_manga }}">Agregar al carro</button>
 
                         </div>
                     </div>
