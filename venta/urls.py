@@ -51,6 +51,7 @@ urlpatterns = [
     path('agregar', views.agregar, name='agregar'),
     path('modal', views.modal, name='modal'),
 
-    path('boleta', views.boleta, name='boleta'),
-    path('seguimiento/<str:pk>/', views.seguimiento, name='seguimiento'),
+    path('boleta/', views.boleta_view, name='boleta'),
+    path('carrito/', views.obtener_items_del_carrito, name='carrito'),
+    path('compra/', views.procesar_carrito, name='compra'),
 ]

@@ -3,9 +3,9 @@ import json
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.models import User
-from django.http import JsonResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Genero, Editorial, Region, Comuna, Cliente, Manga, Carrito, CarritoItem
+from .models import Genero, Editorial, Region, Comuna, Cliente, Manga, Carrito, CarritoItem, Compra
 from django.contrib import messages
 from django.db import IntegrityError
 from datetime import datetime
@@ -440,12 +440,58 @@ def agregar(request):
 
     return JsonResponse('funciona', safe=False)
 
-def boleta(request, manga_id):
-    manga = Manga.objects.get(id_manga=manga_id)
-    # Aquí puedes realizar cualquier otra lógica relacionada con la boleta de compra
-    return render(request, 'boleta.html', {'manga': manga})
+def boleta_view(request):
+    items = Compra.objects.all()  # Obtener todos los mangas de la base de datos
+    precio_total = 0  # Variable para calcular el precio total
 
-def seguimiento(request, manga_id):
-    manga = Manga.objects.get(id_manga=manga_id)
-    # Aquí puedes realizar cualquier otra lógica relacionada con el seguimiento
-    return render(request, 'seguimiento.html', {'manga': manga})
+    for item in items:
+        # Calcular el precio total de cada manga multiplicando el precio por la cantidad
+        item.precio = item.precio * item.cantidad
+        precio_total += item.precio
+
+    context = {
+        'items': items,
+        'precio_total': precio_total
+    }
+
+    return render(request, 'venta/boleta.html', context)
+
+def obtener_items_del_carrito(request):
+    carrito = request.session.get('carrito', {})
+    items = []
+
+    for item_id, item_data in carrito.items():
+        # Aquí puedes realizar consultas a la base de datos u obtener los datos de algún otro lugar
+        # para construir los objetos de item del carrito
+        item = {
+            'manga': {
+                'titulo': item_data['titulo'],
+                'autor': item_data['autor'],
+                'precio': item_data['precio'],
+                'nro_volumen': item_data['nro_volumen']
+            },
+            'cantidad': item_data['cantidad'],
+            'precio': item_data['precio'] * item_data['cantidad']
+        }
+        items.append(item)
+
+    return items
+
+def procesar_carrito(request):
+    # Obtén los datos del carrito
+    items = obtener_items_del_carrito(request)
+
+    # Recorre los elementos del carrito y crea instancias de Compra
+    for item in items:
+        titulo = f"{item['manga']['titulo']}#{item['manga']['nro_volumen']}"
+        autor = item['manga']['autor']
+        precio = item['manga']['precio']
+        cantidad = item['cantidad']
+        total = item['precio']
+
+        # Crea una instancia de Compra y guárdala en la base de datos
+        compra = Compra(titulo=titulo, autor=autor, precio=precio, cantidad=cantidad, total=total)
+        compra.save()
+
+    # Resto del código de tu vista...
+    return render(request, 'venta/compra.html')

@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block body %}
-    <div class="table-responsive">
+<div class="table-responsive">
   <div class="text-center mb-4">
     <h1>Carrito</h1>
   </div>
@@ -12,8 +12,9 @@
     <thead>
       <tr>
         <th>Nombre</th>
-        <th>Cantidad</th>
+        <th>Autor</th>
         <th>Precio Unitario</th>
+        <th>Cantidad</th>
         <th>Precio Real</th>
       </tr>
     </thead>
@@ -21,8 +22,9 @@
       {% for item in items %}
       <tr>
         <td>{{ item.manga.titulo }}#{{ item.manga.nro_volumen }}</td>
-        <td>{{ item.cantidad }}</td>
+        <td>{{ item.manga.autor }}</td>
         <td>${{ item.manga.precio }}</td>
+        <td>{{ item.cantidad }}</td>
         <td>${{ item.precio }}</td>
       </tr>
       {% endfor %}

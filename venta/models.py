@@ -108,3 +108,12 @@ class Pago_orden(models.Model):
     def __str__(self):
         return str(self.nro_recibo)
 
+class Compra(models.Model):
+    titulo = models.CharField(max_length=100)
+    autor = models.CharField(max_length=100)
+    precio = models.DecimalField(max_digits=5, decimal_places=2)
+    cantidad = models.IntegerField()
+    total = models.DecimalField(max_digits=8, decimal_places=2)
+
+    def __str__(self):
+        return self.titulo

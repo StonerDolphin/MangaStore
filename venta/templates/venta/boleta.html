@@ -1,12 +1,65 @@
 {% extends "venta/base.html"%} {% load static %} {% block body %}
 
-<div class="boleta-container">
-    <h1>Boleta de Compra</h1>
-    <div class="manga-details">
-        <p>Título: {{ manga.titulo }}</p>
-        <p>Número de volumen: {{ manga.nro_volumen }}</p>
-        <!-- Agrega más campos del modelo según sea necesario -->
+
+<div class="container">
+    <!-- Detalles del manga -->
+    {% for item in items %}
+    <div class="card mb-4">
+        <div class="card-header">
+            Detalles del Manga
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{ item.titulo }}</h5>
+            <p class="card-text">Autor: {{ item.autor }}</p>
+            <p class="card-text">Precio: ${{ item.precio }}</p>
+
+            <!-- Fila adicional para el total pagado si se compraron más de un manga -->
+            <div class="row">
+                <div class="col">
+                    <p class="card-text">Cantidad: {{ item.cantidad }}</p>
+                </div>
+                <div class="col">
+                    <p class="card-text">Total pagado: ${{ item.total }}</p>
+                </div>
+            </div>
+        </div>
     </div>
+    {% endfor %}
+    
+    <!-- Precio total -->
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Precio Total: ${{ precio_total }}</h5>
+        </div>
+    </div>
+
+    <!-- Etapas del seguimiento -->
+    <div class="card">
+        <div class="card-header">
+          Etapas
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div class="d-flex align-items-center">
+              <span class="badge badge-primary mr-2">1</span>
+              <span class="font-weight-bold">Pedido realizado</span>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="d-flex align-items-center">
+              <span class="badge badge-secondary mr-2">2</span>
+              <span class="font-weight-bold">En camino</span>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="d-flex align-items-center">
+              <span class="badge badge-secondary mr-2">3</span>
+              <span class="font-weight-bold">Entregado</span>
+            </div>
+          </li>
+        </ul>
+    </div>
+
 </div>
 
 
