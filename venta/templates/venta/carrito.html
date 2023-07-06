@@ -33,18 +33,20 @@
   </table>
   <div class="text-center">
     <div class="alert alert-info" role="alert">
-      <div class="d-flex justify-content-between align-items-center">
-        <div>
-          Precio total a pagar: ${{ carro.precioTotal }}
+      <div class="d-flex justify-content-center align-items-center">
+        <div class="mr-2">
+          Precio total a pagar: <span style="color: red">${{ carro.precioTotal }}</span>
         </div>
         <div>
-            <a href="{% url 'index' %}" class="btn btn-secondary mr-2">Volver al inicio </a>
-            <a href="{% url 'compra' %}" class="btn btn-primary">Pagar </a>
+          <a href="{% url 'index' %}" class="btn btn-secondary mr-2">Volver al inicio</a>
+          <a href="{% url 'compra' %}" class="btn btn-primary">Pagar</a>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
 
 
 

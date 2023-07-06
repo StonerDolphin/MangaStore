@@ -2,39 +2,46 @@
 
 
 <div class="container">
-    <!-- Detalles del manga -->
-    {% for item in items %}
-    <div class="card mb-4">
-        <div class="card-header">
-            Detalles del Manga
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">{{ item.titulo }}</h5>
-            <p class="card-text">Autor: {{ item.autor }}</p>
-            <p class="card-text">Precio: ${{ item.precio }}</p>
+    <!-- Agradecimiento y código de compra -->
+    <div class="alert alert-success" role="alert">
+        ¡Gracias por tu compra! Tu código de compra es: {{ carro.id_carrito }}
+    </div>
 
-            <!-- Fila adicional para el total pagado si se compraron más de un manga -->
-            <div class="row">
-                <div class="col">
-                    <p class="card-text">Cantidad: {{ item.cantidad }}</p>
-                </div>
-                <div class="col">
-                    <p class="card-text">Total pagado: ${{ item.total }}</p>
+    <!-- Detalles del manga -->
+    <div class="card-scroll">
+        {% for item in items %}
+        <div class="card mb-4">
+            <div class="card-header">
+                Detalles del Manga
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{ item.manga.titulo }} #{{ item.manga.nro_volumen }}</h5>
+                <p class="card-text">Autor: {{ item.manga.autor }}</p>
+                <p class="card-text">Genero: {{ item.manga.id_genero }}</p>
+                <p class="card-text">Editorial: {{ item.manga.id_editorial }}</p>
+                <p class="card-text">Precio: ${{ item.manga.precio }}</p>
+                <div class="row">
+                    <div class="col">
+                        <p class="card-text">Cantidad: {{ item.cantidad }}</p>
+                    </div>
+                    <div class="col">
+                        <p class="card-text">Total: ${{ item.precio }}</p>
+                    </div>
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
-    
+
     <!-- Precio total -->
     <div class="card mt-4">
-        <div class="card-body">
-            <h5 class="card-title">Precio Total: ${{ precio_total }}</h5>
+        <div class="card-body text-center">
+            <h5 class="card-title">Precio Total: ${{ carro.precioTotal }}</h5>
         </div>
     </div>
 
     <!-- Etapas del seguimiento -->
-    <div class="card">
+    <div class="card mt-4">
         <div class="card-header">
           Etapas
         </div>
@@ -49,6 +56,7 @@
             <div class="d-flex align-items-center">
               <span class="badge badge-secondary mr-2">2</span>
               <span class="font-weight-bold">En camino</span>
+              <span class="ml-auto">Fecha estimada de entrega: {{ fechaEntrega }}</span>
             </div>
           </li>
           <li class="list-group-item">
@@ -60,8 +68,25 @@
         </ul>
     </div>
 
+    <!-- Botones de boleta -->
+    <div class="text-center mt-4">
+        <button class="btn btn-primary" onclick="enviarBoleta()">Enviar boleta al correo</button>
+        <a href="" class="btn btn-secondary" onclick="descargarBoleta(event)">Descargar boleta</a>
+        <button class="btn btn-secondary" onclick="window.location.href='{% url 'index' %}'">Regresar al inicio</button>
+
+    </div>
 </div>
 
+<style>
+    .card-scroll {
+        max-height: 400px;
+        overflow-y: auto;
+    }
+</style>
+
+
+
+<script src="{% static '/js/boleta.js' %}"></script>
 
 
 {% endblock %}

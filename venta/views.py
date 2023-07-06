@@ -441,19 +441,12 @@ def agregar(request):
     return JsonResponse('funciona', safe=False)
 
 def boleta_view(request):
-    items = Compra.objects.all()  # Obtener todos los mangas de la base de datos
-    precio_total = 0  # Variable para calcular el precio total
-
-    for item in items:
-        # Calcular el precio total de cada manga multiplicando el precio por la cantidad
-        item.precio = item.precio * item.cantidad
-        precio_total += item.precio
-
-    context = {
-        'items': items,
-        'precio_total': precio_total
-    }
-
+    carro = None
+    carItem = []
+    if request.user.is_authenticated:
+        carro, _ = Carrito.objects.get_or_create(user=request.user.cliente)
+        carItem = carro.carritoItems.all()
+    context = {"carro": carro, "items": carItem}
     return render(request, 'venta/boleta.html', context)
 
 def obtener_items_del_carrito(request):
